@@ -79,7 +79,7 @@ class About extends Resource
                         ->rules('required'),
                     CKEditor::make('Описание','description')
                         ->rules('required'),
-                    Medialibrary::make('Фоновое изображение','bg_image')
+                    Medialibrary::make('Фоновое изображение','image')
                         ->hideFromIndex(),
                 ])
                 ->addLayout('Society', 'society', [
@@ -88,9 +88,11 @@ class About extends Resource
                     CKEditor::make('Описание','description')
                         ->rules('required'),
                     Flexible::make('Лого и описание', 'logo_and_description')
-                        ->addLayout('', '', [
-                            Text::make('Заголовок', 'title'),
+                        ->addLayout('Элемент', 'item', [
+                            Text::make('Заголовок', 'title')
+                            ->rules('required'),
                             Medialibrary::make('Изображение','image')
+                                ->rules('required')
                                 ->hideFromIndex(),
                         ])
                 ])
@@ -103,9 +105,11 @@ class About extends Resource
                     CKEditor::make('Описание','description')
                         ->rules('required'),
                     Flexible::make('Лого и описание', 'logo_and_description')
-                        ->addLayout('', '', [
-                            Text::make('Заголовок', 'title'),
+                        ->addLayout('Элемент', 'item', [
+                            Text::make('Заголовок', 'title')
+                                ->rules('required'),
                             Medialibrary::make('Изображение','image')
+                                ->rules('required')
                                 ->hideFromIndex(),
                         ])
                 ])
