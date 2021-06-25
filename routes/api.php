@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Middleware\LocaleMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/about', [AboutController::class, 'about']);
+Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleMiddleware::class], function(){
+    Route::get('/about', [AboutController::class, 'about']);
+});

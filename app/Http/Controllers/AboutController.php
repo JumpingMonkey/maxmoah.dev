@@ -10,12 +10,18 @@ class AboutController extends Controller
     public function about()
     {
         $data = About::firstOrFail();
+        $data = $this->translateModelWithoutIdAndTime($data);
+//        dd($data);
+        foreach ($data['content'] as $key => $value)
+        {
+            $data['content'][$key]['attributes']['image'] = $this->getMedia($value['attributes']['image']);
+        }
+
         return response()->json([
             'status' => 'success',
             'data' => $data
         ]);
     }
-
 
     /**
      * Display a listing of the resource.
