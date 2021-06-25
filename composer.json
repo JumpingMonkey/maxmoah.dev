@@ -17,6 +17,7 @@
         "laravel/nova": "*",
         "laravel/tinker": "^2.5",
         "optimistdigital/nova-sortable": "^2.3",
+        "waynestate/nova-ckeditor4-field": "^0.7.0",
         "whitecube/nova-flexible-content": "^0.2.8"
     },
     "repositories": [
