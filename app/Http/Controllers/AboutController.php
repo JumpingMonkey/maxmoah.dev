@@ -11,7 +11,7 @@ class AboutController extends Controller
     {
         $data = About::firstOrFail();
         $data = $this->translateModelWithoutIdAndTime($data);
-
+//dd($data);
 /*Переработать блок ниже*/
         foreach ($data['content'] as $key => $value)
         {

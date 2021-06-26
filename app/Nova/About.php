@@ -73,6 +73,9 @@ class About extends Resource
                         ->rules('required'),
                     CKEditor::make('Описание','description')
                         ->rules('required'),
+                    Medialibrary::make('Фоновое изображение','bg_image')
+                        ->rules('required')
+                        ->hideFromIndex(),
                 ])
                 ->addLayout('Mission', 'mission', [
                     Text::make('Заголовок', 'title')
@@ -94,7 +97,9 @@ class About extends Resource
                             Medialibrary::make('Изображение','image')
                                 ->rules('required')
                                 ->hideFromIndex(),
-                        ])
+
+                        ])->limit(4)
+                        ->button('Добавить блок'),
                 ])
                 ->addLayout('Enviroment', 'enviroment', [
                     Medialibrary::make('Изображение', 'image')
@@ -112,6 +117,8 @@ class About extends Resource
                                 ->rules('required')
                                 ->hideFromIndex(),
                         ])
+                        ->limit(2)
+                        ->button('Добавить блок'),
                 ])
 
 
