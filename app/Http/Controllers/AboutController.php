@@ -7,12 +7,43 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
+    /**  @OA\Get(
+     *        path="/api/about",
+     *        summary="Create an about",
+     *        description="Send data for creating an about",
+     *        tags={"About"},
+     *        @OA\Response(
+     *            response=200,
+     *            description="Success",
+     *            @OA\JsonContent(
+     *                @OA\Property(property="status", type="string", example="success"),
+     *                @OA\Property(
+     *                    property="data",
+     *                    type="object",
+     *                    @OA\Property(
+     *                      @OA\Property(property="layout", type="string", example="atelier"),
+     *                      @OA\Property(property="key", type="string", example="HRJJ9V3VhJrgU2ko"),
+     *                      @OA\Property(property="attributes", type="object",
+     *                                @OA\Property(property="image", type="string", example="/storage/Image.jpg"),
+     *                                @OA\Property(property="title", type="string", example="title"),
+     *                                @OA\Property(property="description", type="string", example="description"),
+     *                                @OA\Property(property="bg_image", type="string", example="/storage/Image.jpg"),
+     *                             ),
+     *                      ),
+     *
+     *
+     *                 )
+     *            )
+     *        )
+     *     )
+     */
     public function about()
     {
         $data = About::firstOrFail();
         $data = $this->translateModelWithoutIdAndTime($data);
         $data = $data['content'];
 //dd($data);
+
 /*replace image ID on source*/
         foreach ($data as $key => $value)
         {
@@ -29,6 +60,7 @@ class AboutController extends Controller
                     $data[$key]['attributes']['logo_and_description'][$keyTwo]['attributes']['image'] = $this->getMedia($valueTwo['attributes']['image']);
                 }
             }
+
         }
 /*return json obj*/
         return response()->json([

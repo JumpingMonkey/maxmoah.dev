@@ -9,11 +9,9 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
-
-
 /**
  * @SWG\Swagger(
- *   schemes={"https"},
+ *   schemes={"http"},
  *   produces={"application/json"},
  *   consumes={"application/json"},
  *   @OA\Info(

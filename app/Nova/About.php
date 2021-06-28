@@ -64,70 +64,70 @@ class About extends Resource
         return [
             Multilingual::make('Language'),
             ID::make(__('ID'), 'id')->sortable(),
-            Flexible::make('Контент', 'content')
+            Flexible::make('Content', 'content')
                 ->addLayout('Atelier', 'atelier', [
-                    Medialibrary::make('Фото','image')
+                    Medialibrary::make('Image','image')
                         ->rules('required')
                         ->hideFromIndex(),
-                    Text::make('Заголовок', 'title')
+                    Text::make('Title', 'title')
                         ->rules('required'),
-                    CKEditor::make('Описание','description')
+                    CKEditor::make('Description','description')
                         ->rules('required'),
-                    Medialibrary::make('Фоновое изображение','bg_image')
+                    Medialibrary::make('Background image','bg_image')
                         ->hideFromIndex(),
                 ])
                 ->addLayout('Mission', 'mission', [
-                    Text::make('Заголовок', 'title')
+                    Text::make('Title', 'title')
                         ->rules('required'),
-                    CKEditor::make('Описание','description')
+                    CKEditor::make('Description','description')
                         ->rules('required'),
-                    Medialibrary::make('Фоновое изображение','bg_image')
+                    Medialibrary::make('Background image','bg_image')
                         ->hideFromIndex(),
                 ])
                 ->addLayout('Society', 'society', [
-                    Text::make('Заголовок', 'title')
+                    Text::make('Title', 'title')
                         ->rules('required'),
-                    CKEditor::make('Описание','description')
+                    CKEditor::make('Description','description')
                         ->rules('required'),
-                    Medialibrary::make('Фоновое изображение','bg_image')
+                    Medialibrary::make('Background image','bg_image')
                         ->hideFromIndex(),
-                    Flexible::make('Лого и описание', 'logo_and_description')
-                        ->addLayout('Элемент', 'item', [
-                            Text::make('Заголовок', 'title')
+                    Flexible::make('Logo and description', 'logo_and_description')
+                        ->addLayout('Item', 'item', [
+                            Text::make('Title', 'title')
                             ->rules('required'),
-                            Medialibrary::make('Изображение','image')
+                            Medialibrary::make('Image','image')
                                 ->rules('required')
                                 ->hideFromIndex(),
 
                         ])->limit(4)
-                        ->button('Добавить блок'),
+                        ->button('Add'),
                 ])
                 ->addLayout('Enviroment', 'enviroment', [
-                    Medialibrary::make('Изображение', 'image')
+                    Medialibrary::make('Image', 'image')
                         ->rules('required')
                         ->hideFromIndex(),
-                    Text::make('Заголовок', 'title')
+                    Text::make('Title', 'title')
                         ->rules('required'),
-                    CKEditor::make('Описание','description')
+                    CKEditor::make('Description','description')
                         ->rules('required'),
-                    Medialibrary::make('Фоновое изображение','bg_image')
+                    Medialibrary::make('Background image','bg_image')
                         ->hideFromIndex(),
-                    Flexible::make('Лого и описание', 'logo_and_description')
-                        ->addLayout('Элемент', 'item', [
-                            Text::make('Заголовок', 'title')
+                    Flexible::make('Logo and description', 'logo_and_description')
+                        ->addLayout('Item', 'item', [
+                            Text::make('Title', 'title')
                                 ->rules('required'),
-                            Medialibrary::make('Изображение','image')
+                            Medialibrary::make('Image','image')
                                 ->rules('required')
                                 ->hideFromIndex(),
                         ])
                         ->limit(2)
-                        ->button('Добавить блок'),
+                        ->button('Add'),
                 ])
 
 
 
 
-                ->button('Добавить блок'),
+                ->button('Add'),
         ];
     }
 
