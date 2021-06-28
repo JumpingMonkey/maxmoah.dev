@@ -11,35 +11,26 @@ class AboutController extends Controller
     {
         $data = About::firstOrFail();
         $data = $this->translateModelWithoutIdAndTime($data);
+        $data = $data['content'];
 //dd($data);
-/*Переработать блок ниже*/
-        foreach ($data['content'] as $key => $value)
+/*replace image ID on source*/
+        foreach ($data as $key => $value)
         {
-            if(isset($data['content'][$key]['attributes']['image']))
-            {
-                $data['content'][$key]['attributes']['image'] = $this->getMedia($value['attributes']['image']);
-                if (isset($data['content'][$key]['attributes']['logo_and_description']))
-                {
-                    foreach ($data['content'][$key]['attributes']['logo_and_description'] as $keyTwo => $valueTwo)
-                    {
-                        $data['content'][$key]['attributes']['logo_and_description'][$keyTwo]['attributes']['image'] = $this->getMedia($valueTwo['attributes']['image']);
-
-                    }
-
-                }
-
-            } elseif (isset($data['content'][$key]['attributes']['logo_and_description']))
-            {
-                foreach ($data['content'][$key]['attributes']['logo_and_description'] as $keyTwo => $valueTwo)
-                {
-                    $data['content'][$key]['attributes']['logo_and_description'][$keyTwo]['attributes']['image'] = $this->getMedia($valueTwo['attributes']['image']);
-
-                }
-
+            if(isset($data[$key]['attributes']['image'])) {
+                $data[$key]['attributes']['image'] = $this->getMedia($value['attributes']['image']);
             }
-
+            if(isset($data[$key]['attributes']['bg_image'])) {
+                $data[$key]['attributes']['bg_image'] = $this->getMedia($value['attributes']['bg_image']);
+            }
+            if (isset($data[$key]['attributes']['logo_and_description']))
+            {
+                foreach ($data[$key]['attributes']['logo_and_description'] as $keyTwo => $valueTwo)
+                {
+                    $data[$key]['attributes']['logo_and_description'][$keyTwo]['attributes']['image'] = $this->getMedia($valueTwo['attributes']['image']);
+                }
+            }
         }
-
+/*return json obj*/
         return response()->json([
             'status' => 'success',
             'data' => $data
