@@ -56,9 +56,9 @@ class Contact extends Resource
                 Text::make('Subject title', 'subj_title'),
             ])->button('Add subject variant'),
             Text::make('Button title', 'button_title'),
-            Text::make('Phone number', 'phone_number'),
+            Text::make('Phone number', 'phone_number')->rules('required'),
             Text::make('Email for press inquires', 'email_for_press_inquires'),
-            Text::make('Email general', 'email_general'),
+            Text::make('Email general', 'email_general')->rules('required'),
         ];
     }
 

@@ -67,9 +67,9 @@ class WhereToPurchase extends Resource
                 ->rules('required'),
                 Flexible::make('Button', 'button')
                     ->addLayout('Action button', 'action_button', [
-                        Text::make('CTA', 'cta')
+                        Text::make('CTA', 'cta')->default('SUBMIT NOW')
                     ])->button('Add button')
-                    ->limit(1)
+                    ->limit(1),
             ])->button('Add Variant')
             ->addLayout('Upcoming Events', 'upcoming_events', [
                 Text::make('Title', 'title')
@@ -85,7 +85,14 @@ class WhereToPurchase extends Resource
                 ])->button('Add Event')
                 ->limit(2)
 
-            ])
+            ]),
+            Flexible::make('Stores list', 'stores_list')
+            ->addLayout('One store', 'one_store', [
+                Text::make('Store title', 'store_title'),
+                Text::make('Store city and country', 'store_city_and_country'),
+                Text::make('Store address', 'store_address'),
+                Text::make('Work time', 'work_time')
+            ])->button('Add store')
         ];
     }
 
