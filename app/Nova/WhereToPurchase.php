@@ -67,7 +67,7 @@ class WhereToPurchase extends Resource
                 ->rules('required'),
                 Flexible::make('Button', 'button')
                     ->addLayout('Action button', 'action_button', [
-                        Text::make('CTA', 'cta')->default('SUBMIT NOW')
+                        Text::make('CTA', 'cta')
                     ])->button('Add button')
                     ->limit(1),
             ])->button('Add Variant')
