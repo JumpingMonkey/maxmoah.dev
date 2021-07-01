@@ -10,5 +10,5 @@ class WhereToPurchase extends Model
 {
     use HasFactory, HasTranslations;
 
-    public $translatable = ['title', 'description', 'variants'];
+    public $translatable = ['title', 'description', 'variants','stores_list'];
 }

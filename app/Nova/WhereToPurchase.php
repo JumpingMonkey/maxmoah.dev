@@ -84,7 +84,6 @@ class WhereToPurchase extends Resource
                     ->rules('required')
                 ])->button('Add Event')
                 ->limit(2)
-
             ]),
             Flexible::make('Stores list', 'stores_list')
             ->addLayout('One store', 'one_store', [
