@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Waynestate\Nova\CKEditor;
 use Whitecube\NovaFlexibleContent\Flexible;
@@ -44,6 +45,8 @@ class About extends Resource
      */
     public static $title = 'id';
 
+    public static $priority = 2;
+
     /**
      * The columns that should be searched.
      *
@@ -64,64 +67,138 @@ class About extends Resource
         return [
             Multilingual::make('Language'),
             ID::make(__('ID'), 'id')->sortable(),
+
+            Text::make('SEO-title', 'seo_title')->hideFromIndex(),
+            Text::make('Meta-description', 'meta_description')->hideFromIndex(),
+            Text::make('Key-Words', 'key_words')->hideFromIndex(),
+
             Flexible::make('Content', 'content')
                 ->addLayout('Atelier', 'atelier', [
-                    Medialibrary::make('Image','image')
-                        ->rules('required')
-                        ->hideFromIndex(),
+                    Flexible::make('Image', 'atelier_image')
+                        ->addLayout('Image', 'image', [
+                            Medialibrary::make('Image','image')
+                                ->rules('required'),
+                            Text::make('Image title', 'image_title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'image_alt')
+                                ->rules('required')
+                        ])->button('add image')
+                        ->limit(1)
+                        ->rules('required'),
                     Text::make('Title', 'title')
                         ->rules('required'),
                     CKEditor::make('Description','description')
                         ->rules('required'),
-                    Medialibrary::make('Background image','bg_image')
-                        ->hideFromIndex(),
+                    Flexible::make('Background image', 'atelier_bg_image')
+                        ->addLayout('Image', 'image', [
+                            Medialibrary::make('Image','image')
+                                ->rules('required'),
+                            Text::make('Image title', 'image_title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'image_alt')
+                                ->rules('required')
+                        ])->button('add bg image')
+                        ->limit(1)
+                        ->rules('required'),
+
                 ])
                 ->addLayout('Mission', 'mission', [
                     Text::make('Title', 'title')
                         ->rules('required'),
                     CKEditor::make('Description','description')
                         ->rules('required'),
-                    Medialibrary::make('Background image','bg_image')
-                        ->hideFromIndex(),
+                    Flexible::make('Background image', 'mission_bg_image')
+                        ->addLayout('Image', 'image', [
+                            Medialibrary::make('Image','image')
+                                ->rules('required'),
+                            Text::make('Image title', 'image_title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'image_alt')
+                                ->rules('required')
+                        ])->button('add bg image')
+                        ->limit(1)
+                        ->rules('required'),
                 ])
                 ->addLayout('Society', 'society', [
                     Text::make('Title', 'title')
                         ->rules('required'),
                     CKEditor::make('Description','description')
                         ->rules('required'),
-                    Medialibrary::make('Background image','bg_image')
-                        ->hideFromIndex(),
-                    Flexible::make('Logo and description', 'logo_and_description')
+                    Flexible::make('Background image', 'society_bg_image')
+                        ->addLayout('Image', 'image', [
+                            Medialibrary::make('Image','image')
+                                ->rules('required'),
+                            Text::make('Image title', 'image_title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'image_alt')
+                                ->rules('required')
+                        ])->limit(1)
+                        ->button('add bg image'),
+                    Flexible::make('Title and image', 'title_and_image')
                         ->addLayout('Item', 'item', [
                             Text::make('Title', 'title')
                             ->rules('required'),
-                            Medialibrary::make('Image','image')
-                                ->rules('required')
-                                ->hideFromIndex(),
+                            Flexible::make('Image', 'image')
+                                ->addLayout('Image', 'image', [
+                                    Medialibrary::make('Image','image')
+                                    ->rules('required'),
+                                    Text::make('Image title', 'image_title')
+                                    ->rules('required'),
+                                    Text::make('Image alt', 'image_alt')
+                                    ->rules('required')
+                                ])->button('add image')
+                                ->limit(1)
+                                ->rules('required'),
+
+
 
                         ])->limit(4)
-                        ->button('Add'),
+                        ->button('Add title and image'),
                 ])
                 ->addLayout('Enviroment', 'enviroment', [
-                    Medialibrary::make('Image', 'image')
-                        ->rules('required')
-                        ->hideFromIndex(),
+                    Flexible::make('Image', 'enviroment_image')
+                        ->addLayout('Image', 'image', [
+                            Medialibrary::make('Image','image')
+                                ->rules('required'),
+                            Text::make('Image title', 'image_title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'image_alt')
+                                ->rules('required')
+                        ])->button('add image')
+                        ->limit(1)
+                        ->rules('required'),
                     Text::make('Title', 'title')
                         ->rules('required'),
                     CKEditor::make('Description','description')
                         ->rules('required'),
-                    Medialibrary::make('Background image','bg_image')
-                        ->hideFromIndex(),
-                    Flexible::make('Logo and description', 'logo_and_description')
+                    Flexible::make('Background image', 'enviroment_bg_image')
+                        ->addLayout('Image', 'image', [
+                            Medialibrary::make('Image','image')
+                                ->rules('required'),
+                            Text::make('Image title', 'image_title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'image_alt')
+                                ->rules('required')
+                        ])->button('add bg image')
+                        ->limit(1)
+                        ->rules('required'),
+                    Flexible::make('Title and image', 'title_and_image')
                         ->addLayout('Item', 'item', [
                             Text::make('Title', 'title')
                                 ->rules('required'),
-                            Medialibrary::make('Image','image')
-                                ->rules('required')
-                                ->hideFromIndex(),
-                        ])
-                        ->limit(2)
-                        ->button('Add'),
+                            Flexible::make('Image', 'image')
+                                ->addLayout('Image', 'image', [
+                                    Medialibrary::make('Image','image')
+                                        ->rules('required'),
+                                    Text::make('Image title', 'image_title')
+                                        ->rules('required'),
+                                    Text::make('Image alt', 'image_alt')
+                                        ->rules('required')
+                                ])->button('add image')
+                                ->limit(1)
+                                ->rules('required'),
+                        ])->limit(2)
+                        ->button('Add title and image'),
                 ])
 
 

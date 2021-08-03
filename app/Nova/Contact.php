@@ -51,6 +51,10 @@ class Contact extends Resource
         return [
             Multilingual::make('Language'),
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make('SEO-title', 'seo_title')->hideFromIndex(),
+            Text::make('Meta-description', 'meta_description')->hideFromIndex(),
+            Text::make('Key-Words', 'key_words')->hideFromIndex(),
+
             Flexible::make('Subject field', 'subject_field')
             ->addLayout('Subject', 'subject', [
                 Text::make('Subject title', 'subj_title'),
@@ -60,49 +64,5 @@ class Contact extends Resource
             Text::make('Email for press inquires', 'email_for_press_inquires'),
             Text::make('Email general', 'email_general')->rules('required'),
         ];
-    }
-
-    /**
-     * Get the cards available for the request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
-    public function cards(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * Get the filters available for the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
-    public function filters(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * Get the lenses available for the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
-    public function lenses(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * Get the actions available for the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
-    public function actions(Request $request)
-    {
-        return [];
     }
 }

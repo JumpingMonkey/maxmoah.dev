@@ -15,6 +15,9 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
+            $table->json('seo_title');
+            $table->json('meta_description');
+            $table->json('key_words');
             $table->text('subject_field')->nullable();
             $table->text('button_title')->nullable();
             $table->text('phone_number');

@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "anrail/nova-media-library-tools": "dev-main",
         "classic-o/nova-media-library": "^1.0",
         "darkaonline/l5-swagger": "^8.0",
         "digitalcloud/multilingual-nova": "^2.0",

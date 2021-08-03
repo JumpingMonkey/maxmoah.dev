@@ -7,36 +7,6 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-    /**  @OA\Get(
-     *        path="/api/about",
-     *        summary="Create an about",
-     *        description="Send data for creating an about",
-     *        tags={"About"},
-     *        @OA\Response(
-     *            response=200,
-     *            description="Success",
-     *            @OA\JsonContent(
-     *                @OA\Property(property="status", type="string", example="success"),
-     *                @OA\Property(
-     *                    property="data",
-     *                    type="object",
-     *                    @OA\Property(
-     *                      @OA\Property(property="layout", type="string", example="atelier"),
-     *                      @OA\Property(property="key", type="string", example="HRJJ9V3VhJrgU2ko"),
-     *                      @OA\Property(property="attributes", type="object",
-     *                                @OA\Property(property="image", type="string", example="/storage/Image.jpg"),
-     *                                @OA\Property(property="title", type="string", example="title"),
-     *                                @OA\Property(property="description", type="string", example="description"),
-     *                                @OA\Property(property="bg_image", type="string", example="/storage/Image.jpg"),
-     *                             ),
-     *                      ),
-     *
-     *
-     *                 )
-     *            )
-     *        )
-     *     )
-     */
     public function about()
     {
         $data = About::firstOrFail();
@@ -67,81 +37,5 @@ class AboutController extends Controller
             'status' => 'success',
             'data' => $data
         ]);
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function show(About $about)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(About $about)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, About $about)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(About $about)
-    {
-        //
     }
 }
