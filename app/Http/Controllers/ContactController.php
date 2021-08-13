@@ -10,12 +10,12 @@ class ContactController extends Controller
     public function contact()
     {
         $data = Contact::firstOrFail();
-        $data = $this->translateModelWithoutIdAndTime($data);
+        $content = $data->getFullData();
 
 ///*return json obj*/
         return response()->json([
             'status' => 'success',
-            'data' => $data
+            'data' => $content
         ]);
     }
 }

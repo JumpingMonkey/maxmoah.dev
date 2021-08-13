@@ -91,7 +91,7 @@ class WhereToPurchase extends Resource
                 ->limit(2)
             ]),
             Flexible::make('Stores list', 'stores_list')
-            ->addLayout('One store', 'one_store', [
+            ->addLayout('Store', 'store', [
                 Text::make('Store title', 'store_title'),
                 Text::make('Store city and country', 'store_city_and_country'),
                 Text::make('Store address', 'store_address'),
