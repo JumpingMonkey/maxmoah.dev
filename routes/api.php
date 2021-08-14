@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CustomerServicePageController;
 use App\Http\Controllers\WhereToPurchaseController;
 use App\Http\Middleware\LocaleMiddleware;
 use Illuminate\Http\Request;
@@ -26,4 +27,5 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
     Route::get('/about', [AboutController::class, 'about']);
     Route::get('/where', [WhereToPurchaseController::class, 'where']);
     Route::get('/contact', [ContactController::class, 'contact']);
+    Route::get('/customer_service', [CustomerServicePageController::class, 'custServ']);
 });
