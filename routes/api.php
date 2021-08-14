@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CareerPageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomerServicePageController;
 use App\Http\Controllers\WhereToPurchaseController;
@@ -28,4 +29,5 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
     Route::get('/where', [WhereToPurchaseController::class, 'where']);
     Route::get('/contact', [ContactController::class, 'contact']);
     Route::get('/customer_service', [CustomerServicePageController::class, 'custServ']);
+    Route::get('/career', [CareerPageController::class, 'career']);
 });

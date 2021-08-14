@@ -15,7 +15,7 @@ class CreateWhereToPurchasesTable extends Migration
     {
         Schema::create('where_to_purchases', function (Blueprint $table) {
             $table->id();
-            $table->json('seo_title');
+            $table->json('meta_title');
             $table->json('meta_description');
             $table->json('key_words');
             $table->json('title');

@@ -68,7 +68,7 @@ class About extends Resource
             Multilingual::make('Language'),
             ID::make(__('ID'), 'id')->sortable(),
 
-            Text::make('SEO-title', 'seo_title')->hideFromIndex(),
+            Text::make('Meta-title', 'meta_title')->hideFromIndex(),
             Text::make('Meta-description', 'meta_description')->hideFromIndex(),
             Text::make('Key-Words', 'key_words')->hideFromIndex(),
 

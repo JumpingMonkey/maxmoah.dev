@@ -2,17 +2,17 @@
 
 namespace App\Nova;
 
-
+use Carbon\Language;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Waynestate\Nova\CKEditor;
 use Whitecube\NovaFlexibleContent\Flexible;
 
-class WhereToPurchase extends Resource
+class CareerPage extends Resource
 {
     /**
      * The logical group associated with the resource.
@@ -26,7 +26,7 @@ class WhereToPurchase extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\WhereToPurchase::class;
+    public static $model = \App\Models\CareerPage::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -60,43 +60,20 @@ class WhereToPurchase extends Resource
             Text::make('Meta-description', 'meta_description')->hideFromIndex(),
             Text::make('Key-Words', 'key_words')->hideFromIndex(),
 
-            Text::make('Title', 'title')
-            ->rules('required'),
-            CKEditor::make('Description', 'description')
-            ->rules('required'),
-            Flexible::make('Blocks Variants', 'variants')
-            ->addLayout('Variant', 'variant', [
-                Text::make('Title', 'title')
-                ->rules('required'),
-                CKEditor::make('Description', 'description')
-                ->rules('required'),
-                Flexible::make('Button', 'button')
-                    ->addLayout('Action button', 'action_button', [
-                        Text::make('CTA', 'cta')
-                    ])->button('Add button')
-                    ->limit(1),
-            ])->button('Add Variant')
-            ->addLayout('Upcoming Events', 'upcoming_events', [
-                Text::make('Title', 'title')
-                ->rules('required'),
-                Flexible::make('Events', 'events')
-                ->addLayout('Event', 'event', [
-                    Text::make('City', 'city')
-                    ->rules('required'),
-                    Text::make('From', 'from')
-                    ->rules('required'),
-                    Text::make('To', 'to')
-                    ->rules('required')
-                ])->button('Add Event')
-                ->limit(2)
-            ]),
-            Flexible::make('Stores list', 'stores_list')
-            ->addLayout('Store', 'store', [
-                Text::make('Store title', 'store_title'),
-                Text::make('Store city and country', 'store_city_and_country'),
-                Text::make('Store address', 'store_address'),
-                Text::make('Work time', 'work_time')
-            ])->button('Add store')
+            Text::make('Title', 'title'),
+            Textarea::make('Description', 'description'),
+            Flexible::make('Vacancies', 'vacancies')
+                ->addLayout('Vacancy', 'vacancy', [
+                    Text::make('Vacancy title', 'vacancy_title'),
+                    CKEditor::make('Requirement', 'requirement'),
+                    Text::make('Introduce yourself', 'introduce_yourself'),
+                    Text::make('Button title', 'button_title')
+                ])->button('Add vacancy'),
+            Text::make('Bottom description', 'bottom_description'),
+            Text::make('First bottom text', 'first_bottom_field'),
+            Text::make('Second bottom text', 'second_bottom_field'),
+            Text::make('Third bottom text', 'third_bottom_field'),
+
         ];
     }
 
