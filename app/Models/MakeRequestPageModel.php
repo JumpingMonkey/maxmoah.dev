@@ -8,53 +8,46 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Spatie\Translatable\HasTranslations;
 
-class CareerPage extends Model
+class MakeRequestPageModel extends Model
 {
     use HasFactory, HasTranslations, HasMediaToUrl;
 
-    protected $table = 'career_pages';
+    protected $table = 'make_request_pages';
 
     protected $fillable = [
         'title',
         'description',
-        'vacancies',
-        'bottom_description',
-        'first_bottom_field',
-        'second_bottom_field',
-        'third_bottom_field',
-        'meta_title',
-        'meta_description',
-        'key_words'
+        'name_field_title',
+        'email_field_title',
+        'message_field_title',
+        'subject_variant',
+        'privacy_policy_label',
+        'button_title',
+        'close_button_title'
     ];
 
     public $translatable = [
         'title',
         'description',
-        'vacancies',
-        'bottom_description',
-        'first_bottom_field',
-        'second_bottom_field',
-        'third_bottom_field',
-        'meta_title',
-        'meta_description',
-        'key_words'
+        'name_field_title',
+        'email_field_title',
+        'message_field_title',
+        'subject_variant',
+        'privacy_policy_label',
+        'button_title',
+        'close_button_title'
     ];
 
     public static function normalizeData($object){
 
         $contentItems = [];
-        $buttonItems = [];
-        $upcomingItems = [];
 
-        if(isset($object['vacancies'])){
-            foreach ($object['vacancies'] as $key => $item){
+        if(isset($object['subject_variant'])){
+            foreach ($object['subject_variant'] as $key => $item){
 
-                    if (isset($item['key'])) {
-                        $contentItems[] = $item['attributes'];
-//                        dd($contentItems);
-                    }
+                    $contentItems[] = $item['attributes']['subject'];
             }
-            $object['vacancies'] = $contentItems;
+            $object['subject_variant'] = $contentItems;
         }
 
         return $object;
