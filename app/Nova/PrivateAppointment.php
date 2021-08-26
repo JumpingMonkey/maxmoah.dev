@@ -2,25 +2,22 @@
 
 namespace App\Nova;
 
-use App\Models\MakeRequestPageModel;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Whitecube\NovaFlexibleContent\Flexible;
 
-class MakeRequestPage extends Resource
+class PrivateAppointment extends Resource
 {
-
     public static $group = 'Forms content';
+
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = MakeRequestPageModel::class;
+    public static $model = \App\Models\PrivateAppointment::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -55,15 +52,20 @@ class MakeRequestPage extends Resource
 
             Text::make('Name field title', 'name_field_title'),
             Text::make('E-mail field title', 'email_field_title'),
-            Text::make('Message field title', 'message_field_title'),
-            Flexible::make('Subject variants', 'subject_variant')
-                ->addLayout('Subject', 'subject', [
-                    Text::make('Subject', 'subject')
-                ])->button('Add subject variant'),
+            Text::make('Country field title', 'country_field_title'),
+            Text::make('Phone field title', 'phone_field_title'),
+
+            Text::make('DD field title', 'dd_field_title'),
+            Text::make('MM field title', 'mm_field_title'),
+            Text::make('YYYY field title', 'yyyy_field_title'),
+
+            Text::make('Time field title', 'time_field_title'),
+
             Text::make('Privacy policy text', 'privacy_policy_text'),
             Text::make('Privacy policy link text', 'privacy_policy_link_text'),
             Text::make('Button title', 'button_title'),
             Text::make('Close button title', 'close_button_title')
+
         ];
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMakeRequestPageModelsTable extends Migration
+class CreateOnlineAppointmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class CreateMakeRequestPageModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('make_request_pages', function (Blueprint $table) {
+        Schema::create('online_appointments', function (Blueprint $table) {
             $table->id();
             $table->json('title');
             $table->json('description');
             $table->json('name_field_title');
+            $table->json('language_field_title');
+            $table->json('language_variant');
             $table->json('email_field_title');
-            $table->json('message_field_title');
-            $table->json('subject_variant');
+            $table->json('phone_field_title');
+            $table->json('calendar_field_title');
+            $table->json('time_field_title');
             $table->json('privacy_policy_text');
             $table->json('privacy_policy_link_text');
             $table->json('button_title');
@@ -36,6 +39,6 @@ class CreateMakeRequestPageModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('make_request_pages');
+        Schema::dropIfExists('online_appointments');
     }
 }

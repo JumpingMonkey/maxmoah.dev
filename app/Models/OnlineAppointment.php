@@ -8,46 +8,54 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Spatie\Translatable\HasTranslations;
 
-class MakeRequestPageModel extends Model
+class OnlineAppointment extends Model
 {
-    use HasFactory, HasTranslations, HasMediaToUrl;
+    use HasFactory, HasMediaToUrl, HasTranslations;
 
-    protected $table = 'make_request_pages';
+    protected $table = "online_appointments";
 
-    protected $fillable = [
+    protected $fillable =[
         'title',
         'description',
         'name_field_title',
+        'language_field_title',
+        'language_variant',
         'email_field_title',
-        'message_field_title',
-        'subject_variant',
-        'privacy_policy_label',
+        'phone_field_title',
+        'calendar_field_title',
+        'time_field_title',
+        'privacy_policy_text',
+        'privacy_policy_link_text',
         'button_title',
-        'close_button_title'
+        'close_button_title',
     ];
 
     public $translatable = [
         'title',
         'description',
         'name_field_title',
+        'language_field_title',
+        'language_variant',
         'email_field_title',
-        'message_field_title',
-        'subject_variant',
-        'privacy_policy_label',
+        'phone_field_title',
+        'calendar_field_title',
+        'time_field_title',
+        'privacy_policy_text',
+        'privacy_policy_link_text',
         'button_title',
-        'close_button_title'
+        'close_button_title',
     ];
 
     public static function normalizeData($object){
 
         $contentItems = [];
 
-        if(isset($object['subject_variant'])){
-            foreach ($object['subject_variant'] as $key => $item){
+        if(isset($object['language_variant'])){
+            foreach ($object['language_variant'] as $key => $item){
 
-                    $contentItems[] = $item['attributes']['subject'];
+                $contentItems[] = $item['attributes']['language'];
             }
-            $object['subject_variant'] = $contentItems;
+            $object['language_variant'] = $contentItems;
         }
 
         return $object;

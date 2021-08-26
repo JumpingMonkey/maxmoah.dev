@@ -4,7 +4,12 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CareerPageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomerServicePageController;
+use App\Http\Controllers\EventRegistrationController;
 use App\Http\Controllers\MakeRequestPageModelController;
+use App\Http\Controllers\OnlineAppointmentController;
+use App\Http\Controllers\PrivateAppointmentController;
+use App\Http\Controllers\ThankForRequestController;
+use App\Http\Controllers\TrunkShowController;
 use App\Http\Controllers\WhereToPurchaseController;
 use App\Http\Middleware\LocaleMiddleware;
 use Illuminate\Http\Request;
@@ -31,5 +36,12 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
     Route::get('/contact', [ContactController::class, 'contact']);
     Route::get('/customer_service', [CustomerServicePageController::class, 'custServ']);
     Route::get('/career', [CareerPageController::class, 'career']);
+    //popups routes
     Route::get('/popup/make_request', [MakeRequestPageModelController::class, 'index']);
+    Route::get('/popup/event_registration', [EventRegistrationController::class, 'index']);
+    Route::get('/popup/online_appointment', [OnlineAppointmentController::class, 'index']);
+    Route::get('/popup/private_appointment', [PrivateAppointmentController::class, 'index']);
+    Route::get('/popup/thank_for_request', [ThankForRequestController::class, 'index']);
+    Route::get('/popup/trunk_show', [TrunkShowController::class, 'index']);
+
 });

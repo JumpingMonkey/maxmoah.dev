@@ -8,46 +8,48 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Spatie\Translatable\HasTranslations;
 
-class MakeRequestPageModel extends Model
+class EventRegistration extends Model
 {
-    use HasFactory, HasTranslations, HasMediaToUrl;
+    use HasFactory, HasMediaToUrl, HasTranslations;
 
-    protected $table = 'make_request_pages';
+    protected $table = "event_registrations";
 
-    protected $fillable = [
+    protected $fillable =[
         'title',
         'description',
+        'event_variant',
         'name_field_title',
         'email_field_title',
-        'message_field_title',
-        'subject_variant',
-        'privacy_policy_label',
+        'phone_field_title',
+        'privacy_policy_text',
+        'privacy_policy_link_text',
         'button_title',
-        'close_button_title'
+        'close_button_title',
     ];
 
     public $translatable = [
         'title',
         'description',
+        'event_variant',
         'name_field_title',
         'email_field_title',
-        'message_field_title',
-        'subject_variant',
-        'privacy_policy_label',
+        'phone_field_title',
+        'privacy_policy_text',
+        'privacy_policy_link_text',
         'button_title',
-        'close_button_title'
+        'close_button_title',
     ];
 
     public static function normalizeData($object){
 
         $contentItems = [];
 
-        if(isset($object['subject_variant'])){
-            foreach ($object['subject_variant'] as $key => $item){
+        if(isset($object['event_variant'])){
+            foreach ($object['event_variant'] as $key => $item){
 
-                    $contentItems[] = $item['attributes']['subject'];
+                $contentItems[] = $item['attributes']['event'];
             }
-            $object['subject_variant'] = $contentItems;
+            $object['event_variant'] = $contentItems;
         }
 
         return $object;
