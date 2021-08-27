@@ -18,9 +18,10 @@ class CreateMakeRequestPageModelsTable extends Migration
             $table->json('title');
             $table->json('description');
             $table->json('name_field_title');
-            $table->json('email_field_title');
-            $table->json('message_field_title');
             $table->json('subject_variant');
+            $table->json('email_field_title');
+            $table->json('phone_field_title');
+            $table->json('message_field_title');
             $table->json('privacy_policy_text');
             $table->json('privacy_policy_link_text');
             $table->json('button_title');

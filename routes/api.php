@@ -7,6 +7,7 @@ use App\Http\Controllers\CustomerServicePageController;
 use App\Http\Controllers\EventRegistrationController;
 use App\Http\Controllers\MakeRequestPageModelController;
 use App\Http\Controllers\OnlineAppointmentController;
+use App\Http\Controllers\PopupsController;
 use App\Http\Controllers\PrivateAppointmentController;
 use App\Http\Controllers\ThankForRequestController;
 use App\Http\Controllers\TrunkShowController;
@@ -36,12 +37,21 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
     Route::get('/contact', [ContactController::class, 'contact']);
     Route::get('/customer_service', [CustomerServicePageController::class, 'custServ']);
     Route::get('/career', [CareerPageController::class, 'career']);
-    //popups routes
+
+    //popups get
     Route::get('/popup/make_request', [MakeRequestPageModelController::class, 'index']);
     Route::get('/popup/event_registration', [EventRegistrationController::class, 'index']);
     Route::get('/popup/online_appointment', [OnlineAppointmentController::class, 'index']);
     Route::get('/popup/private_appointment', [PrivateAppointmentController::class, 'index']);
     Route::get('/popup/thank_for_request', [ThankForRequestController::class, 'index']);
     Route::get('/popup/trunk_show', [TrunkShowController::class, 'index']);
+
+    //popups post
+    Route::post('/popup/make_request', [PopupsController::class, 'index']);
+    Route::post('/popup/event_registration', [PopupsController::class, 'eventRegistrationPopupSend']);
+    Route::post('/popup/online_appointment', [PopupsController::class, 'index']);
+    Route::post('/popup/private_appointment', [PopupsController::class, 'index']);
+    Route::post('/popup/thank_for_request', [PopupsController::class, 'index']);
+    Route::post('/popup/trunk_show', [PopupsController::class, 'index']);
 
 });

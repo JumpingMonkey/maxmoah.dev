@@ -2,25 +2,20 @@
 
 namespace App\Nova;
 
-use App\Models\MakeRequestPageModel;
-use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Whitecube\NovaFlexibleContent\Flexible;
 
-class MakeRequestPage extends Resource
+class OnlineApointmentMessage extends Resource
 {
-
-    public static $group = 'Forms content';
+    public static $group = 'Form messages';
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = MakeRequestPageModel::class;
+    public static $model = \App\Models\OnlineApointmentMessage::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -47,25 +42,14 @@ class MakeRequestPage extends Resource
     public function fields(Request $request)
     {
         return [
-            Multilingual::make('Language'),
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make('Name', 'name'),
+            Text::make('Language', 'language'),
+            Text::make('Email', 'email'),
+            Text::make('Phone', 'phone'),
+            Text::make('Date', 'date'),
+            Text::make('Time', 'time')
 
-            Text::make('Title', 'title'),
-            Text::make('Description', 'description'),
-
-            Text::make('Name field title', 'name_field_title'),
-            Flexible::make('Subject variants', 'subject_variant')
-                ->addLayout('Subject', 'subject', [
-                    Text::make('Subject', 'subject')
-                ])->button('Add subject variant'),
-            Text::make('E-mail field title', 'email_field_title'),
-            Text::make('Phone field title', 'phone_field_title'),
-            Text::make('Message field title', 'message_field_title'),
-
-            Text::make('Privacy policy text', 'privacy_policy_text'),
-            Text::make('Privacy policy link text', 'privacy_policy_link_text'),
-            Text::make('Button title', 'button_title'),
-            Text::make('Close button title', 'close_button_title')
         ];
     }
 
