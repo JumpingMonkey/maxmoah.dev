@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class MakeRequestMessage extends Model
 {
     use HasFactory;
+
+    protected $fillable = array('name', 'subject', 'email', 'phone', 'message');
 }

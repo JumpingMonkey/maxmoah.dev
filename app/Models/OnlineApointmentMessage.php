@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class OnlineApointmentMessage extends Model
 {
     use HasFactory;
+
+    protected $fillable = array('name', 'language', 'email', 'phone', 'date', 'time');
 }

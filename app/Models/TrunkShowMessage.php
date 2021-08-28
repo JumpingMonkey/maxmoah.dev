@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class TrunkShowMessage extends Model
 {
     use HasFactory;
+
+    protected $fillable = array('name', 'email', 'phone', 'region', 'country');
 }

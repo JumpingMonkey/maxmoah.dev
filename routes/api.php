@@ -47,11 +47,11 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
     Route::get('/popup/trunk_show', [TrunkShowController::class, 'index']);
 
     //popups post
-    Route::post('/popup/make_request', [PopupsController::class, 'index']);
-    Route::post('/popup/event_registration', [PopupsController::class, 'eventRegistrationPopupSend']);
-    Route::post('/popup/online_appointment', [PopupsController::class, 'index']);
-    Route::post('/popup/private_appointment', [PopupsController::class, 'index']);
-    Route::post('/popup/thank_for_request', [PopupsController::class, 'index']);
-    Route::post('/popup/trunk_show', [PopupsController::class, 'index']);
+    Route::post('/popup/make_request', [PopupsController::class, 'makeRequestPopupSend']);
+    Route::post('/popup/event_registration', [PopupsController::class, 'eventRegistrationPopupSend']
+    );
+    Route::post('/popup/online_appointment', [PopupsController::class, 'onlineAppointmentPopupSend']);
+    Route::post('/popup/private_appointment', [PopupsController::class, 'privatAppointmentPopupSend']);
+    Route::post('/popup/trunk_show', [PopupsController::class, 'trunkShowPopupSend']);
 
 });
