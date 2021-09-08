@@ -52,6 +52,10 @@ class CategoryResource extends Resource
      */
     public function fields(Request $request)
     {
+        $model = NovaRequest::createFrom($request)
+            ->findModelQuery()
+            ->first();
+
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Meta-title', 'meta_title')->hideFromIndex(),
@@ -135,7 +139,7 @@ class CategoryResource extends Resource
                 ])
                 ->addLayout('7. Product from category', '7_prod_from_category', [
                     Select::make('Product', 'product')->options(
-                        OneItemModel::query()->where('category_id', )->pluck('prod_title', 'id')
+                        OneItemModel::query()->where('category_id', $model->id)->pluck('prod_title', 'id')
                     )
                 ])->button('Add product')
         ];
