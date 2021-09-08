@@ -5,6 +5,7 @@ namespace App\Nova;
 use App\Models\Category;
 use App\Models\OneItemModel;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
+use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
@@ -58,6 +59,7 @@ class CategoryResource extends Resource
 
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Multilingual::make('Language'),
             Text::make('Meta-title', 'meta_title')->hideFromIndex(),
             Text::make('Meta-description', 'meta_description')->hideFromIndex(),
             Text::make('Key-Words', 'key_words')->hideFromIndex(),
