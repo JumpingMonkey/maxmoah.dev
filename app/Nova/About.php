@@ -2,10 +2,6 @@
 
 namespace App\Nova;
 
-
-
-
-
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;

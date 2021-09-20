@@ -4,9 +4,11 @@ namespace App\Nova;
 
 use App\Models\Category;
 use App\Models\OneItemModel;
+use App\Models\ProductTagModel;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
@@ -60,7 +62,7 @@ class OneItemResource extends Resource
             Text::make('Meta-description', 'meta_description')->hideFromIndex(),
             Text::make('Key-Words', 'key_words')->hideFromIndex(),
 
-            Text::make('Zoom in btn-title', 'zoom_in_btn_title'),
+            Text::make('Zoom in btn-title', 'zoom_in_btn_title')->hideFromIndex(),
             Flexible::make('Product photo', 'prod_photo')
                 ->addLayout('Image', 'image', [
                     Medialibrary::make('Image','image')
@@ -72,17 +74,34 @@ class OneItemResource extends Resource
                 ])->button('add image')
                 ->limit(5),
 
+            Select::make('Product tag', 'tag_id')->options(
+                ProductTagModel::all()->pluck('tag_title', 'id')
+            )->required()
+                ->updateRules('required')
+                ->creationRules('required'),
 
             Select::make('Product category', 'category_id')->options(
                 Category::all()->pluck('category_title', 'id')
-            )->required(),
+            )->required()
+                ->updateRules('required')
+                ->creationRules('required'),
+
             Text::make('Product title', 'prod_title'),
 
-            Select::make('Available', 'available')->options([
-                '1' => 'Ready to order',
-                '0' => 'Not available',
-            ])->required(),
-            Text::make('Price', 'prod_price')->default(function (){return 'Price on request';}),
+            Text::make('Product slug/link(only english)', 'prod_slug')
+                ->sortable()
+                ->rules('required')
+                ->creationRules('unique:one_item_models')->hideFromIndex(),
+
+            Boolean::make('Available', 'available')->hideFromIndex()
+                ->trueValue('true')
+                ->falseValue('false'),
+            Boolean::make('Customize', 'customize')->hideFromIndex()
+                ->trueValue('true')
+                ->falseValue('false'),
+
+            Text::make('Price', 'prod_price')->default(function (){return 'Price on request';})->hideFromIndex(),
+
             Flexible::make('Background img for first screen', 'bg_img_first_screen')
                 ->addLayout('Image', 'image', [
                     Medialibrary::make('Image','image')
@@ -158,7 +177,7 @@ class OneItemResource extends Resource
             ])
             ->addLayout('5. Text+text', '5_text_text', [
                 CKEditor::make('Text 1', 'desc_1'),
-                CKEditor::make('Text 3', 'desc_2'),
+                CKEditor::make('Text 2', 'desc_2'),
             ])
             ->addLayout('6. Title+text+btn+img(left)', '6_title_txt_btn_img', [
                 Flexible::make('Img', 'img')
@@ -190,7 +209,7 @@ class OneItemResource extends Resource
                 CKEditor::make('Description', 'desc'),
                 Text::make('Btn', 'btn')
             ])
-            ->addLayout('8. Img+title+text+btn', '8_Img_title_text_btn', [
+            ->addLayout('8. Img(right)+title+text', '8_Img_right_title_text', [
                 Flexible::make('Img', 'img')
                     ->addLayout('Image', 'image', [
                         Medialibrary::make('Image','image')
@@ -281,9 +300,9 @@ class OneItemResource extends Resource
             ->addLayout('13. products+form', '13_prod_form', [
                 Flexible::make('Product', 'prod')
                     ->addLayout('One product', 'one_prod', [
-                        Select::make('Prod', 'prod')->options([
-
-                        ]),
+                        Select::make('Prod', 'prod')->options(
+                            OneItemModel::all()->pluck('prod_title','id')
+                        ),
                 ]),
                 Text::make('Form title', 'form_title'),
                 Text::make('Email field title', 'email_field_title'),

@@ -15,15 +15,21 @@ class CreateOneItemModelsTable extends Migration
     {
         Schema::create('one_item_models', function (Blueprint $table) {
             $table->id();
-            $table->string('meta_title');
-            $table->string('meta_description');
-            $table->string('key_words');
-            $table->string('zoom_in_btn_title');
-            $table->string('prod_photo');
-            $table->string('category_id');
-            $table->string('prod_title');
+            $table->json('meta_title');
+            $table->json('meta_description');
+            $table->json('key_words');
+
+            $table->json('zoom_in_btn_title');
+            $table->json('prod_photo');
+
+            $table->foreignId('tag_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('category_id')->nullable()->constrained()->onDelete('set null');
+
+            $table->json('prod_title');
+            $table->string('prod_slug');
             $table->string('available');
-            $table->string('prod_price');
+            $table->string('customize');
+            $table->json('prod_price');
             $table->string('bg_img_first_screen');
             $table->json('content');
             $table->timestamps();

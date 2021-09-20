@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CareerPageController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomerServicePageController;
 use App\Http\Controllers\EventRegistrationController;
 use App\Http\Controllers\MakeRequestPageModelController;
+use App\Http\Controllers\OneItemModelController;
 use App\Http\Controllers\OnlineAppointmentController;
 use App\Http\Controllers\PopupsController;
 use App\Http\Controllers\PrivateAppointmentController;
@@ -37,6 +39,16 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
     Route::get('/contact', [ContactController::class, 'contact']);
     Route::get('/customer_service', [CustomerServicePageController::class, 'custServ']);
     Route::get('/career', [CareerPageController::class, 'career']);
+
+    //category page
+    Route::get('/categories', [CategoryController::class, 'getCategoryList']);
+    Route::get('/categories/{slug}', [CategoryController::class, 'getOneCategory']);
+
+    //products
+    Route::get('/products', [OneItemModelController::class, 'getProductList']);
+//    Route::get('/products/category/{slug}', [OneItemModelController::class, 'getProductList']);
+    Route::get('/products/available', [OneItemModelController::class, 'getProductListAvailable']);
+    Route::get('/products/{slug}', [OneItemModelController::class, 'getOneProduct']);
 
     //popups get
     Route::get('/popup/make_request', [MakeRequestPageModelController::class, 'index']);

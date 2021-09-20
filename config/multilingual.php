@@ -13,7 +13,10 @@ return [
      */
     'locales' => [
         'en' => 'EN',
-        'ru' => 'RU'
+        'ru' => 'RU',
+        'fr' => 'FR',
+        'it' => 'IT',
+        'de' => 'DE'
     ],
 
     /*

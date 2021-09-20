@@ -11,7 +11,7 @@ class LocaleMiddleware
 {
     public static $mainLanguage = 'en'; //основной язык, который не должен отображаться в URl
 
-    public static $languages = ['en', 'ru']; // Указываем, какие языки будем использовать в приложении.
+    public static $languages = ['en', 'ru', 'fr', 'it', 'de']; // Указываем, какие языки будем использовать в приложении.
 
 
     /*

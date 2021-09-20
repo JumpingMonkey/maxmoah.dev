@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Waynestate\Nova\CKEditor;
 use Whitecube\NovaFlexibleContent\Flexible;
@@ -19,7 +20,7 @@ class CategoryResource extends Resource
     public static $group = 'Products';
 
     public static function label(){
-        return 'Category';
+        return 'Categories';
     }
 
     /**
@@ -57,6 +58,12 @@ class CategoryResource extends Resource
             ->findModelQuery()
             ->first();
 
+        if(isset($model->id)){
+            $options = OneItemModel::query()->where('category_id', $model->id)->pluck('prod_title', 'id');
+        } else {
+            $options = ['Not exist products' => 'Not exist product'];
+    }
+
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Multilingual::make('Language'),
@@ -65,10 +72,11 @@ class CategoryResource extends Resource
             Text::make('Key-Words', 'key_words')->hideFromIndex(),
 
             Text::make('Category title', 'category_title'),
+            Text::make('Category slug(only english)', 'category_slug'),
             Flexible::make('Content', 'content')
                 ->addLayout('1. title+text', '1_title_text', [
                     Text::make('Title', 'title'),
-                    CKEditor::make('Description', 'desc')
+                    Trix::make('Description', 'desc')
                 ])
                 ->addLayout('2. Vertical Image', '2_vert_img', [
                     Flexible::make('Image', 'image')
@@ -141,9 +149,10 @@ class CategoryResource extends Resource
                 ])
                 ->addLayout('7. Product from category', '7_prod_from_category', [
                     Select::make('Product', 'product')->options(
-                        OneItemModel::query()->where('category_id', $model->id)->pluck('prod_title', 'id')
+                        $options
                     )
-                ])->button('Add product')
+
+                ])->button('Add block')
         ];
     }
 
