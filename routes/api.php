@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomerServicePageController;
 use App\Http\Controllers\EventRegistrationController;
+use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\MakeRequestPageModelController;
 use App\Http\Controllers\OneItemModelController;
 use App\Http\Controllers\OnlineAppointmentController;
@@ -39,6 +40,7 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
     Route::get('/contact', [ContactController::class, 'contact']);
     Route::get('/customer_service', [CustomerServicePageController::class, 'custServ']);
     Route::get('/career', [CareerPageController::class, 'career']);
+    Route::get('/main', [MainPageController::class, 'main']);
 
     //category page
     Route::get('/categories', [CategoryController::class, 'getCategoryList']);
