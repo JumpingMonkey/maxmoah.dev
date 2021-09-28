@@ -10,6 +10,7 @@ use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\MakeRequestPageModelController;
 use App\Http\Controllers\OneItemModelController;
 use App\Http\Controllers\OnlineAppointmentController;
+use App\Http\Controllers\PartsController;
 use App\Http\Controllers\PopupsController;
 use App\Http\Controllers\PrivateAppointmentController;
 use App\Http\Controllers\ThankForRequestController;
@@ -41,6 +42,9 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
     Route::get('/customer_service', [CustomerServicePageController::class, 'custServ']);
     Route::get('/career', [CareerPageController::class, 'career']);
     Route::get('/main', [MainPageController::class, 'main']);
+
+    //parts
+    Route::get('/parts', [PartsController::class, 'parts']);
 
     //category page
     Route::get('/categories', [CategoryController::class, 'getCategoryList']);

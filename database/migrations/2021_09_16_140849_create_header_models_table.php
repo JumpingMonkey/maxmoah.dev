@@ -15,6 +15,12 @@ class CreateHeaderModelsTable extends Migration
     {
         Schema::create('header_models', function (Blueprint $table) {
             $table->id();
+            $table->json('site_name');
+            $table->json('menu_name');
+            $table->json('make_appointment');
+            $table->json('burger_close_btn_label');
+            $table->json('header_navigation');
+            $table->json('sub_header_navigation');
             $table->timestamps();
         });
     }
