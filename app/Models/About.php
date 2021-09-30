@@ -91,7 +91,7 @@ public static function normalizeTitleAndImageField($obj){
             }
 
         }
-dd($object);
+
         return $object;
     }
 
