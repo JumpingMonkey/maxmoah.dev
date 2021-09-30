@@ -45,6 +45,24 @@ class About extends Model
 //       }
 //
 //        }
+public static function normalizePhotoWithMetaData($obj){
+    $data = [];
+    foreach ($obj as $item){
+        $data = $item['attributes'];
+    }
+    return $data;
+}
+
+public static function normalizeTitleAndImageField($obj){
+    $data = [];
+    foreach ($obj as $item){
+        $tmpData = [];
+        $tmpData['title'] = $item['attributes']['title'];
+        $tmpData['image'] = self::normalizePhotoWithMetaData($item['attributes']['image']);
+        $data[] = $tmpData;
+    }
+    return $data;
+}
 
 
     public static function normalizeData($object){
@@ -62,6 +80,18 @@ class About extends Model
             $object['content'] = $contentItems;
         }
 
+        foreach($object['content'] as $key => $item){
+            foreach ($item as $inKey => $value) {
+                if($inKey == 'title_and_image'){
+                    $object['content'][$key][$inKey] = self::normalizeTitleAndImageField($object['content'][$key][$inKey]);
+                }elseif(str_contains($inKey, 'image')){
+                    $object['content'][$key][$inKey] = self::normalizePhotoWithMetaData($object['content'][$key][$inKey]);
+                }
+
+            }
+
+        }
+dd($object);
         return $object;
     }
 
