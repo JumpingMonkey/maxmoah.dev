@@ -474,6 +474,22 @@ trait HasMediaToUrl
         return $this->translateModel($model, ['created_at', 'updated_at', 'id']);
     }
 
+    /**
+     *
+     * Converts the passed object into an array with no extra elements .
+     *
+     * @param  $object
+     * @return array
+     *
+     */
+    public static function normalizePhotoWithMetaData($obj){
+        $data = [];
+        foreach ($obj as $item){
+            $data = $item['attributes'];
+        }
+        return $data;
+    }
+
 }
 
 
