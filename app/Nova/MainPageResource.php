@@ -86,14 +86,15 @@ class MainPageResource extends Resource
 
             Flexible::make('Display categories', 'display_categories')
                 ->addLayout('Category', 'category', [
+                    Text::make('Category name', 'category_name'),
                     Select::make('Category', 'category_slug')->options(
-                        Category::all()->pluck('category_title', 'id'),
+                        Category::all()->pluck('category_title', 'category_slug'),
                     ),
                 ])->button('add category'),
             Flexible::make('Display pages', 'display_pages')
                 ->addLayout('Page', 'page', [
                     Text::make('Page name', 'page_name'),
-                    Select::make('Page link', 'page')->options([
+                    Select::make('Page link', 'page_slug')->options([
                         '/about' => '/about',
                         '/where' => '/where',
                         '/contact' => '/contact',
