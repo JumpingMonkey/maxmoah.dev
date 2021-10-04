@@ -74,7 +74,7 @@ class FullCollectionPage extends Resource
             Text::make('Privacy policy text', 'privacy_policy_text'),
             Text::make('Privacy policy link text', 'privacy_policy_link_text'),
 
-            Boolean::make('Activate filter', 'filter'),
+            Boolean::make('Activate filter', 'filter')
         ];
     }
 
