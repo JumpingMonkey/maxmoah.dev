@@ -45,6 +45,7 @@ class OneItemModel extends Model
         'content',
         'prod_photo',
         'bg_img_first_screen',
+        'image'
     ];
 
     public function tag()

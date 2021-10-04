@@ -45,7 +45,7 @@ class OneItemModelController extends Controller
     public function getProductListAvailable() {
 
         $data = OneItemModel::query()->select('prod_slug', 'prod_title', 'prod_photo', 'prod_price', 'tag_id')
-            ->where('available', '1')->get();
+            ->where('available', 'true')->get();
 
         $content = [];
         foreach ($data as $oneProduct) {
@@ -73,14 +73,13 @@ class OneItemModelController extends Controller
      */
     public function getOneProduct(Request $request) {
         $data = OneItemModel::query()->where('prod_slug', $request->slug)->firstOrFail();
-
         $tagName = OneItemModel::getFullData($data);
         if (isset($tagName['tag_id'])){
             $tagName['prod_tag'] = $data->tag->tag_title;
             unset($tagName['tag_id']);
         }
 
-        $content[] = $tagName;
+        $content = $tagName;
 
         /*return json obj*/
         return response()->json([

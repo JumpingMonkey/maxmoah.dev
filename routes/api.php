@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CareerPageController;
+use App\Http\Controllers\CatalogPagesController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomerServicePageController;
@@ -41,10 +42,17 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
     Route::get('/contact', [ContactController::class, 'contact']);
     Route::get('/customer_service', [CustomerServicePageController::class, 'custServ']);
     Route::get('/career', [CareerPageController::class, 'career']);
-    Route::get('/main', [MainPageController::class, 'main']);
+    Route::get('/main', [MainPageController::class, 'main']);///////////////
+
+    //Catalog page
+    Route::get('/full_collection', [CatalogPagesController::class, 'full']);
+    Route::get('/product_available', [CatalogPagesController::class, 'available']);
 
     //parts
     Route::get('/parts', [PartsController::class, 'parts']);
+
+    //filters
+//    Route::get('/filters', [PartsController::class, 'parts']);
 
     //category page
     Route::get('/categories', [CategoryController::class, 'getCategoryList']);
@@ -52,7 +60,6 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
 
     //products
     Route::get('/products', [OneItemModelController::class, 'getProductList']);
-//    Route::get('/products/category/{slug}', [OneItemModelController::class, 'getProductList']);
     Route::get('/products/available', [OneItemModelController::class, 'getProductListAvailable']);
     Route::get('/products/{slug}', [OneItemModelController::class, 'getOneProduct']);
 

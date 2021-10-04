@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasMediaToUrl;
+use App\Traits\TranslateAndConvertMediaUrl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -10,7 +11,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Category extends Model
 {
-    use HasFactory, HasTranslations, HasMediaToUrl;
+    use HasFactory, HasTranslations, TranslateAndConvertMediaUrl;
 
     protected $fillable = [
         'meta_title',
@@ -33,6 +34,7 @@ class Category extends Model
         'content',
         'prod_photo',
         'bg_img_first_screen',
+        'image',
     ];
 
     public function products(){
@@ -42,19 +44,71 @@ class Category extends Model
     }
 
     public static function normalizeData($object){
+        if(array_key_exists('content', $object)){
+            $data = [];
+            foreach ($object['content'] as $item){
+                $data[$item['layout']] = $item['attributes'];
 
-//        $contentItems = [];
-//        if (isset($object['content'])){
-//            foreach ($object['content'] as $key => $item){
-//
-//                if ($item['key']){
-//                    $contentItems[$key . " : " . $item['layout']] = $item['attributes'];
-//                }
-//
-//            }
-//            $object['content'] = $contentItems;
-//        }
+                if(array_key_exists('image', $data[$item['layout']])){
+                    $data[$item['layout']]['image'] = self::normalizePhotoWithMetaData($data[$item['layout']]['image']);
+                }
 
+                if($item['layout'] == '6_products'){
+
+                    $products = [];
+                    foreach ($data[$item['layout']]['product'] as $prod){
+                        $products[] = $prod['attributes'];
+                    }
+                    $data[$item['layout']]['product'] = $products;
+
+                    $products = [];
+                    foreach ($data[$item['layout']]['product'] as $itemIn){
+                        $itemIn['image'] = self::normalizePhotoWithMetaData($itemIn['image']);
+                        $products[] = $itemIn;
+                    }
+                    $data[$item['layout']]['product'] = $products;
+                }
+
+                if($item['layout'] == '7_prod_from_category') {
+                    self::getNormalizedField($data['7_prod_from_category'], 'one_prod', 'product', 'true', 'true');
+
+                    foreach ($data['7_prod_from_category']['one_prod'] as $value){
+                        $tmpData[] = $value['product'];
+                    }
+                    $data['7_prod_from_category'] = $tmpData;
+
+
+                    $productsData = OneItemModel::query()
+                        ->select('prod_slug', 'prod_title', 'prod_photo', 'prod_price', 'tag_id', 'customize')
+                        ->whereIn('id', $data['7_prod_from_category'])
+                        ->get();
+
+//                    $fullData = OneItemModel::getFullData($productsData);
+
+
+                    $productContent = [];
+                    foreach ($productsData as $oneProduct) {
+
+                        $fullDataWithTagName = OneItemModel::getFullData($oneProduct);
+
+                        if (isset($fullDataWithTagName['tag_id'])){
+                            $fullDataWithTagName['prod_tag'] = $oneProduct->tag->tag_title;
+                            unset($fullDataWithTagName['tag_id']);
+                        }
+
+                        $imgData = [];
+                        foreach ($fullDataWithTagName['prod_photo'] as $oneImg){
+                            $imgData[] = $oneImg['attributes'];
+                        }
+
+                        $fullDataWithTagName['prod_photo'] = $imgData;
+                        $productContent[] = $fullDataWithTagName;
+                    }
+                    $data['7_prod_from_category'] = $productContent;
+                }
+            }
+            $object['content'] = $data;
+        }
         return $object;
     }
 

@@ -91,7 +91,7 @@ class CategoryResource extends Resource
                         ->limit(1),
                 ])
                 ->addLayout('3. Video', '3_video', [
-                    Flexible::make('Product photo', 'prod_photo')
+                    Flexible::make('Product photo', 'image')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Image','image')
                                 ->rules('required'),
@@ -103,7 +103,7 @@ class CategoryResource extends Resource
                         ->limit(1),
                 ])
                 ->addLayout('4. Image+title+description', '4_Image_title_description', [
-                    Flexible::make('Photo', 'photo')
+                    Flexible::make('Photo', 'image')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Image','image')
                                 ->rules('required'),
@@ -148,10 +148,12 @@ class CategoryResource extends Resource
                         ])
                 ])
                 ->addLayout('7. Product from category', '7_prod_from_category', [
-                    Select::make('Product', 'product')->options(
-                        $options
-                    )
-
+                    Flexible::make('One product', 'one_prod')
+                    ->addLayout('One product', 'one_product', [
+                        Select::make('Product', 'product')->options(
+                            $options
+                        )
+                    ])->button('Add product')
                 ])->button('Add block')
         ];
     }
