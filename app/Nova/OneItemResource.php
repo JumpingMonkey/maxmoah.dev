@@ -297,20 +297,22 @@ class OneItemResource extends Resource
                 Text::make('Description bottom', 'desc_bottom'),
                 Text::make('Btn', 'btn')
             ])
-            ->addLayout('13. products+form', '13_prod_form', [
+            ->addLayout('13. products', '13_prod', [
                 Flexible::make('Product', 'prod')
                     ->addLayout('One product', 'one_prod', [
                         Select::make('Prod', 'prod')->options(
                             OneItemModel::all()->pluck('prod_title','id')
                         ),
                 ]),
-                Text::make('Form title', 'form_title'),
-                Text::make('Email field title', 'email_field_title'),
-                Text::make('Description', 'desc'),
-                Text::make('Privacy policy text', 'privacy_policy_text'),
-                Text::make('Privacy policy link text', 'privacy_policy_link_text'),
-
             ])
+                ->addLayout('14. form', '14_form', [
+                    Text::make('Form title', 'form_title'),
+                    Text::make('Email field title', 'email_field_title'),
+                    Text::make('Description', 'desc'),
+                    Text::make('Privacy policy text', 'privacy_policy_text'),
+                    Text::make('Privacy policy link text', 'privacy_policy_link_text'),
+
+                ])
         ];
     }
 

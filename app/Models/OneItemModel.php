@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasMediaToUrl;
+use App\Traits\TranslateAndConvertMediaUrl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -10,7 +11,7 @@ use Spatie\Translatable\HasTranslations;
 
 class OneItemModel extends Model
 {
-    use HasFactory, HasTranslations, HasMediaToUrl;
+    use HasFactory, HasTranslations, TranslateAndConvertMediaUrl;
 
     protected $table = 'one_item_models';
 
@@ -61,17 +62,59 @@ class OneItemModel extends Model
 
     public static function normalizeData($object){
 
-//        $contentItems = [];
-//        if (isset($object['content'])){
-//            foreach ($object['content'] as $key => $item){
-//
-//                if ($item['key']){
-//                    $contentItems[$key . " : " . $item['layout']] = $item['attributes'];
-//                }
-//
-//            }
-//            $object['content'] = $contentItems;
-//        }
+        self::getNormalizedField($object, 'prod_photo', 'image', 'true', 'true');
+        self::getNormalizedField($object, 'bg_img_first_screen', 'image', 'true', 'true');
+
+        if(array_key_exists('content', $object)){
+            $content = [];
+            foreach ($object['content'] as $key => $item){
+                $content[$key . '_' . $item['layout']] = $item['attributes'];
+            }
+            $object['content'] = $content;
+
+            $imgFields = ['img', 'lt_img', 'rt_img', 'img_1', 'img_2', 'loop'];
+
+
+            foreach ($object['content'] as $key => $item){
+                foreach ($item as $keyIn => $value){
+
+                    if(in_array($keyIn, $imgFields)){
+                        if($keyIn == 'loop'){
+                            $content = [];
+                            foreach ($value as $itemIn){
+                                $content[] = $itemIn['attributes'];
+                            }
+                            $object['content'][$key][$keyIn] = $content;
+                        } else {
+                            $object['content'][$key][$keyIn] = self::normalizePhotoWithMetaData($object['content'][$key][$keyIn]);
+                        }
+                    }
+
+                    if($keyIn == 'prod'){
+                        $tmpContent = [];
+                        foreach ($value as $itemIn){
+                            $tmpContent[] = $itemIn['attributes']['prod'];
+                        }
+                        $data = OneItemModel::query()->select('prod_slug', 'prod_title', 'prod_photo', 'prod_price', 'tag_id')
+                            ->whereIn('id', $tmpContent)
+                            ->get();
+
+
+                        foreach ($data as $oneProduct) {
+                            $tagName = OneItemModel::getFullData($oneProduct);
+                            if (isset($tagName['tag_id'])){
+                                $tagName['prod_tag'] = $oneProduct->tag->tag_title;
+                                unset($tagName['tag_id']);
+                            }
+                            $prodContent[] = $tagName;
+                        }
+
+                        $object['content'][$key] = $prodContent;
+                    }
+                }
+            }
+        }
+
 
         return $object;
     }

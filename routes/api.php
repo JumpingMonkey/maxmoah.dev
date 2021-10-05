@@ -42,7 +42,7 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
     Route::get('/contact', [ContactController::class, 'contact']);
     Route::get('/customer_service', [CustomerServicePageController::class, 'custServ']);
     Route::get('/career', [CareerPageController::class, 'career']);
-    Route::get('/main', [MainPageController::class, 'main']);///////////////
+    Route::get('/main', [MainPageController::class, 'main']);
 
     //Catalog page
     Route::get('/full_collection', [CatalogPagesController::class, 'full']);
