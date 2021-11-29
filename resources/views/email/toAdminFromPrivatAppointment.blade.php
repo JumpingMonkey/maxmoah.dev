@@ -12,7 +12,7 @@
 <p>Name: {{$name}}</p>
 <p>Email: {{$email}}</p>
 <p>Country or city: {{$country_city}}</p>
-<p>Phone: {{$phone_number}}</p>
+<p>Phone: {{$phone}}</p>
 <p>Date: {{$date}}</p>
 <p>time: {{$date}}</p>
 </body>

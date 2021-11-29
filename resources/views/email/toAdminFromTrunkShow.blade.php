@@ -11,7 +11,7 @@
 <h1>New mail from the trunk show popup!</h1>
 <p>Name: {{$name}}</p>
 <p>Email: {{$email}}</p>
-<p>Phone: {{$phone_number}}</p>
+<p>Phone: {{$phone}}</p>
 <p>Region: {{$region}}</p>
 <p>Country: {{$country}}</p>
 </body>

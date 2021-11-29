@@ -1,88 +1,95 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-        "title": "Swagger MaxMoah",
-        "description": "MaxMoah API\n<h4><strong>После загрузки проекта:</strong></h4>\n<p>Настроить .env</p>\n<p>composer update</p>\n<p>php artisan key:generate</p>\n<p>php artisan migrate</p>\n<p>php artisan storage:link</p>\n<h4><strong>версия PHP: 7.4.16</strong></h4>\n<h4><strong>версия MySQL: 8.0.23-0ubuntu0.20.04.1</strong></h4>\n<h4><strong>Использованные пакеты:</strong></h4>\n<p>classic-o/nova-media-library: ^1.0,</p>\n<p>darkaonline/l5-swagger: ^8.0,</p>\n<p>digitalcloud/multilingual-nova: ^2.0,</p>\n<p>drobee/nova-sluggable: ^1.2,</p>\n<p>fideloper/proxy: ^4.4,</p>\n<p>fruitcake/laravel-cors: ^2.0,</p>\n<p>guzzlehttp/guzzle: ^7.0.1,</p>\n<p>laravel/framework: ^8.12,</p>\n<p>laravel/nova: 3.19.1,</p>\n<p>laravel/tinker: ^2.5,</p>\n<p>optimistdigital/nova-sortable: ^2.1,</p>\n<p>whitecube/nova-flexible-content: ^0.2.7</p>\n",
-        "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "email": "@"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
-        "version": "1.0.0"
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Swagger MaxMoah",
+    "description": "MaxMoah API\n<h4><strong>После загрузки проекта:</strong></h4>\n<p>Настроить .env</p>\n<p>composer update</p>\n<p>php artisan key:generate</p>\n<p>php artisan migrate</p>\n<p>php artisan storage:link</p>\n<h4><strong>версия PHP: 7.4.16</strong></h4>\n<h4><strong>версия MySQL: 8.0.23-0ubuntu0.20.04.1</strong></h4>\n<h4><strong>Использованные пакеты:</strong></h4>\n<p>classic-o/nova-media-library: ^1.0,</p>\n<p>darkaonline/l5-swagger: ^8.0,</p>\n<p>digitalcloud/multilingual-nova: ^2.0,</p>\n<p>drobee/nova-sluggable: ^1.2,</p>\n<p>fideloper/proxy: ^4.4,</p>\n<p>fruitcake/laravel-cors: ^2.0,</p>\n<p>guzzlehttp/guzzle: ^7.0.1,</p>\n<p>laravel/framework: ^8.12,</p>\n<p>laravel/nova: 3.19.1,</p>\n<p>laravel/tinker: ^2.5,</p>\n<p>optimistdigital/nova-sortable: ^2.1,</p>\n<p>whitecube/nova-flexible-content: ^0.2.7</p>\n",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "@"
     },
-    "paths": {
-        "/api/about": {
-            "get": {
-                "tags": [
-                    "About"
-                ],
-                "summary": "Create an about",
-                "description": "Send data for creating an about",
-                "operationId": "55f3e682289cac9d8f4cc43f9a118d28",
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "status": {
-                                            "type": "string",
-                                            "example": "success"
-                                        },
-                                        "data": {
-                                            "properties": {
-                                                "": {
-                                                    "properties": {
-                                                        "layout": {
-                                                            "type": "string",
-                                                            "example": "atelier"
-                                                        },
-                                                        "key": {
-                                                            "type": "string",
-                                                            "example": "HRJJ9V3VhJrgU2ko"
-                                                        },
-                                                        "attributes": {
-                                                            "properties": {
-                                                                "image": {
-                                                                    "type": "string",
-                                                                    "example": "/storage/Image.jpg"
-                                                                },
-                                                                "title": {
-                                                                    "type": "string",
-                                                                    "example": "title"
-                                                                },
-                                                                "description": {
-                                                                    "type": "string",
-                                                                    "example": "description"
-                                                                },
-                                                                "bg_image": {
-                                                                    "type": "string",
-                                                                    "example": "/storage/Image.jpg"
-                                                                }
-                                                            },
-                                                            "type": "object"
-                                                        }
-                                                    },
-                                                    "type": "object"
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/about": {
+      "get": {
+        "tags": [
+          "About"
+        ],
+        "summary": "Create an about",
+        "description": "Send data for creating an about",
+        "operationId": "55f3e682289cac9d8f4cc43f9a118d28",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "data": {
+                      "properties": {
+                        "": {
+                          "properties": {
+                            "layout": {
+                              "type": "string",
+                              "example": "atelier"
+                            },
+                            "key": {
+                              "type": "string",
+                              "example": "HRJJ9V3VhJrgU2ko"
+                            },
+                            "attributes": {
+                              "properties": {
+                                "image": {
+                                  "type": "string",
+                                  "example": "/storage/Image.jpg"
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "example": "title"
+                                },
+                                "description": {
+                                  "type": "string",
+                                  "example": "description"
+                                },
+                                "bg_image": {
+                                  "type": "string",
+                                  "example": "/storage/Image.jpg"
                                 }
+                              },
+                              "type": "object"
                             }
+                          },
+                          "type": "object"
                         }
+                      },
+                      "type": "object"
                     }
+                  },
+                  "type": "object"
                 }
+              }
             }
+          }
         }
-    },
-    "security": [
-        []
-    ]
+      },
+      "parameters": []
+    }
+  },
+  "security": [
+    []
+  ],
+  "servers": [
+    {
+      "url": "https://maxmoah.dev/api",
+      "description": ""
+    }
+  ]
 }

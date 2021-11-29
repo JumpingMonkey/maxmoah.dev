@@ -20,7 +20,7 @@ class PopupsController extends Controller
     public function eventRegistrationPopupSend(EventRegistration $request){
 
 
-        $postData = $request->input();
+        $postData = $request->post();
 
         $newClientMessage = new EventRegistrationMessage($postData);
         $newClientMessage->save();
@@ -35,7 +35,7 @@ class PopupsController extends Controller
     public function makeRequestPopupSend(MakeRequest $request){
 
 
-        $postData = $request->input();
+        $postData = $request->post();
 
         $newClientMessage = new MakeRequestMessage($postData);
         $newClientMessage->save();
@@ -50,7 +50,7 @@ class PopupsController extends Controller
     public function onlineAppointmentPopupSend(OnlineAppointment $request){
 
 
-        $postData = $request->input();
+        $postData = $request->post();
 
         $newClientMessage = new OnlineApointmentMessage($postData);
         $newClientMessage->save();
@@ -65,7 +65,7 @@ class PopupsController extends Controller
     public function privatAppointmentPopupSend(PrivatAppointment $request){
 
 
-        $postData = $request->input();
+        $postData = $request->post();
 
         $newClientMessage = new PrivatAppointmentMessage($postData);
         $newClientMessage->save();
@@ -80,7 +80,7 @@ class PopupsController extends Controller
     public function trunkShowPopupSend(TrunkShow $request){
 
 
-        $postData = $request->input();
+        $postData = $request->post();
 
         $newClientMessage = new TrunkShowMessage($postData);
         $newClientMessage->save();
