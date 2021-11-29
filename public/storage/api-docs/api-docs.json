@@ -1,0 +1,4717 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Swagger MaxMoah",
+    "description": "MaxMoah API\n<h4><strong>После загрузки проекта:</strong></h4>\n<p>Настроить .env</p>\n<p>composer update</p>\n<p>php artisan key:generate</p>\n<p>php artisan migrate</p>\n<p>php artisan storage:link</p>\n<h4><strong>версия PHP: 7.4.16</strong></h4>\n<h4><strong>версия MySQL: 8.0.23-0ubuntu0.20.04.1</strong></h4>\n<h4><strong>Использованные пакеты:</strong></h4>\n<p>classic-o/nova-media-library: ^1.0,</p>\n<p>darkaonline/l5-swagger: ^8.0,</p>\n<p>digitalcloud/multilingual-nova: ^2.0,</p>\n<p>drobee/nova-sluggable: ^1.2,</p>\n<p>fideloper/proxy: ^4.4,</p>\n<p>fruitcake/laravel-cors: ^2.0,</p>\n<p>guzzlehttp/guzzle: ^7.0.1,</p>\n<p>laravel/framework: ^8.12,</p>\n<p>laravel/nova: 3.19.1,</p>\n<p>laravel/tinker: ^2.5,</p>\n<p>optimistdigital/nova-sortable: ^2.1,</p>\n<p>whitecube/nova-flexible-content: ^0.2.7</p>\n",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "@"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/about": {
+      "get": {
+        "summary": "Create an about",
+        "description": "Send data for creating an about",
+        "operationId": "55f3e682289cac9d8f4cc43f9a118d28",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "data": {
+                      "properties": {
+                        "": {
+                          "properties": {
+                            "layout": {
+                              "type": "string",
+                              "example": "atelier"
+                            },
+                            "key": {
+                              "type": "string",
+                              "example": "HRJJ9V3VhJrgU2ko"
+                            },
+                            "attributes": {
+                              "properties": {
+                                "image": {
+                                  "type": "string",
+                                  "example": "/storage/Image.jpg"
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "example": "title"
+                                },
+                                "description": {
+                                  "type": "string",
+                                  "example": "description"
+                                },
+                                "bg_image": {
+                                  "type": "string",
+                                  "example": "/storage/Image.jpg"
+                                }
+                              },
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1",
+                        "content": {
+                          "0 : atelier": {
+                            "title": "1",
+                            "description": "<p>1</p>\n",
+                            "atelier_image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            },
+                            "atelier_bg_image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          },
+                          "1 : mission": {
+                            "title": "1",
+                            "description": "<p>1</p>\n",
+                            "mission_bg_image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          },
+                          "2 : society": {
+                            "title": "1",
+                            "description": "<p>1</p>\n",
+                            "title_and_image": [
+                              {
+                                "title": "1",
+                                "image": {
+                                  "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                                  "image_alt": "1",
+                                  "image_title": "1"
+                                }
+                              },
+                              {
+                                "title": "1",
+                                "image": {
+                                  "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                                  "image_alt": "1",
+                                  "image_title": "1"
+                                }
+                              },
+                              {
+                                "title": "1",
+                                "image": {
+                                  "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                                  "image_alt": "1",
+                                  "image_title": "1"
+                                }
+                              }
+                            ],
+                            "society_bg_image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          },
+                          "3 : enviroment": {
+                            "title": "1",
+                            "description": "<p>1</p>\n",
+                            "title_and_image": [
+                              {
+                                "title": "1",
+                                "image": {
+                                  "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                                  "image_alt": "1",
+                                  "image_title": "1"
+                                }
+                              },
+                              {
+                                "title": "1",
+                                "image": {
+                                  "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                                  "image_alt": "1",
+                                  "image_title": "1"
+                                }
+                              }
+                            ],
+                            "enviroment_image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            },
+                            "enviroment_bg_image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "tags": [
+          "Pages"
+        ]
+      },
+      "parameters": []
+    },
+    "/where": {
+      "get": {
+        "summary": "GET where page",
+        "tags": [
+          "Pages"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1",
+                        "title": "1",
+                        "description": "<p>1</p>",
+                        "variants": {
+                          "0 : variant": {
+                            "title": "1",
+                            "button": {
+                              "0 : action_button": "1"
+                            },
+                            "description": "<p>1</p>\n"
+                          },
+                          "1 : upcoming_events": {
+                            "title": "1",
+                            "events": {
+                              "0 : event": {
+                                "to": "1",
+                                "city": "1",
+                                "from": "1"
+                              },
+                              "1 : event": {
+                                "to": "1",
+                                "city": "1",
+                                "from": "1"
+                              }
+                            }
+                          },
+                          "2 : variant": {
+                            "title": "1",
+                            "button": {
+                              "0 : action_button": "1"
+                            },
+                            "description": "<p>1</p>\n"
+                          }
+                        },
+                        "stores_list": {
+                          "0 : store": {
+                            "store_title": "1",
+                            "store_city_and_country": "1",
+                            "store_address": "1",
+                            "work_time": "1"
+                          },
+                          "1 : store": {
+                            "store_title": "1",
+                            "store_city_and_country": "1",
+                            "store_address": "1",
+                            "work_time": "1"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "meta_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "meta_description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "key_words": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "variants": {
+                          "type": "object",
+                          "properties": {
+                            "0 : variant": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "button": {
+                                  "type": "object",
+                                  "properties": {
+                                    "0 : action_button": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                },
+                                "description": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "1 : upcoming_events": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "events": {
+                                  "type": "object",
+                                  "properties": {
+                                    "0 : event": {
+                                      "type": "object",
+                                      "required": [
+                                        "to",
+                                        "city",
+                                        "from"
+                                      ],
+                                      "properties": {
+                                        "to": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "city": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "from": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      }
+                                    },
+                                    "1 : event": {
+                                      "type": "object",
+                                      "required": [
+                                        "to",
+                                        "city",
+                                        "from"
+                                      ],
+                                      "properties": {
+                                        "to": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "city": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "from": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "2 : variant": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "button": {
+                                  "type": "object",
+                                  "properties": {
+                                    "0 : action_button": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                },
+                                "description": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "stores_list": {
+                          "type": "object",
+                          "properties": {
+                            "0 : store": {
+                              "type": "object",
+                              "properties": {
+                                "store_title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "store_city_and_country": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "store_address": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "work_time": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "1 : store": {
+                              "type": "object",
+                              "properties": {
+                                "store_title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "store_city_and_country": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "store_address": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "work_time": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1",
+                        "title": "1",
+                        "description": "<p>1</p>",
+                        "variants": {
+                          "0 : variant": {
+                            "title": "1",
+                            "button": {
+                              "0 : action_button": "1"
+                            },
+                            "description": "<p>1</p>\n"
+                          },
+                          "1 : upcoming_events": {
+                            "title": "1",
+                            "events": {
+                              "0 : event": {
+                                "to": "1",
+                                "city": "1",
+                                "from": "1"
+                              },
+                              "1 : event": {
+                                "to": "1",
+                                "city": "1",
+                                "from": "1"
+                              }
+                            }
+                          },
+                          "2 : variant": {
+                            "title": "1",
+                            "button": {
+                              "0 : action_button": "1"
+                            },
+                            "description": "<p>1</p>\n"
+                          }
+                        },
+                        "stores_list": {
+                          "0 : store": {
+                            "store_title": "1",
+                            "store_city_and_country": "1",
+                            "store_address": "1",
+                            "work_time": "1"
+                          },
+                          "1 : store": {
+                            "store_title": "1",
+                            "store_city_and_country": "1",
+                            "store_address": "1",
+                            "work_time": "1"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-where",
+        "description": ""
+      }
+    },
+    "/contact": {
+      "get": {
+        "summary": "GET contact page",
+        "tags": [
+          "Pages"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1",
+                        "subject_field": {
+                          "0 subj_title": "1",
+                          "1 subj_title": "1",
+                          "2 subj_title": "1"
+                        },
+                        "button_title": "1",
+                        "phone_number": "1",
+                        "email_for_press_inquires": "1",
+                        "email_general": "1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "meta_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "meta_description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "key_words": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "subject_field": {
+                          "type": "object",
+                          "properties": {
+                            "0 subj_title": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "1 subj_title": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "2 subj_title": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        },
+                        "button_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "phone_number": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "email_for_press_inquires": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "email_general": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1",
+                        "subject_field": {
+                          "0 subj_title": "1",
+                          "1 subj_title": "1",
+                          "2 subj_title": "1"
+                        },
+                        "button_title": "1",
+                        "phone_number": "1",
+                        "email_for_press_inquires": "1",
+                        "email_general": "1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-contact",
+        "description": ""
+      },
+      "parameters": []
+    },
+    "/customer_service": {
+      "get": {
+        "summary": "GET customer service page",
+        "tags": [
+          "Pages"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "sidebar_title": "1",
+                        "need_help_title": "1",
+                        "email": "1",
+                        "tel": "1",
+                        "services": {
+                          "0 : imprint": {
+                            "tel": "1",
+                            "email": "1",
+                            "gesch": "1",
+                            "title": "1",
+                            "address": "<p>1</p>\n",
+                            "long_text": "<p>1</p>\n"
+                          },
+                          "1 : faq": {
+                            "title": "1",
+                            "questions": {
+                              "0 : question_answer": {
+                                "answer": "<p>1</p>\n",
+                                "question": "1"
+                              },
+                              "1 : question_answer": {
+                                "answer": "<p>1</p>\n",
+                                "question": "1"
+                              },
+                              "2 : question_answer": {
+                                "answer": "<p>1</p>\n",
+                                "question": "1"
+                              }
+                            }
+                          },
+                          "2 : terms_and_conditions": {
+                            "title": "1",
+                            "content": "<p>1</p>\n"
+                          },
+                          "3 : privacy_policy": {
+                            "title": "1",
+                            "content": "<p>1</p>\n"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "sidebar_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "need_help_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "email": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "tel": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "services": {
+                          "type": "object",
+                          "properties": {
+                            "0 : imprint": {
+                              "type": "object",
+                              "properties": {
+                                "tel": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "email": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "gesch": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "address": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "long_text": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "1 : faq": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "questions": {
+                                  "type": "object",
+                                  "properties": {
+                                    "0 : question_answer": {
+                                      "type": "object",
+                                      "required": [
+                                        "answer",
+                                        "question"
+                                      ],
+                                      "properties": {
+                                        "answer": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "question": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      }
+                                    },
+                                    "1 : question_answer": {
+                                      "type": "object",
+                                      "required": [
+                                        "answer",
+                                        "question"
+                                      ],
+                                      "properties": {
+                                        "answer": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "question": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      }
+                                    },
+                                    "2 : question_answer": {
+                                      "type": "object",
+                                      "required": [
+                                        "answer",
+                                        "question"
+                                      ],
+                                      "properties": {
+                                        "answer": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "question": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "2 : terms_and_conditions": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "content": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "3 : privacy_policy": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "content": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "sidebar_title": "1",
+                        "need_help_title": "1",
+                        "email": "1",
+                        "tel": "1",
+                        "services": {
+                          "0 : imprint": {
+                            "tel": "1",
+                            "email": "1",
+                            "gesch": "1",
+                            "title": "1",
+                            "address": "<p>1</p>\n",
+                            "long_text": "<p>1</p>\n"
+                          },
+                          "1 : faq": {
+                            "title": "1",
+                            "questions": {
+                              "0 : question_answer": {
+                                "answer": "<p>1</p>\n",
+                                "question": "1"
+                              },
+                              "1 : question_answer": {
+                                "answer": "<p>1</p>\n",
+                                "question": "1"
+                              },
+                              "2 : question_answer": {
+                                "answer": "<p>1</p>\n",
+                                "question": "1"
+                              }
+                            }
+                          },
+                          "2 : terms_and_conditions": {
+                            "title": "1",
+                            "content": "<p>1</p>\n"
+                          },
+                          "3 : privacy_policy": {
+                            "title": "1",
+                            "content": "<p>1</p>\n"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-custom-service",
+        "description": ""
+      },
+      "parameters": []
+    },
+    "/career": {
+      "get": {
+        "summary": "GET career page",
+        "tags": [
+          "Pages"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "title": "1",
+                        "description": "1",
+                        "vacancies": [
+                          {
+                            "requirement": "<p>1</p>\n",
+                            "button_title": "1",
+                            "vacancy_title": "1",
+                            "introduce_yourself": "1"
+                          },
+                          {
+                            "requirement": "<p>1</p>\n",
+                            "button_title": "1",
+                            "vacancy_title": "1",
+                            "introduce_yourself": "1"
+                          }
+                        ],
+                        "bottom_description": "1",
+                        "first_bottom_field": "1",
+                        "second_bottom_field": "1",
+                        "third_bottom_field": "1",
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "vacancies": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "requirement": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "button_title": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "vacancy_title": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "introduce_yourself": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        },
+                        "bottom_description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "first_bottom_field": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "second_bottom_field": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "third_bottom_field": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "meta_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "meta_description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "key_words": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "title": "1",
+                        "description": "1",
+                        "vacancies": [
+                          {
+                            "requirement": "<p>1</p>\n",
+                            "button_title": "1",
+                            "vacancy_title": "1",
+                            "introduce_yourself": "1"
+                          },
+                          {
+                            "requirement": "<p>1</p>\n",
+                            "button_title": "1",
+                            "vacancy_title": "1",
+                            "introduce_yourself": "1"
+                          }
+                        ],
+                        "bottom_description": "1",
+                        "first_bottom_field": "1",
+                        "second_bottom_field": "1",
+                        "third_bottom_field": "1",
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-career",
+        "description": ""
+      },
+      "parameters": []
+    },
+    "/main": {
+      "get": {
+        "summary": "GET career page",
+        "tags": [
+          "Pages"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1",
+                        "hero_bg_image": [
+                          {
+                            "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                            "image_alt": "1",
+                            "image_title": "1"
+                          }
+                        ],
+                        "hero_title": "1",
+                        "hero_description": "1",
+                        "hero_btn_title": "1",
+                        "display_categories": [
+                          {
+                            "category_name": "asdad",
+                            "category_slug": "beauty"
+                          },
+                          {
+                            "category_name": "affewfre",
+                            "category_slug": "bag"
+                          }
+                        ],
+                        "display_pages": [
+                          {
+                            "page_name": "rrrr",
+                            "page_slug": "/about"
+                          },
+                          {
+                            "page_name": "reeee",
+                            "page_slug": "/where"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "meta_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "meta_description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "key_words": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "hero_bg_image": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "image": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "image_alt": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "image_title": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        },
+                        "hero_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "hero_description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "hero_btn_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "display_categories": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "category_name": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "category_slug": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        },
+                        "display_pages": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "page_name": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "page_slug": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1",
+                        "hero_bg_image": [
+                          {
+                            "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                            "image_alt": "1",
+                            "image_title": "1"
+                          }
+                        ],
+                        "hero_title": "1",
+                        "hero_description": "1",
+                        "hero_btn_title": "1",
+                        "display_categories": [
+                          {
+                            "category_name": "asdad",
+                            "category_slug": "beauty"
+                          },
+                          {
+                            "category_name": "affewfre",
+                            "category_slug": "bag"
+                          }
+                        ],
+                        "display_pages": [
+                          {
+                            "page_name": "rrrr",
+                            "page_slug": "/about"
+                          },
+                          {
+                            "page_name": "reeee",
+                            "page_slug": "/where"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-main",
+        "description": ""
+      },
+      "parameters": []
+    },
+    "/full_collection": {
+      "get": {
+        "summary": "GET full collection",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1",
+                        "title": "1",
+                        "description": "1",
+                        "message_if_no_items": "1",
+                        "form_title": "1",
+                        "email_field_title": "1",
+                        "privacy_policy_text": "1",
+                        "privacy_policy_link_text": "1",
+                        "filter": {
+                          "prod_category_filter_title": "1",
+                          "sort_title": "1",
+                          "price_highest_label": "1",
+                          "price_lowest_label": "1",
+                          "newest_label": "1",
+                          "category_filters": [
+                            {
+                              "category_title": "Beauty",
+                              "category_slug": "beauty"
+                            },
+                            {
+                              "category_title": "Bag",
+                              "category_slug": "bag"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "meta_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "meta_description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "key_words": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "message_if_no_items": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "form_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "email_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "privacy_policy_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "privacy_policy_link_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "filter": {
+                          "type": "object",
+                          "properties": {
+                            "prod_category_filter_title": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "sort_title": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "price_highest_label": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "price_lowest_label": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "newest_label": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "category_filters": {
+                              "type": "array",
+                              "uniqueItems": true,
+                              "minItems": 1,
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "category_title": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "category_slug": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1",
+                        "hero_bg_image": [
+                          {
+                            "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                            "image_alt": "1",
+                            "image_title": "1"
+                          }
+                        ],
+                        "hero_title": "1",
+                        "hero_description": "1",
+                        "hero_btn_title": "1",
+                        "display_categories": [
+                          {
+                            "category_name": "asdad",
+                            "category_slug": "beauty"
+                          },
+                          {
+                            "category_name": "affewfre",
+                            "category_slug": "bag"
+                          }
+                        ],
+                        "display_pages": [
+                          {
+                            "page_name": "rrrr",
+                            "page_slug": "/about"
+                          },
+                          {
+                            "page_name": "reeee",
+                            "page_slug": "/where"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-full-collection",
+        "description": "",
+        "tags": [
+          "Product"
+        ]
+      },
+      "parameters": []
+    },
+    "/product_available": {
+      "get": {
+        "summary": "GET product_available page",
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1",
+                        "title": "1",
+                        "description": "1",
+                        "message_if_no_items": "1",
+                        "form_title": "1",
+                        "email_field_title": "1",
+                        "privacy_policy_text": "1",
+                        "privacy_policy_link_text": "1",
+                        "filter": {
+                          "prod_category_filter_title": "1",
+                          "sort_title": "1",
+                          "price_highest_label": "1",
+                          "price_lowest_label": "1",
+                          "newest_label": "1",
+                          "category_filters": [
+                            {
+                              "category_title": "Beauty",
+                              "category_slug": "beauty"
+                            },
+                            {
+                              "category_title": "Bag",
+                              "category_slug": "bag"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "meta_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "meta_description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "key_words": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "message_if_no_items": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "form_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "email_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "privacy_policy_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "privacy_policy_link_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "filter": {
+                          "type": "object",
+                          "properties": {
+                            "prod_category_filter_title": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "sort_title": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "price_highest_label": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "price_lowest_label": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "newest_label": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "category_filters": {
+                              "type": "array",
+                              "uniqueItems": true,
+                              "minItems": 1,
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "category_title": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "category_slug": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1",
+                        "title": "1",
+                        "description": "1",
+                        "message_if_no_items": "1",
+                        "form_title": "1",
+                        "email_field_title": "1",
+                        "privacy_policy_text": "1",
+                        "privacy_policy_link_text": "1",
+                        "filter": {
+                          "prod_category_filter_title": "1",
+                          "sort_title": "1",
+                          "price_highest_label": "1",
+                          "price_lowest_label": "1",
+                          "newest_label": "1",
+                          "category_filters": [
+                            {
+                              "category_title": "Beauty",
+                              "category_slug": "beauty"
+                            },
+                            {
+                              "category_title": "Bag",
+                              "category_slug": "bag"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-product-available",
+        "description": ""
+      },
+      "parameters": []
+    },
+    "/parts": {
+      "get": {
+        "summary": "GET parts",
+        "tags": [
+          "Parts"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "header": {
+                        "site_name": "dsfg",
+                        "menu_name": "gf",
+                        "make_appointment": "fsg",
+                        "burger_close_btn_label": "sdfgsdg",
+                        "header_navigation": [
+                          {
+                            "link": "/main",
+                            "name": "sadsdfg"
+                          },
+                          {
+                            "link": "/full_collection",
+                            "name": "sdfsdf"
+                          },
+                          {
+                            "link": "/category/beauty",
+                            "name": "sdfsdf"
+                          },
+                          {
+                            "link": "/category/jewelry",
+                            "name": "sdfsdf"
+                          }
+                        ],
+                        "sub_header_navigation": [
+                          {
+                            "link": "/about",
+                            "name": "sdfgsdf"
+                          },
+                          {
+                            "link": "/customer_service/#faq",
+                            "name": "sdfg"
+                          }
+                        ]
+                      },
+                      "footer": {
+                        "full_collection_btn_text": "1",
+                        "soc_net_btn_text": "1",
+                        "soc_networks": [
+                          {
+                            "link": "1",
+                            "soc_net_title": "1"
+                          },
+                          {
+                            "link": "1",
+                            "soc_net_title": "1"
+                          },
+                          {
+                            "link": "1",
+                            "soc_net_title": "1"
+                          }
+                        ],
+                        "large_footer": [
+                          {
+                            "block_items": [
+                              {
+                                "link": "/category/beauty",
+                                "item_name": "sdfgsdfg"
+                              },
+                              {
+                                "link": "/category/jewelry",
+                                "item_name": "sdfgsf"
+                              },
+                              {
+                                "link": "/category/bags",
+                                "item_name": "sdfgsf"
+                              }
+                            ],
+                            "block_title": "sdfgsdfg"
+                          },
+                          {
+                            "block_items": [
+                              {
+                                "link": "/about",
+                                "item_name": "sdfgsdfg"
+                              },
+                              {
+                                "link": "/career",
+                                "item_name": "sdfgsdfg"
+                              },
+                              {
+                                "link": "/where",
+                                "item_name": "sdfg"
+                              }
+                            ],
+                            "block_title": "sdfgsdfg"
+                          },
+                          {
+                            "block_items": [
+                              {
+                                "link": "/customer_service/#faq",
+                                "item_name": "asdfad"
+                              },
+                              {
+                                "link": "/customer_service/#imprint",
+                                "item_name": "asdfasdf"
+                              },
+                              {
+                                "link": "/customer_service/#terms_and_conditions",
+                                "item_name": "asdfadsf"
+                              }
+                            ],
+                            "block_title": "aasdfasd"
+                          },
+                          {
+                            "block_items": [
+                              {
+                                "link": "asdfasdf",
+                                "item_name": "asdfasdf"
+                              },
+                              {
+                                "link": "asdfasdf",
+                                "item_name": "asdfasdf"
+                              }
+                            ],
+                            "block_title": "sdfasdf"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "header": {
+                      "type": "object",
+                      "properties": {
+                        "site_name": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "menu_name": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "make_appointment": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "burger_close_btn_label": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "header_navigation": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "link": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "name": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        },
+                        "sub_header_navigation": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "link": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "name": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "footer": {
+                      "type": "object",
+                      "properties": {
+                        "full_collection_btn_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "soc_net_btn_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "soc_networks": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "link": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "soc_net_title": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        },
+                        "large_footer": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "block_items": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "minItems": 1,
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "link": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "item_name": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  },
+                                  "required": [
+                                    "link",
+                                    "item_name"
+                                  ]
+                                }
+                              },
+                              "block_title": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "header": {
+                        "site_name": "dsfg",
+                        "menu_name": "gf",
+                        "make_appointment": "fsg",
+                        "burger_close_btn_label": "sdfgsdg",
+                        "header_navigation": [
+                          {
+                            "link": "/main",
+                            "name": "sadsdfg"
+                          },
+                          {
+                            "link": "/full_collection",
+                            "name": "sdfsdf"
+                          },
+                          {
+                            "link": "/category/beauty",
+                            "name": "sdfsdf"
+                          },
+                          {
+                            "link": "/category/jewelry",
+                            "name": "sdfsdf"
+                          }
+                        ],
+                        "sub_header_navigation": [
+                          {
+                            "link": "/about",
+                            "name": "sdfgsdf"
+                          },
+                          {
+                            "link": "/customer_service/#faq",
+                            "name": "sdfg"
+                          }
+                        ]
+                      },
+                      "footer": {
+                        "full_collection_btn_text": "1",
+                        "soc_net_btn_text": "1",
+                        "soc_networks": [
+                          {
+                            "link": "1",
+                            "soc_net_title": "1"
+                          },
+                          {
+                            "link": "1",
+                            "soc_net_title": "1"
+                          },
+                          {
+                            "link": "1",
+                            "soc_net_title": "1"
+                          }
+                        ],
+                        "large_footer": [
+                          {
+                            "block_items": [
+                              {
+                                "link": "/category/beauty",
+                                "item_name": "sdfgsdfg"
+                              },
+                              {
+                                "link": "/category/jewelry",
+                                "item_name": "sdfgsf"
+                              },
+                              {
+                                "link": "/category/bags",
+                                "item_name": "sdfgsf"
+                              }
+                            ],
+                            "block_title": "sdfgsdfg"
+                          },
+                          {
+                            "block_items": [
+                              {
+                                "link": "/about",
+                                "item_name": "sdfgsdfg"
+                              },
+                              {
+                                "link": "/career",
+                                "item_name": "sdfgsdfg"
+                              },
+                              {
+                                "link": "/where",
+                                "item_name": "sdfg"
+                              }
+                            ],
+                            "block_title": "sdfgsdfg"
+                          },
+                          {
+                            "block_items": [
+                              {
+                                "link": "/customer_service/#faq",
+                                "item_name": "asdfad"
+                              },
+                              {
+                                "link": "/customer_service/#imprint",
+                                "item_name": "asdfasdf"
+                              },
+                              {
+                                "link": "/customer_service/#terms_and_conditions",
+                                "item_name": "asdfadsf"
+                              }
+                            ],
+                            "block_title": "aasdfasd"
+                          },
+                          {
+                            "block_items": [
+                              {
+                                "link": "asdfasdf",
+                                "item_name": "asdfasdf"
+                              },
+                              {
+                                "link": "asdfasdf",
+                                "item_name": "asdfasdf"
+                              }
+                            ],
+                            "block_title": "sdfasdf"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-parts",
+        "description": ""
+      },
+      "parameters": []
+    },
+    "/categories": {
+      "get": {
+        "summary": "GET categories list",
+        "tags": [
+          "Categories"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": [
+                        {
+                          "category_title": "Beauty",
+                          "category_slug": "beauty"
+                        },
+                        {
+                          "category_title": "Bag",
+                          "category_slug": "bag"
+                        }
+                      ]
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "category_title": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "category_slug": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": [
+                        {
+                          "category_title": "Beauty",
+                          "category_slug": "beauty"
+                        },
+                        {
+                          "category_title": "Bag",
+                          "category_slug": "bag"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-categories",
+        "description": ""
+      },
+      "parameters": []
+    },
+    "/categories/{slug}": {
+      "get": {
+        "summary": "GET one category",
+        "tags": [
+          "Categories"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1",
+                        "category_title": "Beauty",
+                        "category_slug": "beauty",
+                        "content": {
+                          "1_title_text": {
+                            "desc": "<div>1</div>",
+                            "title": "1"
+                          },
+                          "2_vert_img": {
+                            "image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          },
+                          "3_video": {
+                            "image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          },
+                          "4_Image_title_description": {
+                            "desc": "1",
+                            "image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            },
+                            "title": "1"
+                          },
+                          "5_horizon_img": {
+                            "image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          },
+                          "6_products": {
+                            "title": "1",
+                            "product": [
+                              {
+                                "image": {
+                                  "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                                  "image_alt": "1",
+                                  "image_title": "1"
+                                },
+                                "prod_link": "1",
+                                "prod_name": "1",
+                                "category_name": "1"
+                              },
+                              {
+                                "image": {
+                                  "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                                  "image_alt": "1",
+                                  "image_title": "1"
+                                },
+                                "prod_link": "1",
+                                "prod_name": "1",
+                                "category_name": "1"
+                              }
+                            ]
+                          },
+                          "7_prod_from_category": []
+                        }
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "meta_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "meta_description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "key_words": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "category_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "category_slug": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "content": {
+                          "type": "object",
+                          "properties": {
+                            "1_title_text": {
+                              "type": "object",
+                              "properties": {
+                                "desc": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "2_vert_img": {
+                              "type": "object",
+                              "properties": {
+                                "image": {
+                                  "type": "object",
+                                  "properties": {
+                                    "image": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "image_alt": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "image_title": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "3_video": {
+                              "type": "object",
+                              "properties": {
+                                "image": {
+                                  "type": "object",
+                                  "properties": {
+                                    "image": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "image_alt": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "image_title": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "4_Image_title_description": {
+                              "type": "object",
+                              "properties": {
+                                "desc": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "image": {
+                                  "type": "object",
+                                  "properties": {
+                                    "image": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "image_alt": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "image_title": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "5_horizon_img": {
+                              "type": "object",
+                              "properties": {
+                                "image": {
+                                  "type": "object",
+                                  "properties": {
+                                    "image": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "image_alt": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "image_title": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "6_products": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "product": {
+                                  "type": "array",
+                                  "uniqueItems": true,
+                                  "minItems": 1,
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "image": {
+                                        "type": "object",
+                                        "properties": {
+                                          "image": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          },
+                                          "image_alt": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          },
+                                          "image_title": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          }
+                                        },
+                                        "required": [
+                                          "image",
+                                          "image_alt",
+                                          "image_title"
+                                        ]
+                                      },
+                                      "prod_link": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "prod_name": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "category_name": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      }
+                                    },
+                                    "required": [
+                                      "prod_link",
+                                      "prod_name",
+                                      "category_name"
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "7_prod_from_category": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1",
+                        "category_title": "Beauty",
+                        "category_slug": "beauty",
+                        "content": {
+                          "1_title_text": {
+                            "desc": "<div>1</div>",
+                            "title": "1"
+                          },
+                          "2_vert_img": {
+                            "image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          },
+                          "3_video": {
+                            "image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          },
+                          "4_Image_title_description": {
+                            "desc": "1",
+                            "image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            },
+                            "title": "1"
+                          },
+                          "5_horizon_img": {
+                            "image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          },
+                          "6_products": {
+                            "title": "1",
+                            "product": [
+                              {
+                                "image": {
+                                  "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                                  "image_alt": "1",
+                                  "image_title": "1"
+                                },
+                                "prod_link": "1",
+                                "prod_name": "1",
+                                "category_name": "1"
+                              },
+                              {
+                                "image": {
+                                  "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                                  "image_alt": "1",
+                                  "image_title": "1"
+                                },
+                                "prod_link": "1",
+                                "prod_name": "1",
+                                "category_name": "1"
+                              }
+                            ]
+                          },
+                          "7_prod_from_category": []
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-one_category",
+        "description": ""
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "slug",
+          "in": "path",
+          "required": true
+        }
+      ]
+    },
+    "/products": {
+      "get": {
+        "summary": "GET product list",
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": [
+                        {
+                          "prod_slug": "1",
+                          "prod_title": "1",
+                          "prod_photo": [
+                            {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          ],
+                          "prod_price": "Price on request",
+                          "prod_tag": "Tag 1"
+                        },
+                        {
+                          "prod_slug": "2",
+                          "prod_title": "2",
+                          "prod_photo": [
+                            {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "2",
+                              "image_title": "2"
+                            }
+                          ],
+                          "prod_price": "Price on request",
+                          "prod_tag": "Tag 1"
+                        }
+                      ]
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "prod_slug": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "prod_title": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "prod_photo": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "image": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "image_alt": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "image_title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            }
+                          },
+                          "prod_price": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "prod_tag": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "1",
+                        "meta_description": "1",
+                        "key_words": "1",
+                        "category_title": "Beauty",
+                        "category_slug": "beauty",
+                        "content": {
+                          "1_title_text": {
+                            "desc": "<div>1</div>",
+                            "title": "1"
+                          },
+                          "2_vert_img": {
+                            "image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          },
+                          "3_video": {
+                            "image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          },
+                          "4_Image_title_description": {
+                            "desc": "1",
+                            "image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            },
+                            "title": "1"
+                          },
+                          "5_horizon_img": {
+                            "image": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          },
+                          "6_products": {
+                            "title": "1",
+                            "product": [
+                              {
+                                "image": {
+                                  "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                                  "image_alt": "1",
+                                  "image_title": "1"
+                                },
+                                "prod_link": "1",
+                                "prod_name": "1",
+                                "category_name": "1"
+                              },
+                              {
+                                "image": {
+                                  "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                                  "image_alt": "1",
+                                  "image_title": "1"
+                                },
+                                "prod_link": "1",
+                                "prod_name": "1",
+                                "category_name": "1"
+                              }
+                            ]
+                          },
+                          "7_prod_from_category": []
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-product-list",
+        "description": ""
+      },
+      "parameters": []
+    },
+    "/products/available": {
+      "get": {
+        "summary": "GET available product list",
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": [
+                        {
+                          "prod_slug": "1",
+                          "prod_title": "1",
+                          "prod_photo": [
+                            {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          ],
+                          "prod_price": "Price on request",
+                          "prod_tag": "Tag 1"
+                        },
+                        {
+                          "prod_slug": "2",
+                          "prod_title": "2",
+                          "prod_photo": [
+                            {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "2",
+                              "image_title": "2"
+                            }
+                          ],
+                          "prod_price": "Price on request",
+                          "prod_tag": "Tag 1"
+                        }
+                      ]
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "prod_slug": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "prod_title": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "prod_photo": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "image": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "image_alt": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "image_title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            }
+                          },
+                          "prod_price": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "prod_tag": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": [
+                        {
+                          "prod_slug": "1",
+                          "prod_title": "1",
+                          "prod_photo": [
+                            {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "1",
+                              "image_title": "1"
+                            }
+                          ],
+                          "prod_price": "Price on request",
+                          "prod_tag": "Tag 1"
+                        },
+                        {
+                          "prod_slug": "2",
+                          "prod_title": "2",
+                          "prod_photo": [
+                            {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "2",
+                              "image_title": "2"
+                            }
+                          ],
+                          "prod_price": "Price on request",
+                          "prod_tag": "Tag 1"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-available-product-list",
+        "description": ""
+      },
+      "parameters": []
+    },
+    "/products/{slug}": {
+      "get": {
+        "summary": "GET One product",
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "2",
+                        "meta_description": "2",
+                        "key_words": "2",
+                        "zoom_in_btn_title": "2",
+                        "prod_photo": [
+                          {
+                            "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                            "image_alt": "2",
+                            "image_title": "2"
+                          }
+                        ],
+                        "category_id": 6,
+                        "prod_title": "2",
+                        "prod_slug": "2",
+                        "available": "true",
+                        "customize": "false",
+                        "prod_price": "Price on request",
+                        "bg_img_first_screen": [
+                          {
+                            "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                            "image_title": "2",
+                            "image_alt": "2"
+                          }
+                        ],
+                        "content": {
+                          "0_1_title_text": {
+                            "desc": "<p>2</p>\n",
+                            "title": "2"
+                          },
+                          "1_2_img_title_text": {
+                            "img": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "2",
+                              "image_title": "2"
+                            },
+                            "desc": "<p>2</p>\n",
+                            "title": "2"
+                          },
+                          "2_3_twins_block": {
+                            "lt_btn": "2",
+                            "lt_img": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "2",
+                              "image_title": "2"
+                            },
+                            "rt_btn": "2",
+                            "rt_img": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "2",
+                              "image_title": "2"
+                            },
+                            "lt_desc": "<p>2</p>\n",
+                            "rt_desc": "<p>2</p>\n",
+                            "lf_title": "2",
+                            "rt_title": "2"
+                          },
+                          "3_13_prod": [
+                            {
+                              "prod_slug": "1",
+                              "prod_title": "1",
+                              "prod_photo": [
+                                {
+                                  "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                                  "image_alt": "1",
+                                  "image_title": "1"
+                                }
+                              ],
+                              "prod_price": "Price on request",
+                              "prod_tag": "Tag 1"
+                            }
+                          ]
+                        },
+                        "prod_tag": "Tag 1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "meta_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "meta_description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "key_words": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "zoom_in_btn_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "prod_photo": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "image": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "image_alt": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "image_title": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        },
+                        "category_id": {
+                          "type": "number"
+                        },
+                        "prod_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "prod_slug": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "available": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "customize": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "prod_price": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "bg_img_first_screen": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "image": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "image_title": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "image_alt": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        },
+                        "content": {
+                          "type": "object",
+                          "properties": {
+                            "0_1_title_text": {
+                              "type": "object",
+                              "properties": {
+                                "desc": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "1_2_img_title_text": {
+                              "type": "object",
+                              "properties": {
+                                "img": {
+                                  "type": "object",
+                                  "properties": {
+                                    "image": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "image_alt": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "image_title": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                },
+                                "desc": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "2_3_twins_block": {
+                              "type": "object",
+                              "properties": {
+                                "lt_btn": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "lt_img": {
+                                  "type": "object",
+                                  "properties": {
+                                    "image": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "image_alt": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "image_title": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                },
+                                "rt_btn": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "rt_img": {
+                                  "type": "object",
+                                  "properties": {
+                                    "image": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "image_alt": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "image_title": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                },
+                                "lt_desc": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "rt_desc": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "lf_title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "rt_title": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "3_13_prod": {
+                              "type": "array",
+                              "uniqueItems": true,
+                              "minItems": 1,
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "prod_slug": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "prod_title": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "prod_photo": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "image": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "image_alt": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "image_title": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      },
+                                      "required": [
+                                        "image",
+                                        "image_alt",
+                                        "image_title"
+                                      ]
+                                    }
+                                  },
+                                  "prod_price": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "prod_tag": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "prod_tag": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "meta_title": "2",
+                        "meta_description": "2",
+                        "key_words": "2",
+                        "zoom_in_btn_title": "2",
+                        "prod_photo": [
+                          {
+                            "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                            "image_alt": "2",
+                            "image_title": "2"
+                          }
+                        ],
+                        "category_id": 6,
+                        "prod_title": "2",
+                        "prod_slug": "2",
+                        "available": "true",
+                        "customize": "false",
+                        "prod_price": "Price on request",
+                        "bg_img_first_screen": [
+                          {
+                            "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                            "image_title": "2",
+                            "image_alt": "2"
+                          }
+                        ],
+                        "content": {
+                          "0_1_title_text": {
+                            "desc": "<p>2</p>\n",
+                            "title": "2"
+                          },
+                          "1_2_img_title_text": {
+                            "img": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "2",
+                              "image_title": "2"
+                            },
+                            "desc": "<p>2</p>\n",
+                            "title": "2"
+                          },
+                          "2_3_twins_block": {
+                            "lt_btn": "2",
+                            "lt_img": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "2",
+                              "image_title": "2"
+                            },
+                            "rt_btn": "2",
+                            "rt_img": {
+                              "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                              "image_alt": "2",
+                              "image_title": "2"
+                            },
+                            "lt_desc": "<p>2</p>\n",
+                            "rt_desc": "<p>2</p>\n",
+                            "lf_title": "2",
+                            "rt_title": "2"
+                          },
+                          "3_13_prod": [
+                            {
+                              "prod_slug": "1",
+                              "prod_title": "1",
+                              "prod_photo": [
+                                {
+                                  "image": "/storage/screenshot-13-1632137745Dbp0R.png",
+                                  "image_alt": "1",
+                                  "image_title": "1"
+                                }
+                              ],
+                              "prod_price": "Price on request",
+                              "prod_tag": "Tag 1"
+                            }
+                          ]
+                        },
+                        "prod_tag": "Tag 1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-one-product",
+        "description": ""
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "slug",
+          "in": "path",
+          "required": true
+        }
+      ]
+    },
+    "/popup/make_request": {
+      "get": {
+        "summary": "GET make request page",
+        "tags": [
+          "Popups content"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "title": "1",
+                        "description": "1",
+                        "name_field_title": "1",
+                        "subject_variant": [
+                          "1",
+                          "1"
+                        ],
+                        "email_field_title": "1",
+                        "phone_field_title": "1",
+                        "message_field_title": "1",
+                        "privacy_policy_text": "1",
+                        "privacy_policy_link_text": "1",
+                        "button_title": "1",
+                        "close_button_title": "1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "name_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "subject_variant": {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          }
+                        },
+                        "email_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "phone_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "message_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "privacy_policy_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "privacy_policy_link_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "button_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "close_button_title": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "title": "1",
+                        "description": "1",
+                        "name_field_title": "1",
+                        "subject_variant": [
+                          "1",
+                          "1"
+                        ],
+                        "email_field_title": "1",
+                        "phone_field_title": "1",
+                        "message_field_title": "1",
+                        "privacy_policy_text": "1",
+                        "privacy_policy_link_text": "1",
+                        "button_title": "1",
+                        "close_button_title": "1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-make-request",
+        "description": ""
+      },
+      "parameters": [],
+      "post": {
+        "summary": "Post make request popup",
+        "operationId": "post-popup-make_request",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "massage": "Request will be send!"
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "massage": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "massage"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "massage": "Request will be send!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "subject": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "subject",
+                  "email",
+                  "phone",
+                  "message"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "name": "",
+                    "subject": "",
+                    "email": "",
+                    "phone": "",
+                    "message": ""
+                  }
+                }
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "name": "test",
+                    "subject": "test",
+                    "email": "test@trst",
+                    "phone": "23423",
+                    "message": "2sdfgsdfg"
+                  }
+                }
+              }
+            }
+          },
+          "description": "{\n\"message\":\"test\",\n\"subject\":\"test\"\n\"name\":\"test\",\n\"email\":\"test\",\n\"phone\":\"test\"\n}"
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "XMLHttpRequest",
+              "default": "XMLHttpRequest"
+            },
+            "in": "header",
+            "name": "X-Requested-With",
+            "description": "XMLHttpRequest"
+          }
+        ]
+      }
+    },
+    "/popup/event_registration": {
+      "get": {
+        "summary": "GET event registration page",
+        "tags": [
+          "Popups content"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "title": "1",
+                        "description": "1",
+                        "event_variant": [
+                          "1",
+                          "1"
+                        ],
+                        "name_field_title": "1",
+                        "email_field_title": "1",
+                        "phone_field_title": "1",
+                        "privacy_policy_text": "1",
+                        "privacy_policy_link_text": "1",
+                        "button_title": "1",
+                        "close_button_title": "1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "event_variant": {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          }
+                        },
+                        "name_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "email_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "phone_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "privacy_policy_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "privacy_policy_link_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "button_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "close_button_title": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "title": "1",
+                        "description": "1",
+                        "event_variant": [
+                          "1",
+                          "1"
+                        ],
+                        "name_field_title": "1",
+                        "email_field_title": "1",
+                        "phone_field_title": "1",
+                        "privacy_policy_text": "1",
+                        "privacy_policy_link_text": "1",
+                        "button_title": "1",
+                        "close_button_title": "1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-make-request",
+        "description": ""
+      },
+      "parameters": [],
+      "post": {
+        "summary": "Post event registration popup",
+        "operationId": "post-popup-event_registration",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "massage": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "massage"
+                  ],
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "massage": "Request will be send!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Requested-With"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "event": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "email": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "phone": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "event",
+                  "name",
+                  "email",
+                  "phone"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "event": "test",
+                    "name": "test",
+                    "email": "test@test",
+                    "phone": "34234"
+                  }
+                }
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "event": "test",
+                    "name": "test",
+                    "email": "test@test",
+                    "phone": "34234"
+                  }
+                }
+              }
+            }
+          },
+          "description": "{\n\"event\":\"test\",\n\"name\":\"test\", \n\"email\":\"test@test\",\n\"phone\":\"34234\",\n}"
+        }
+      }
+    },
+    "/popup/online_appointment": {
+      "get": {
+        "summary": "GET online appointment page",
+        "tags": [
+          "Popups content"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "title": "1",
+                        "description": "1",
+                        "name_field_title": "1",
+                        "language_field_title": "1",
+                        "language_variant": [
+                          "1",
+                          "1"
+                        ],
+                        "email_field_title": "1",
+                        "phone_field_title": "1",
+                        "calendar_field_title": "1",
+                        "time_field_title": "1",
+                        "privacy_policy_text": "1",
+                        "privacy_policy_link_text": "1",
+                        "button_title": "1",
+                        "close_button_title": "1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "name_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "language_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "language_variant": {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          }
+                        },
+                        "email_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "phone_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "calendar_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "time_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "privacy_policy_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "privacy_policy_link_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "button_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "close_button_title": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "title": "1",
+                        "description": "1",
+                        "name_field_title": "1",
+                        "language_field_title": "1",
+                        "language_variant": [
+                          "1",
+                          "1"
+                        ],
+                        "email_field_title": "1",
+                        "phone_field_title": "1",
+                        "calendar_field_title": "1",
+                        "time_field_title": "1",
+                        "privacy_policy_text": "1",
+                        "privacy_policy_link_text": "1",
+                        "button_title": "1",
+                        "close_button_title": "1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-online-appointment",
+        "description": ""
+      },
+      "parameters": [],
+      "post": {
+        "summary": "Post online appointment popup",
+        "operationId": "post-popup-online_appointment",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "massage": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "massage"
+                  ],
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "massage": "Request will be send!"
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "massage": "Request will be send!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Requested-With"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "language": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "email": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "phone": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "date": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "time": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "name",
+                  "language",
+                  "email",
+                  "phone",
+                  "date",
+                  "time"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "name": "test",
+                    "language": "test",
+                    "email": "test@test",
+                    "phone": "234234",
+                    "date": "234",
+                    "time": "23423"
+                  }
+                }
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "name": "test",
+                    "language": "test",
+                    "email": "test@test",
+                    "phone": "234234",
+                    "date": "234",
+                    "time": "23423"
+                  }
+                }
+              }
+            }
+          },
+          "description": "{\"name\":\"test\", \n\"language\":\"test\",\n\"email\":\"test@test\",\n\"phone\":\"234234\",\n\"date\":\"234\",\n\"time\":\"23423\"}"
+        }
+      }
+    },
+    "/popup/private_appointment": {
+      "get": {
+        "summary": "GET private appointment page",
+        "tags": [
+          "Popups content"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "title": "1",
+                        "description": "1",
+                        "name_field_title": "1",
+                        "email_field_title": "1",
+                        "country_field_title": "1",
+                        "phone_field_title": "1",
+                        "dd_field_title": "1",
+                        "mm_field_title": "1",
+                        "yyyy_field_title": "1",
+                        "time_field_title": "1",
+                        "privacy_policy_text": "1",
+                        "privacy_policy_link_text": "1",
+                        "button_title": "1",
+                        "close_button_title": "1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "name_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "email_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "country_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "phone_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "dd_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "mm_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "yyyy_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "time_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "privacy_policy_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "privacy_policy_link_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "button_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "close_button_title": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "title": "1",
+                        "description": "1",
+                        "name_field_title": "1",
+                        "email_field_title": "1",
+                        "country_field_title": "1",
+                        "phone_field_title": "1",
+                        "dd_field_title": "1",
+                        "mm_field_title": "1",
+                        "yyyy_field_title": "1",
+                        "time_field_title": "1",
+                        "privacy_policy_text": "1",
+                        "privacy_policy_link_text": "1",
+                        "button_title": "1",
+                        "close_button_title": "1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-private-appointment",
+        "description": ""
+      },
+      "parameters": [],
+      "post": {
+        "summary": "Post private appointment popup",
+        "operationId": "post-popup-private_appointment",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "massage": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "massage"
+                  ],
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "massage": "Request will be send!"
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "massage": "Request will be send!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "email": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "country_city": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "date": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "time": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "name",
+                  "email",
+                  "country_city",
+                  "phone",
+                  "date",
+                  "time"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "name": "test",
+                    "email": "test@test",
+                    "country_city": "",
+                    "phone": "24234",
+                    "date": "234",
+                    "time": "234234"
+                  }
+                }
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "name": "test",
+                    "email": "test@test",
+                    "country_city": "test",
+                    "phone": "24234",
+                    "date": "234",
+                    "time": "234234"
+                  }
+                }
+              }
+            }
+          },
+          "description": "{\n\"name\":\"test\",\n\"email\":\"test@test\",\n\"country_city\":\"tes\",\n\"phone\":\"24234\",\n\"date\":\"234\",\n\"time\":\"234234\"\n}"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Requested-With"
+          }
+        ]
+      }
+    },
+    "/popup/trunk_show": {
+      "get": {
+        "summary": "GET trunk show page",
+        "tags": [
+          "Popups content"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "title": "1",
+                        "description": "1",
+                        "name_field_title": "1",
+                        "email_field_title": "1",
+                        "phone_field_title": "1",
+                        "region_field_title": "1",
+                        "country_field_title": "1",
+                        "privacy_policy_text": "1",
+                        "privacy_policy_link_text": "1",
+                        "button_title": "1",
+                        "close_button_title": "1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "name_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "email_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "phone_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "region_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "country_field_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "privacy_policy_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "privacy_policy_link_text": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "button_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "close_button_title": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "title": "1",
+                        "description": "1",
+                        "name_field_title": "1",
+                        "email_field_title": "1",
+                        "phone_field_title": "1",
+                        "region_field_title": "1",
+                        "country_field_title": "1",
+                        "privacy_policy_text": "1",
+                        "privacy_policy_link_text": "1",
+                        "button_title": "1",
+                        "close_button_title": "1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-trunk-show",
+        "description": ""
+      },
+      "parameters": [],
+      "post": {
+        "summary": "Post trunk show popup",
+        "operationId": "post-popup-trunk_show",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "massage": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "massage"
+                  ],
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "massage": "Request will be send!"
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "massage": "Request will be send!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Requested-With"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "email": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "phone": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "region": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "country": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "name",
+                  "email",
+                  "phone",
+                  "region",
+                  "country"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "name": "test",
+                    "email": "test@test",
+                    "phone": "24234",
+                    "region": "234",
+                    "country": "234234"
+                  }
+                }
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "name": "test",
+                    "email": "test@test",
+                    "phone": "24234",
+                    "region": "234",
+                    "country": "234234"
+                  }
+                }
+              }
+            }
+          },
+          "description": "{\n\"name\":\"test\",\n\"email\":\"test@test\",\n\"phone\":\"24234\",\n\"region\":\"234\",\n\"country\":\"234234\"\n}"
+        }
+      }
+    },
+    "/popup/thank_for_request": {
+      "get": {
+        "summary": "GET thanks for request",
+        "tags": [
+          "Popups content"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "success",
+                      "data": {
+                        "title": "1",
+                        "description": "1",
+                        "button_title": "1",
+                        "close_button_title": "1"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "button_title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "close_button_title": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "success",
+                      "data": {
+                        "title": "1",
+                        "description": "1",
+                        "button_title": "1",
+                        "close_button_title": "1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "get-trunk-show",
+        "description": ""
+      },
+      "parameters": []
+    }
+  },
+  "security": [
+    []
+  ],
+  "servers": [
+    {
+      "url": "http://maxmoah.dev/api",
+      "description": ""
+    }
+  ],
+  "components": {
+    "responses": {
+      "404": {
+        "description": "Example response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ]
+                }
+              },
+              "required": [
+                "value"
+              ],
+              "x-examples": {
+                "example-1": {
+                  "value": {
+                    "status": "error"
+                  }
+                }
+              }
+            },
+            "examples": {
+              "example-1": {
+                "value": {
+                  "status": "error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "X-Requested-With": {
+        "name": "X-Requested-With",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "XMLHttpRequest",
+          "default": "XMLHttpRequest"
+        },
+        "description": "XMLHttpRequest"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Catalog"
+    },
+    {
+      "name": "Categories"
+    },
+    {
+      "name": "Pages"
+    },
+    {
+      "name": "Parts"
+    },
+    {
+      "name": "Popups content"
+    },
+    {
+      "name": "Popups post"
+    },
+    {
+      "name": "Product"
+    }
+  ]
+}
