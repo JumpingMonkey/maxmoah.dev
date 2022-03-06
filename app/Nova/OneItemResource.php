@@ -13,6 +13,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use OptimistDigital\NovaColorField\Color;
 use Waynestate\Nova\CKEditor;
 use Whitecube\NovaFlexibleContent\Flexible;
 
@@ -74,7 +75,7 @@ class OneItemResource extends Resource
                 ])->button('add image')
                 ->limit(5),
 
-            Select::make('Product tag', 'tag_id')->options(
+            Select::make('Category tags', 'tag_id')->options(
                 ProductTagModel::all()->pluck('tag_title', 'id')
             )->required()
                 ->updateRules('required')
@@ -101,7 +102,8 @@ class OneItemResource extends Resource
                 ->falseValue('false'),
 
             Text::make('Price', 'prod_price')->default(function (){return 'Price on request';})->hideFromIndex(),
-
+            Color::make('Color 1', 'color_one')->slider(),
+            Color::make('Color 2', 'color_two')->slider(),
             Flexible::make('Background img for first screen', 'bg_img_first_screen')
                 ->addLayout('Image', 'image', [
                     Medialibrary::make('Image','image')
@@ -111,6 +113,18 @@ class OneItemResource extends Resource
                     Text::make('Image alt', 'image_alt')
                         ->rules('required')
                 ])->button('add image')
+                ->limit(1),
+
+            Flexible::make('Background video for first screen', 'bg_video_first_screen')
+                ->addLayout('Video', 'video', [
+                    Medialibrary::make('Video','Video')
+                        ->rules('required'),
+                    Text::make('Video link', 'video_link'),
+                    Text::make('Video title', 'video_title')
+                        ->rules('required'),
+                    Text::make('Video alt', 'video_alt')
+                        ->rules('required')
+                ])->button('add video')
                 ->limit(1),
 
             Flexible::make('Content', 'content')

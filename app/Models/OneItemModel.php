@@ -29,7 +29,10 @@ class OneItemModel extends Model
         'customize',
         'prod_price',
         'bg_img_first_screen',
-        'content'
+        'bg_video_first_screen',
+        'content',
+        'color_one',
+        'color_two',
     ];
 
     public $translatable = [
@@ -46,7 +49,9 @@ class OneItemModel extends Model
         'content',
         'prod_photo',
         'bg_img_first_screen',
-        'image'
+        'bg_video_first_screen',
+        'image',
+        'video',
     ];
 
     public function tag()

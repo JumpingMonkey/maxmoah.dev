@@ -14,7 +14,7 @@ class ProductTagResource extends Resource
     public static $group = 'Products';
 
     public static function label(){
-        return 'Products Tags';
+        return 'Category Tags';
     }
     /**
      * The model the resource corresponds to.

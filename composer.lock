@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ee3b3ecba35ce22a4bbd10dfc9ee965",
+    "content-hash": "d2d8eb392d16080eacd108c75f5a635b",
     "packages": [
         {
             "name": "anrail/nova-media-library-tools",
@@ -1963,7 +1963,7 @@
             "dist": {
                 "type": "path",
                 "url": "./nova",
-                "reference": "c509f76a606071688c1c84fdc710bc0beb8cbe46"
+                "reference": "ae9dafb2022b5d4fcd399b88863b10d2e378312e"
             },
             "require": {
                 "brick/money": "^0.5.0",
@@ -2786,6 +2786,54 @@
                 "source": "https://github.com/opis/closure/tree/3.6.2"
             },
             "time": "2021-04-09T13:42:10+00:00"
+        },
+        {
+            "name": "optimistdigital/nova-color-field",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/optimistdigital/nova-color-field.git",
+                "reference": "e3c43143377f9ea290e19e3956a67df6558af425"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/optimistdigital/nova-color-field/zipball/e3c43143377f9ea290e19e3956a67df6558af425",
+                "reference": "e3c43143377f9ea290e19e3956a67df6558af425",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "^3.0",
+                "php": ">=7.2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "OptimistDigital\\NovaColorField\\ColorFieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OptimistDigital\\NovaColorField\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova Color Picker field.",
+            "keywords": [
+                "color picker",
+                "field",
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/optimistdigital/nova-color-field/issues",
+                "source": "https://github.com/optimistdigital/nova-color-field/tree/1.2.0"
+            },
+            "time": "2022-01-14T12:26:46+00:00"
         },
         {
             "name": "optimistdigital/nova-sortable",

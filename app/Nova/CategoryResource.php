@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use App\Models\Category;
 use App\Models\OneItemModel;
+use App\Models\ProductTagModel;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class CategoryResource extends Resource
     public static $group = 'Products';
 
     public static function label(){
-        return 'Categories';
+        return 'Subcategory page';
     }
 
     /**
@@ -71,7 +72,12 @@ class CategoryResource extends Resource
             Text::make('Meta-description', 'meta_description')->hideFromIndex(),
             Text::make('Key-Words', 'key_words')->hideFromIndex(),
 
-            Text::make('Category title', 'category_title'),
+            Text::make('Subcategory title', 'category_title'),
+//            Select::make('Category tags', 'tag_id')->options(
+//                ProductTagModel::all()->pluck('tag_title', 'id')
+//            )->required()
+//                ->updateRules('required')
+//                ->creationRules('required'),
             Text::make('Category slug(only english)', 'category_slug'),
             Flexible::make('Content', 'content')
                 ->addLayout('1. title+text', '1_title_text', [
