@@ -55,6 +55,11 @@ class OneItemResource extends Resource
      */
     public function fields(Request $request)
     {
+        $photoformat = [
+            'vertical' => 'vertical',
+            'horizontal' => 'horizontal',
+            'squire' => 'squire',
+        ];
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Multilingual::make('Language'),
@@ -133,8 +138,11 @@ class OneItemResource extends Resource
                 CKEditor::make('Description', 'desc')
             ])
             ->addLayout('2. Img+title+text', '2_img_title_text', [
+
                 Flexible::make('Img', 'img')
                     ->addLayout('Image', 'image', [
+                        Select::make('Photo format', 'foto_format')
+                            ->options($photoformat),
                         Medialibrary::make('Image','image')
                             ->rules('required'),
                         Text::make('Image title', 'image_title')
@@ -177,6 +185,8 @@ class OneItemResource extends Resource
             ->addLayout('4. Title+text+btn+img(right)', '4_title_txt_btn_img', [
                 Flexible::make('Img', 'img')
                     ->addLayout('Image', 'image', [
+                        Select::make('Photo format', 'foto_format')
+                            ->options($photoformat),
                         Medialibrary::make('Image','image')
                             ->rules('required'),
                         Text::make('Image title', 'image_title')
@@ -196,6 +206,8 @@ class OneItemResource extends Resource
             ->addLayout('6. Title+text+btn+img(left)', '6_title_txt_btn_img', [
                 Flexible::make('Img', 'img')
                     ->addLayout('Image', 'image', [
+                        Select::make('Photo format', 'foto_format')
+                            ->options($photoformat),
                         Medialibrary::make('Image','image')
                             ->rules('required'),
                         Text::make('Image title', 'image_title')
@@ -226,6 +238,8 @@ class OneItemResource extends Resource
             ->addLayout('8. Img(right)+title+text', '8_Img_right_title_text', [
                 Flexible::make('Img', 'img')
                     ->addLayout('Image', 'image', [
+                        Select::make('Photo format', 'foto_format')
+                            ->options($photoformat),
                         Medialibrary::make('Image','image')
                             ->rules('required'),
                         Text::make('Image title', 'image_title')
