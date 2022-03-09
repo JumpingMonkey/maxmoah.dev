@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use OptimistDigital\NovaColorField\Color;
 use Waynestate\Nova\CKEditor;
@@ -122,7 +123,7 @@ class OneItemResource extends Resource
 
             Flexible::make('Background video for first screen', 'bg_video_first_screen')
                 ->addLayout('Video', 'video', [
-                    Medialibrary::make('Video','Video')
+                    Medialibrary::make('Video','video')
                         ->rules('required'),
                     Text::make('Video link', 'video_link'),
                     Text::make('Video title', 'video_title')
@@ -200,6 +201,7 @@ class OneItemResource extends Resource
                 Text::make('Btn', 'btn')
             ])
             ->addLayout('5. Text+text', '5_text_text', [
+                Text::make('Title', 'title'),
                 CKEditor::make('Text 1', 'desc_1'),
                 CKEditor::make('Text 2', 'desc_2'),
             ])
@@ -251,25 +253,27 @@ class OneItemResource extends Resource
                 Text::make('Title', 'title'),
                 CKEditor::make('Description', 'desc'),
             ])
-            ->addLayout('9. Loop+title+text', '9_loop_title_text', [
-                Flexible::make('Loop', 'loop')
-                    ->addLayout('Image', 'image', [
-                        Medialibrary::make('Image','image')
-                            ->rules('required'),
-                        Text::make('Image title', 'image_title')
-                            ->rules('required'),
-                        Text::make('Image alt', 'image_alt')
-                            ->rules('required')
-                    ])->button('add image')
-                    ->limit(5),
-                Text::make('Title', 'title'),
-                Text::make('Description', 'desc'),
-            ])
+//            ->addLayout('9. Loop+title+text', '9_loop_title_text', [
+//                Flexible::make('Loop', 'loop')
+//                    ->addLayout('Image', 'image', [
+//                        Medialibrary::make('Image','image')
+//                            ->rules('required'),
+//                        Text::make('Image title', 'image_title')
+//                            ->rules('required'),
+//                        Text::make('Image alt', 'image_alt')
+//                            ->rules('required')
+//                    ])->button('add image')
+//                    ->limit(5),
+//                Text::make('Title', 'title'),
+//                Text::make('Description', 'desc'),
+//            ])
             ->addLayout('10. title+text+img+img', '10_title_text_img_img', [
                 Text::make('Title', 'title'),
                 CKEditor::make('Description', 'desc'),
                 Flexible::make('Img 1', 'img_1')
                     ->addLayout('Image', 'image', [
+                        Select::make('Photo format', 'foto_format')
+                            ->options($photoformat),
                         Medialibrary::make('Image','image')
                             ->rules('required'),
                         Text::make('Image title', 'image_title')
@@ -280,6 +284,8 @@ class OneItemResource extends Resource
                     ->limit(1),
                 Flexible::make('Img 2', 'img_2')
                     ->addLayout('Image', 'image', [
+                        Select::make('Photo format', 'foto_format')
+                            ->options($photoformat),
                         Medialibrary::make('Image','image')
                             ->rules('required'),
                         Text::make('Image title', 'image_title')
@@ -302,10 +308,14 @@ class OneItemResource extends Resource
                     ->limit(1),
                 Text::make('Title', 'title'),
 
-                Text::make('Size', 'size'),
-                Text::make('Weight', 'weight'),
-                Text::make('Material', 'material'),
-                Text::make('Chain', 'chain'),
+                Text::make('Size title', 'size_title'),
+                Text::make('Size description', 'size'),
+                Text::make('Weight title', 'weight_title'),
+                Text::make('Weight description', 'weight'),
+                Text::make('Material title', 'material_title'),
+                Text::make('Material description', 'material'),
+                Text::make('Chain title', 'chain_title'),
+                Text::make('Chain description', 'chain'),
             ])
             ->addLayout('12. title+text+img+title+text+btn', '12_title_text_img_title_text_btn', [
                 Text::make('Title top', 'title_top'),
@@ -341,6 +351,78 @@ class OneItemResource extends Resource
                     Text::make('Privacy policy link text', 'privacy_policy_link_text'),
 
                 ])
+                ->addLayout('15. Title+text+horizontal_image', '15_title_text_horizontal_img', [
+                    Text::make('Title', 'title'),
+                    CKEditor::make('Description', 'desc'),
+                    Flexible::make('Img 1', 'img_1')
+                        ->addLayout('Image', 'image', [
+                            Select::make('Photo format', 'foto_format')
+                                ->options($photoformat),
+                            Medialibrary::make('Image','image')
+                                ->rules('required'),
+                            Text::make('Image title', 'image_title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'image_alt')
+                                ->rules('required')
+                        ])->button('add image')
+                        ->limit(1),
+                    ])
+                ->addLayout('16. Gallery popup', '16_gallery_popup', [
+                    Flexible::make('Img', 'img')
+                        ->addLayout('Vertical image', 'vertical_image', [
+                            Select::make('Photo format', 'foto_format')
+                                ->options($photoformat),
+                            Medialibrary::make('Image','image')
+                                ->rules('required'),
+                            Text::make('Image title', 'image_title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'image_alt')
+                                ->rules('required')
+                        ])->button('add image')
+                        ->limit(3),
+                ])
+                ->addLayout('17.Product colors', '17_product_colors', [
+                    Flexible::make('Img', 'img')
+                        ->addLayout('Image', 'image', [
+                            Medialibrary::make('Image','image')
+                                ->rules('required'),
+                            Text::make('Title', 'title'),
+                            Text::make('Image title', 'image_title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'image_alt')
+                                ->rules('required')
+                        ])->button('add image')
+                        ->limit(10),
+                    Text::make('Title', 'title'),
+                    CKEditor::make('Description', 'desc'),
+                ])
+                ->addLayout('18. horizontal image/video', '18_horizontal_image_video', [
+                    Flexible::make('Img', 'img')
+                        ->addLayout('Image', 'image', [
+                            Medialibrary::make('Image','image')
+                                ->rules('required'),
+                            Text::make('Image title', 'image_title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'image_alt')
+                                ->rules('required')
+                        ])->button('add item')
+                        ->limit(1),
+                ])
+                ->addLayout('19.Text+btn in the middle', '19_text+btn_in_the_middle', [
+                    Text::make('Title', 'title'),
+                    Textarea::make('Description', 'desc'),
+                    Text::make('Btn', 'btn_title'),
+                    Text::make('Btn link', 'btn_link'),
+                ])
+                ->addLayout('20. Products', '20_products', [
+                    Select::make('Product 1', 'product_1')->options(
+                        OneItemModel::all()->pluck('prod_title', 'id')
+                    ),
+                    Select::make('Product 2', 'product_2')->options(
+                        OneItemModel::all()->pluck('prod_title', 'id')
+                    ),
+                ])
+
         ];
     }
 

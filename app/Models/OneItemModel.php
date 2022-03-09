@@ -69,6 +69,7 @@ class OneItemModel extends Model
 
         self::getNormalizedField($object, 'prod_photo', 'image', 'true', 'true');
         self::getNormalizedField($object, 'bg_img_first_screen', 'image', 'true', 'true');
+        self::getNormalizedField($object, 'bg_video_first_screen', 'video', 'true', 'true');
 
         if(array_key_exists('content', $object)){
             $content = [];
@@ -104,6 +105,24 @@ class OneItemModel extends Model
                             ->whereIn('id', $tmpContent)
                             ->get();
 
+
+                        foreach ($data as $oneProduct) {
+                            $tagName = OneItemModel::getFullData($oneProduct);
+                            if (isset($tagName['tag_id'])){
+                                $tagName['prod_tag'] = $oneProduct->tag->tag_title;
+                                unset($tagName['tag_id']);
+                            }
+                            $prodContent[] = $tagName;
+                        }
+
+                        $object['content'][$key] = $prodContent;
+                    }
+                    if($keyIn == 'product_1' OR $keyIn == 'product_2'){
+                        $tmpContent = [];
+
+                        $data = OneItemModel::query()->select('prod_slug', 'prod_title', 'prod_photo', 'prod_price', 'tag_id')
+                            ->where('id', $value)
+                            ->get();
 
                         foreach ($data as $oneProduct) {
                             $tagName = OneItemModel::getFullData($oneProduct);
