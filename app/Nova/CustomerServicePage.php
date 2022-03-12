@@ -6,6 +6,7 @@ use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Waynestate\Nova\CKEditor;
 use Whitecube\NovaFlexibleContent\Flexible;
@@ -79,12 +80,23 @@ class CustomerServicePage extends Resource
             ])
             ->addLayout('Terms and conditions', 'terms_and_conditions', [
                 Text::make('Title', 'title'),
+                Textarea::make('Description', 'description'),
                 CKEditor::make('Content', 'content')
             ])
             ->addLayout('Privacy policy', 'privacy_policy', [
                 Text::make('Title', 'title'),
                 CKEditor::make('Content', 'content')
-            ])->button('Add service')
+            ])
+            ->addLayout('Care instructions', 'care_instructions', [
+                Text::make('Title', 'title'),
+                Flexible::make('Questions', 'questions')
+                    ->addLayout('Question - answer', 'question_answer', [
+                        Text::make('Question', 'question'),
+                        CKEditor::make('Answer', 'answer'),
+                    ])->button('Add question')
+            ])
+            ->button('Add service')
+
         ];
     }
 

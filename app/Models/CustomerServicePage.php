@@ -39,14 +39,13 @@ class CustomerServicePage extends Model
                     $contentItems[$key . " : " . $item['layout']] = $item['attributes'];
                 }
 
-                if($item['layout'] == 'faq') {
+                if($item['layout'] == 'faq' OR $item['layout'] == 'care_instructions') {
                     foreach ($item['attributes']['questions'] as $keyQ => $itemQ) {
                         $questionItems[$keyQ . " : " . $itemQ['layout']] = $itemQ['attributes'];
                     }
 
                     $item['attributes']['questions'] = $questionItems;
                     $contentItems[$key . " : " . $item['layout']] = $item['attributes'];
-
                 }
 
             }
