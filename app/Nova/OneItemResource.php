@@ -84,8 +84,8 @@ class OneItemResource extends Resource
             Select::make('Category tags', 'tag_id')->options(
                 ProductTagModel::all()->pluck('tag_title', 'id')
             )->required()
-                ->updateRules('required')
-                ->creationRules('required'),
+            ->updateRules('required')
+            ->creationRules('required'),
 
             Select::make('Product category', 'category_id')->options(
                 Category::all()->pluck('category_title', 'id')
@@ -198,7 +198,8 @@ class OneItemResource extends Resource
                     ->limit(1),
                 Text::make('Title', 'title'),
                 CKEditor::make('Description', 'desc'),
-                Text::make('Btn', 'btn')
+                Text::make('Btn', 'btn'),
+                Text::make('Link', 'link')
             ])
             ->addLayout('5. Text+text', '5_text_text', [
                 Text::make('Title', 'title'),
