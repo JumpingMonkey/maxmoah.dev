@@ -19,7 +19,8 @@ class Category extends Model
         'key_words',
         'category_title',
         'category_slug',
-        'content'
+        'content',
+        'tag_id',
     ];
 
     public $translatable = [
@@ -109,17 +110,21 @@ class Category extends Model
             }
             $object['content'] = $data;
         }
+
+        if (array_key_exists('tag_id', $object)) {
+            $tag = ProductTagModel::query()
+                ->where('id', $object['tag_id'])
+                ->firstOrFail('tag_title');
+            $object['tag'] = ProductTagModel::getFullData($tag);
+        }
         return $object;
     }
 
 
     public static function getFullData(self $object) {
         try{
-
             $data = $object->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
-
             return self::normalizeData($data);
-
         } catch (\Exception $ex){
             throw new ModelNotFoundException();
         }

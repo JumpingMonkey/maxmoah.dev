@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\HasMediaToUrl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Spatie\Translatable\HasTranslations;
 
 class ProductTagModel extends Model
@@ -24,5 +25,19 @@ class ProductTagModel extends Model
     public function products()
     {
         return $this->hasMany(OneItemModel::class);
+    }
+
+    public static function normalizeData($object){
+        return $object;
+    }
+
+    public static function getFullData($object) {
+        try{
+            $data = $object->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+            return self::normalizeData($data);
+
+        } catch (\Exception $ex){
+            throw new ModelNotFoundException();
+        }
     }
 }

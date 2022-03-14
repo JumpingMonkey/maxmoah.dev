@@ -10,6 +10,7 @@ use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -71,14 +72,16 @@ class CategoryResource extends Resource
             Text::make('Meta-title', 'meta_title')->hideFromIndex(),
             Text::make('Meta-description', 'meta_description')->hideFromIndex(),
             Text::make('Key-Words', 'key_words')->hideFromIndex(),
-
+            Select::make('Category tags', 'tag_id')->options(
+                ProductTagModel::all()->pluck('tag_title', 'id')
+            )->required()
+                ->updateRules('required')
+                ->creationRules('required'),
             Text::make('Subcategory title', 'category_title'),
-//            Select::make('Category tags', 'tag_id')->options(
-//                ProductTagModel::all()->pluck('tag_title', 'id')
-//            )->required()
-//                ->updateRules('required')
-//                ->creationRules('required'),
-            Text::make('Category slug(only english)', 'category_slug'),
+
+            Slug::make('Subcategory slug(only english)', 'category_slug')
+                ->from('category_title')
+                ->required(),
             Flexible::make('Content', 'content')
                 ->addLayout('1. title+text', '1_title_text', [
                     Text::make('Title', 'title'),
