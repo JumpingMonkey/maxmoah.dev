@@ -108,6 +108,8 @@ class OneItemResource extends Resource
                 ->trueValue('true')
                 ->falseValue('false'),
 
+            Text::make('Ready to order',  'ready_to_order'),
+
             Text::make('Price', 'prod_price')->default(function (){return 'Price on request';})->hideFromIndex(),
             Flexible::make('Color', 'color')
                 ->addLayout('one color', 'one_color', [
@@ -179,6 +181,7 @@ class OneItemResource extends Resource
                 Text::make('Left title', 'lf_title'),
                 CKEditor::make('Left description', 'lt_desc'),
                 Text::make('Left btn', 'lt_btn'),
+                Text::make('Btn link', 'btn_link'),
                 Flexible::make('Right img', 'rt_img')
                     ->addLayout('Image', 'image', [
                         Medialibrary::make('Image','image')
@@ -191,7 +194,8 @@ class OneItemResource extends Resource
                     ->limit(1),
                 Text::make('Right title', 'rt_title'),
                 CKEditor::make('Right description', 'rt_desc'),
-                Text::make('Right btn', 'rt_btn')
+                Text::make('Right btn', 'rt_btn'),
+                Text::make('Btn link', 'btn_link'),
             ])
             ->addLayout('4. Title+text+btn+img(right)', '4_title_txt_btn_img', [
                 Flexible::make('Img', 'img')
@@ -231,7 +235,8 @@ class OneItemResource extends Resource
                     ->limit(1),
                 Text::make('Title', 'title'),
                 CKEditor::make('Description', 'desc'),
-                Text::make('Btn', 'btn')
+                Text::make('Btn', 'btn'),
+                Text::make('Btn link', 'btn_link'),
             ])
             ->addLayout('7. Img+title+text+btn', '7_Img_title_text_btn', [
                 Flexible::make('Img', 'img')
@@ -246,7 +251,8 @@ class OneItemResource extends Resource
                     ->limit(1),
                 Text::make('Title', 'title'),
                 CKEditor::make('Description', 'desc'),
-                Text::make('Btn', 'btn')
+                Text::make('Btn', 'btn'),
+                Text::make('Btn link', 'btn_link'),
             ])
             ->addLayout('8. Img(right)+title+text', '8_Img_right_title_text', [
                 Flexible::make('Img', 'img')
@@ -296,7 +302,10 @@ class OneItemResource extends Resource
                 Flexible::make('Img 2', 'img_2')
                     ->addLayout('Image', 'image', [
                         Select::make('Photo format', 'foto_format')
-                            ->options($photoformat),
+                            ->options([
+                                'Wide' => 'wide',
+                                'Tight' => 'tight'
+                            ]),
                         Medialibrary::make('Image','image')
                             ->rules('required'),
                         Text::make('Image title', 'image_title')
@@ -344,31 +353,35 @@ class OneItemResource extends Resource
 
                 Text::make('Title bottom', 'title_bottom'),
                 Text::make('Description bottom', 'desc_bottom'),
-                Text::make('Btn', 'btn')
+                Text::make('Btn', 'btn'),
+                Text::make('Btn link', 'btn_link'),
             ])
-            ->addLayout('13. products', '13_prod', [
-                Flexible::make('Product', 'prod')
-                    ->addLayout('One product', 'one_prod', [
-                        Select::make('Prod', 'prod')->options(
-                            OneItemModel::all()->pluck('prod_title','id')
-                        ),
-                ]),
-            ])
-                ->addLayout('14. form', '14_form', [
-                    Text::make('Form title', 'form_title'),
-                    Text::make('Email field title', 'email_field_title'),
-                    Text::make('Description', 'desc'),
-                    Text::make('Privacy policy text', 'privacy_policy_text'),
-                    Text::make('Privacy policy link text', 'privacy_policy_link_text'),
-
-                ])
+//            ->addLayout('13. products', '13_prod', [
+//                Flexible::make('Product', 'prod')
+//                    ->addLayout('One product', 'one_prod', [
+//                        Select::make('Prod', 'prod')->options(
+//                            OneItemModel::all()->pluck('prod_title','id')
+//                        ),
+//                ]),
+//            ])
+//                ->addLayout('14. form', '14_form', [
+//                    Text::make('Form title', 'form_title'),
+//                    Text::make('Email field title', 'email_field_title'),
+//                    Text::make('Description', 'desc'),
+//                    Text::make('Privacy policy text', 'privacy_policy_text'),
+//                    Text::make('Privacy policy link text', 'privacy_policy_link_text'),
+//
+//                ])
                 ->addLayout('15. Title+text+horizontal_image', '15_title_text_horizontal_img', [
                     Text::make('Title', 'title'),
                     CKEditor::make('Description', 'desc'),
                     Flexible::make('Img 1', 'img_1')
                         ->addLayout('Image', 'image', [
                             Select::make('Photo format', 'foto_format')
-                                ->options($photoformat),
+                                ->options([
+                                    'Wide' => 'wide',
+                                    'Tight' => 'tight'
+                                ]),
                             Medialibrary::make('Image','image')
                                 ->rules('required'),
                             Text::make('Image title', 'image_title')
