@@ -135,8 +135,7 @@ class OneItemResource extends Resource
 
             Flexible::make('Background video for first screen', 'bg_video_first_screen')
                 ->addLayout('Video', 'video', [
-                    Medialibrary::make('Video','video')
-                        ->rules('required'),
+                    Medialibrary::make('Video','video'),
                     Text::make('Video link', 'video_link'),
                     Text::make('Video title', 'video_title')
                         ->rules('required'),
