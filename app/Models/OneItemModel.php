@@ -32,6 +32,7 @@ class OneItemModel extends Model
         'bg_video_first_screen',
         'content',
         'color',
+        'ready_to_order'
     ];
 
     public $translatable = [
@@ -41,7 +42,8 @@ class OneItemModel extends Model
         'zoom_in_btn_title',
         'prod_title',
         'prod_price',
-        'content'
+        'content',
+        'ready_to_order'
     ];
 
     public $mediaToUrl = [
