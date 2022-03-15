@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -95,8 +96,8 @@ class OneItemResource extends Resource
 
             Text::make('Product title', 'prod_title'),
 
-            Text::make('Product slug/link(only english)', 'prod_slug')
-                ->sortable()
+            Slug::make('Product slug/link(only english)', 'prod_slug')
+                ->from('prod_title')
                 ->rules('required')
                 ->creationRules('unique:one_item_models')->hideFromIndex(),
 
@@ -108,8 +109,17 @@ class OneItemResource extends Resource
                 ->falseValue('false'),
 
             Text::make('Price', 'prod_price')->default(function (){return 'Price on request';})->hideFromIndex(),
-            Color::make('Color 1', 'color_one')->slider(),
-            Color::make('Color 2', 'color_two')->slider(),
+            Flexible::make('Color', 'color')
+                ->addLayout('one color', 'one_color', [
+                    Color::make('Color', 'color_one')->slider(),
+                ])
+                ->addLayout('two colors', 'two_colors', [
+                    Color::make('Color 1', 'color_one')->slider(),
+                    Color::make('Color 2', 'color_two')->slider(),
+                ])->button('add color')
+            ->limit(1),
+
+
             Flexible::make('Background img for first screen', 'bg_img_first_screen')
                 ->addLayout('Image', 'image', [
                     Medialibrary::make('Image','image')

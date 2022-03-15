@@ -31,8 +31,7 @@ class OneItemModel extends Model
         'bg_img_first_screen',
         'bg_video_first_screen',
         'content',
-        'color_one',
-        'color_two',
+        'color',
     ];
 
     public $translatable = [
@@ -52,6 +51,7 @@ class OneItemModel extends Model
         'bg_video_first_screen',
         'image',
         'video',
+        'color'
     ];
 
     public function tag()
@@ -70,6 +70,7 @@ class OneItemModel extends Model
         self::getNormalizedField($object, 'prod_photo', 'image', 'true', 'true');
         self::getNormalizedField($object, 'bg_img_first_screen', 'image', 'true', 'true');
         self::getNormalizedField($object, 'bg_video_first_screen', 'video', 'true', 'true');
+        self::getNormalizedField($object, 'color', 'color_one', 'true', 'true');
 
         if(array_key_exists('content', $object)){
             $content = [];
