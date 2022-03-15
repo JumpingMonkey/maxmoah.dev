@@ -14,6 +14,8 @@ use App\Http\Controllers\OnlineAppointmentController;
 use App\Http\Controllers\PartsController;
 use App\Http\Controllers\PopupsController;
 use App\Http\Controllers\PrivateAppointmentController;
+use App\Http\Controllers\Search;
+use App\Http\Controllers\SearchResult;
 use App\Http\Controllers\ThankForRequestController;
 use App\Http\Controllers\TrunkShowController;
 use App\Http\Controllers\WhereToPurchaseController;
@@ -43,6 +45,10 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
     Route::get('/customer_service', [CustomerServicePageController::class, 'custServ']);
     Route::get('/career', [CareerPageController::class, 'career']);
     Route::get('/main', [MainPageController::class, 'main']);
+
+    //Search
+    Route::get('/search_result_page', [Search::class, 'searchResultPage']);
+    Route::get('/search_no_result_page', [Search::class, 'searchNoResultPage']);
 
     //Catalog page
     Route::get('/full_collection', [CatalogPagesController::class, 'full']);
