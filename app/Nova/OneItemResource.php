@@ -118,8 +118,7 @@ class OneItemResource extends Resource
                 ->addLayout('two colors', 'two_colors', [
                     Color::make('Color 1', 'color_one')->slider(),
                     Color::make('Color 2', 'color_two')->slider(),
-                ])->button('add color')
-            ->limit(1),
+                ])->button('add color'),
 
 
             Flexible::make('Background img for first screen', 'bg_img_first_screen')
