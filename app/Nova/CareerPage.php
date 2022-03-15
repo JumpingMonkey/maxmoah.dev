@@ -65,9 +65,14 @@ class CareerPage extends Resource
             Flexible::make('Vacancies', 'vacancies')
                 ->addLayout('Vacancy', 'vacancy', [
                     Text::make('Vacancy title', 'vacancy_title'),
-                    CKEditor::make('Requirement', 'requirement'),
-                    Text::make('Introduce yourself', 'introduce_yourself'),
-                    Text::make('Button title', 'button_title')
+                    Flexible::make('Properties', 'properties')
+                        ->addLayout('Property', 'property', [
+                            Text::make('Name', 'name'),
+                            Text::make('Meaning', 'meaning'),
+                        ]),
+                    Textarea::make('Requirement', 'requirement'),
+                    Text::make('More details title', 'introduce_yourself'),
+                    Text::make('Apply button title', 'button_title')
                 ])->button('Add vacancy'),
             Text::make('Bottom description', 'bottom_description'),
             Text::make('First bottom text', 'first_bottom_field'),
