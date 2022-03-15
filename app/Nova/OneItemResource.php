@@ -289,7 +289,10 @@ class OneItemResource extends Resource
                 Flexible::make('Img 1', 'img_1')
                     ->addLayout('Image', 'image', [
                         Select::make('Photo format', 'foto_format')
-                            ->options($photoformat),
+                            ->options([
+                                'Wide' => 'wide',
+                                'Tight' => 'tight'
+                            ]),
                         Medialibrary::make('Image','image')
                             ->rules('required'),
                         Text::make('Image title', 'image_title')
