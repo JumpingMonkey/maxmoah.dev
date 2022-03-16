@@ -5,11 +5,13 @@ namespace App\Nova;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use OptimistDigital\NovaColorField\Color;
 use Waynestate\Nova\CKEditor;
 use Whitecube\NovaFlexibleContent\Flexible;
 
@@ -70,21 +72,6 @@ class About extends Resource
 
             Flexible::make('Content', 'content')
                 ->addLayout('Atelier', 'atelier', [
-                    Flexible::make('Image', 'atelier_image')
-                        ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','image')
-                                ->rules('required'),
-                            Text::make('Image title', 'image_title')
-                                ->rules('required'),
-                            Text::make('Image alt', 'image_alt')
-                                ->rules('required')
-                        ])->button('add image')
-                        ->limit(1)
-                        ->rules('required'),
-                    Text::make('Title', 'title')
-                        ->rules('required'),
-                    CKEditor::make('Description','description')
-                        ->rules('required'),
                     Flexible::make('Background image', 'atelier_bg_image')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Image','image')
@@ -94,15 +81,24 @@ class About extends Resource
                             Text::make('Image alt', 'image_alt')
                                 ->rules('required')
                         ])->button('add bg image')
-                        ->limit(1)
-                        ->rules('required'),
-
-                ])
-                ->addLayout('Mission', 'mission', [
+                        ->limit(1),
+                    Boolean::make('Filter'),
+                    Flexible::make('Image', 'atelier_image')
+                        ->addLayout('Image', 'image', [
+                            Medialibrary::make('Image','image')
+                                ->rules('required'),
+                            Text::make('Image title', 'image_title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'image_alt')
+                                ->rules('required')
+                        ])->button('add image')
+                        ->limit(1),
                     Text::make('Title', 'title')
                         ->rules('required'),
                     CKEditor::make('Description','description')
                         ->rules('required'),
+                ])
+                ->addLayout('Mission', 'mission', [
                     Flexible::make('Background image', 'mission_bg_image')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Image','image')
@@ -112,14 +108,17 @@ class About extends Resource
                             Text::make('Image alt', 'image_alt')
                                 ->rules('required')
                         ])->button('add bg image')
-                        ->limit(1)
-                        ->rules('required'),
-                ])
-                ->addLayout('Society', 'society', [
+                        ->limit(1),
+                    Boolean::make('Filter'),
                     Text::make('Title', 'title')
                         ->rules('required'),
                     CKEditor::make('Description','description')
                         ->rules('required'),
+                    Text::make('Button title'),
+                    Text::make('Button link'),
+                    Color::make('Background color')
+                ])
+                ->addLayout('Society', 'society', [
                     Flexible::make('Background image', 'society_bg_image')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Image','image')
@@ -130,6 +129,12 @@ class About extends Resource
                                 ->rules('required')
                         ])->limit(1)
                         ->button('add bg image'),
+                    Boolean::make('Filter'),
+                    Text::make('Title', 'title')
+                        ->rules('required'),
+                    CKEditor::make('Description','description')
+                        ->rules('required'),
+
                     Flexible::make('Title and image', 'title_and_image')
                         ->addLayout('Item', 'item', [
                             Text::make('Title', 'title')
@@ -145,28 +150,10 @@ class About extends Resource
                                 ])->button('add image')
                                 ->limit(1)
                                 ->rules('required'),
-
-
-
                         ])->limit(4)
                         ->button('Add title and image'),
                 ])
                 ->addLayout('Enviroment', 'enviroment', [
-                    Flexible::make('Image', 'enviroment_image')
-                        ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','image')
-                                ->rules('required'),
-                            Text::make('Image title', 'image_title')
-                                ->rules('required'),
-                            Text::make('Image alt', 'image_alt')
-                                ->rules('required')
-                        ])->button('add image')
-                        ->limit(1)
-                        ->rules('required'),
-                    Text::make('Title', 'title')
-                        ->rules('required'),
-                    CKEditor::make('Description','description')
-                        ->rules('required'),
                     Flexible::make('Background image', 'enviroment_bg_image')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Image','image')
@@ -176,7 +163,21 @@ class About extends Resource
                             Text::make('Image alt', 'image_alt')
                                 ->rules('required')
                         ])->button('add bg image')
-                        ->limit(1)
+                        ->limit(1),
+                    Boolean::make('Filter'),
+                    Flexible::make('Image', 'enviroment_image')
+                        ->addLayout('Image', 'image', [
+                            Medialibrary::make('Image','image')
+                                ->rules('required'),
+                            Text::make('Image title', 'image_title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'image_alt')
+                                ->rules('required')
+                        ])->button('add image')
+                        ->limit(1),
+                    Text::make('Title', 'title')
+                        ->rules('required'),
+                    CKEditor::make('Description','description')
                         ->rules('required'),
                     Flexible::make('Title and image', 'title_and_image')
                         ->addLayout('Item', 'item', [
@@ -191,16 +192,10 @@ class About extends Resource
                                     Text::make('Image alt', 'image_alt')
                                         ->rules('required')
                                 ])->button('add image')
-                                ->limit(1)
-                                ->rules('required'),
+                                ->limit(1),
                         ])->limit(2)
                         ->button('Add title and image'),
-                ])
-
-
-
-
-                ->button('Add'),
+                ])->button('Add'),
         ];
     }
 

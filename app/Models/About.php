@@ -17,16 +17,18 @@ class About extends Model
 
     protected $fillable = [
         'content',
-        'seo_title',
+        'meta_title',
         'meta_description',
-        'key_words'
+        'key_words',
+        'filter',
         ];
 
     public $translatable = [
         'content',
-        'seo_title',
+        'meta_title',
         'meta_description',
-        'key_words'
+        'key_words',
+        'filter',
     ];
 
     public $mediaToUrl = [
