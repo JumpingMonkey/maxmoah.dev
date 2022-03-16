@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CareerPageController;
+use App\Http\Controllers\CareerPopupPage;
 use App\Http\Controllers\CatalogPagesController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
@@ -78,6 +79,7 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
     Route::get('/popup/private_appointment', [PrivateAppointmentController::class, 'index']);
     Route::get('/popup/thank_for_request', [ThankForRequestController::class, 'index']);
     Route::get('/popup/trunk_show', [TrunkShowController::class, 'index']);
+    Route::get('/popup/career', [CareerPopupPage::class, 'index']);
 
     //popups post
     Route::post('/popup/make_request', [PopupsController::class, 'makeRequestPopupSend']);
