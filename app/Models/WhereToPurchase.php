@@ -15,20 +15,25 @@ class WhereToPurchase extends Model
     protected $table = 'where_to_purchases';
 
     protected $fillable = [
-        'seo_title',
+        'meta_title',
         'meta_description',
         'key_words',
         'title',
         'description',
         'variants',
-        'stores_list'
+        'stores_list',
+        'stores_title',
     ];
 
     public $translatable = [
         'title',
         'description',
         'variants',
-        'stores_list'
+        'stores_list',
+        'meta_title',
+        'meta_description',
+        'key_words',
+        'stores_title',
     ];
 
     public static function normalizeData($object){

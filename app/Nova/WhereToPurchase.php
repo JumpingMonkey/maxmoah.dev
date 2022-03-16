@@ -65,37 +65,37 @@ class WhereToPurchase extends Resource
             CKEditor::make('Description', 'description')
             ->rules('required'),
             Flexible::make('Blocks Variants', 'variants')
-            ->addLayout('Variant', 'variant', [
-                Text::make('Title', 'title')
-                ->rules('required'),
-                CKEditor::make('Description', 'description')
-                ->rules('required'),
-                Flexible::make('Button', 'button')
-                    ->addLayout('Action button', 'action_button', [
-                        Text::make('CTA', 'cta')
-                    ])->button('Add button')
-                    ->limit(1),
-            ])->button('Add Variant')
-            ->addLayout('Upcoming Events', 'upcoming_events', [
-                Text::make('Title', 'title')
-                ->rules('required'),
-                Flexible::make('Events', 'events')
-                ->addLayout('Event', 'event', [
-                    Text::make('City', 'city')
+                ->addLayout('Variant', 'variant', [
+                    Text::make('Title', 'title')
                     ->rules('required'),
-                    Text::make('From', 'from')
+                    CKEditor::make('Description', 'description')
                     ->rules('required'),
-                    Text::make('To', 'to')
-                    ->rules('required')
-                ])->button('Add Event')
-                ->limit(2)
+                    Flexible::make('Button', 'button')
+                        ->addLayout('Action button', 'action_button', [
+                            Text::make('CTA', 'cta')
+                        ])->button('Add button')
+                        ->limit(1),
+                ])->button('Add Variant')
+                ->addLayout('Upcoming Events', 'upcoming_events', [
+                    Text::make('Title', 'title')
+                    ->rules('required'),
+                    Flexible::make('Events', 'events')
+                    ->addLayout('Event', 'event', [
+                        Text::make('City', 'city')
+                        ->rules('required'),
+                        Text::make('From', 'from')
+                        ->rules('required'),
+                        Text::make('To', 'to')
+                        ->rules('required')
+                    ])->button('Add Event')
+                    ->limit(2)
             ]),
+            Text::make('Stores title'),
             Flexible::make('Stores list', 'stores_list')
             ->addLayout('Store', 'store', [
                 Text::make('Store title', 'store_title'),
                 Text::make('Store city and country', 'store_city_and_country'),
                 Text::make('Store address', 'store_address'),
-                Text::make('Work time', 'work_time')
             ])->button('Add store')
         ];
     }
