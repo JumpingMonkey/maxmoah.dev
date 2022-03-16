@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomerServicePageController;
 use App\Http\Controllers\EventRegistrationController;
+use App\Http\Controllers\FlagPage;
 use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\MakeRequestPageModelController;
 use App\Http\Controllers\OneItemModelController;
@@ -45,6 +46,7 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
     Route::get('/customer_service', [CustomerServicePageController::class, 'custServ']);
     Route::get('/career', [CareerPageController::class, 'career']);
     Route::get('/main', [MainPageController::class, 'main']);
+    Route::get('/flag', [FlagPage::class, 'index']);
 
     //Search
     Route::get('/search_result_page', [Search::class, 'searchResultPage']);
