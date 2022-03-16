@@ -56,6 +56,12 @@ class CategoryResource extends Resource
      */
     public function fields(Request $request)
     {
+        $format = [
+            'vertical' => 'vertical',
+            'horizontal' => 'horizontal',
+            'squire' => 'squire',
+        ];
+
         $model = NovaRequest::createFrom($request)
             ->findModelQuery()
             ->first();
@@ -83,11 +89,15 @@ class CategoryResource extends Resource
                 ->from('category_title')
                 ->required(),
             Flexible::make('Content', 'content')
-                ->addLayout('1. title+text', '1_title_text', [
+                ->addLayout('1. Title+text', '1_title_text', [
+                    Select::make('Format', 'format')
+                        ->options($format),
                     Text::make('Title', 'title'),
-                    Trix::make('Description', 'desc')
+                    Trix::make('Text', 'text')
                 ])
-                ->addLayout('2. Vertical Image', '2_vert_img', [
+                ->addLayout('2. Image', '2_img', [
+                    Select::make('Format', 'format')
+                        ->options($format),
                     Flexible::make('Image', 'image')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Image','image')
@@ -99,19 +109,9 @@ class CategoryResource extends Resource
                         ])->button('add image')
                         ->limit(1),
                 ])
-                ->addLayout('3. Video', '3_video', [
-                    Flexible::make('Product photo', 'image')
-                        ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','image')
-                                ->rules('required'),
-                            Text::make('Image title', 'image_title')
-                                ->rules('required'),
-                            Text::make('Image alt', 'image_alt')
-                                ->rules('required')
-                        ])->button('add video')
-                        ->limit(1),
-                ])
-                ->addLayout('4. Image+title+description', '4_Image_title_description', [
+                ->addLayout('3. image+title+text', '3_image_title_text', [
+                    Select::make('Format', 'format')
+                        ->options($format),
                     Flexible::make('Photo', 'image')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Image','image')
@@ -123,10 +123,11 @@ class CategoryResource extends Resource
                         ])->button('add video')
                         ->limit(1),
                     Text::make('Title', 'title'),
-                    Text::make('Description', 'desc')
+                    Text::make('Text', 'text')
                 ])
-                ->addLayout('5. Horizontal Image', '5_horizon_img', [
-                    Flexible::make('Image', 'image')
+
+                ->addLayout('4. First screen image', '4_first_screen_image', [
+                    Flexible::make('Photo', 'image')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Image','image')
                                 ->rules('required'),
@@ -134,14 +135,28 @@ class CategoryResource extends Resource
                                 ->rules('required'),
                             Text::make('Image alt', 'image_alt')
                                 ->rules('required')
-                        ])->button('add image')
+                        ])->button('add video')
                         ->limit(1),
                 ])
+                ->addLayout('5. Video', '5_video', [
+                    Flexible::make('Product photo', 'image')
+                        ->addLayout('Image', 'image', [
+                            Medialibrary::make('Image','image')
+                                ->rules('required'),
+                            Text::make('Image title', 'image_title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'image_alt')
+                                ->rules('required')
+                        ])->button('add video')
+                        ->limit(1),
+                ])
+
                 ->addLayout('6. Products', '6_products', [
                     Text::make('Title', 'title'),
                     Flexible::make('Product', 'product')
                         ->addLayout('Product', 'product', [
-                            Text::make('Category name', 'category_name'),
+                            Select::make('Category name', 'category_name')
+                            ->options(ProductTagModel::all()->pluck('tag_title', 'id')),
                             Text::make('Product name', 'prod_name'),
                             Flexible::make('Image', 'image')
                                 ->addLayout('Image', 'image', [
