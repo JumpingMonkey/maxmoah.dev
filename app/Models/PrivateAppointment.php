@@ -29,6 +29,7 @@ class PrivateAppointment extends Model
         'privacy_policy_link_text',
         'button_title',
         'close_button_title',
+        'calendar_title',
     ];
 
     public $translatable = [
@@ -46,6 +47,7 @@ class PrivateAppointment extends Model
         'privacy_policy_link_text',
         'button_title',
         'close_button_title',
+        'calendar_title',
     ];
 
     public function getFullData(){

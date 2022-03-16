@@ -54,6 +54,7 @@ class PrivateAppointment extends Resource
             Text::make('E-mail field title', 'email_field_title'),
             Text::make('Country field title', 'country_field_title'),
             Text::make('Phone field title', 'phone_field_title'),
+            Text::make('Calendar title', 'calendar_title'),
 
             Text::make('DD field title', 'dd_field_title'),
             Text::make('MM field title', 'mm_field_title'),
