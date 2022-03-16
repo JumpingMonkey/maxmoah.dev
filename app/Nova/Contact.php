@@ -54,6 +54,9 @@ class Contact extends Resource
             Text::make('Meta-title', 'meta_title')->hideFromIndex(),
             Text::make('Meta-description', 'meta_description')->hideFromIndex(),
             Text::make('Key-Words', 'key_words')->hideFromIndex(),
+            Text::make('Title', 'title')->hideFromIndex(),
+            Text::make('Description', 'description')->hideFromIndex(),
+
 
             Flexible::make('Subject field', 'subject_field')
             ->addLayout('Subject', 'subject', [

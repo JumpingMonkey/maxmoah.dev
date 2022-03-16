@@ -16,12 +16,16 @@ class Contact extends Model
 
     protected $fillable = [
         'subject_field',
-        'button_title'
+        'button_title',
+        'title',
+        'description',
     ];
 
     public $translatable = [
         'subject_field',
-        'button_title'
+        'button_title',
+        'title',
+        'description',
     ];
 
     public static function normalizeData($object){
