@@ -20,9 +20,8 @@ class CareerPage extends Model
         'description',
         'vacancies',
         'bottom_description',
-        'first_bottom_field',
-        'second_bottom_field',
-        'third_bottom_field',
+        'button_in_the_bottom_text',
+        'popup_button_text',
         'meta_title',
         'meta_description',
         'key_words'
@@ -33,9 +32,8 @@ class CareerPage extends Model
         'description',
         'vacancies',
         'bottom_description',
-        'first_bottom_field',
-        'second_bottom_field',
-        'third_bottom_field',
+        'button_in_the_bottom_text',
+        'popup_button_text',
         'meta_title',
         'meta_description',
         'key_words'

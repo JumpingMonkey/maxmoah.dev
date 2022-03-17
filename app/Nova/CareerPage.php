@@ -75,10 +75,8 @@ class CareerPage extends Resource
                     Text::make('Apply button title', 'button_title')
                 ])->button('Add vacancy'),
             Text::make('Bottom description', 'bottom_description'),
-            Text::make('First bottom text', 'first_bottom_field'),
-            Text::make('Second bottom text', 'second_bottom_field'),
-            Text::make('Third bottom text', 'third_bottom_field'),
-
+            Text::make('Button in the bottom text', 'button_in_the_bottom_text'),
+            Text::make('Popup button text', 'popup_button_text'),
         ];
     }
 

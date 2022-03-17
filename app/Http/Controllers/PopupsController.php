@@ -99,10 +99,16 @@ class PopupsController extends Controller
 
         $postData = $request->post();
 
+        if($request->file !== null) {
+            $postData['file']=$request->file->store('/');
+        }else{
+            $postData['file']=null;
+        }
+
         $newClientMessage = new CareerPopupMessage($postData);
         $newClientMessage->save();
 
-//        SendMailService::sendEmailToAdmin('career',$postData);
+        SendMailService::sendEmailToAdmin('career',$postData);
         return response()->json([
             'status' => 'success',
             'massage' => 'Request will be send!'

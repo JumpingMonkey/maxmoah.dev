@@ -51,6 +51,7 @@ class EmailSetting extends Resource
             Text::make('Email for the Online appointment popup','email_for_online_appointment'),
             Text::make('Email for the Privat appointment popup','email_for_privat_appointment'),
             Text::make('Email for the Trunk show popup','email_for_trunk_show'),
+            Text::make('Email for the Career popup','email_for_career'),
 
             Heading::make('Setting for the message sender'),
 

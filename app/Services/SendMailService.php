@@ -60,12 +60,23 @@ class SendMailService
                 $email = $emailSetting->email_for_trunk_show;
                 $view = 'toAdminFromTrunkShow';
                 break;
+            case 'career':
+                $email = $emailSetting->email_for_career;
+                $view = 'toAdminFromCareer';
+                break;
 
         }
 
         Mail::send('email.'.$view, $postData, function($message) use ($emailSetting,$popup, $email, $request, $postData) {
             $message->to($email,$emailSetting->name)->subject($emailSetting->name.': New mail from the '.$popup.' popup!');
             $message->from($emailSetting->email_for_send,$emailSetting->name);
+
+            if(isset($postData['file'])) {
+                $message->attach($request->file('file')->getRealPath(), [
+                    'as' => $request->file('file')->getClientOriginalName(),
+                    'mime' => $request->file('file')->getMimeType()
+                ]);
+            }
 
         });
     }

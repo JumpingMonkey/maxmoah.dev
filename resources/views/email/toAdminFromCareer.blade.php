@@ -8,11 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-<h1>New mail from the trunk show popup!</h1>
+<h1>New mail from the career popup!</h1>
 <p>Name: {{$name}}</p>
 <p>Email: {{$email}}</p>
 <p>Phone: {{$phone}}</p>
-<p>Region: {{$region}}</p>
-<p>Country: {{$country}}</p>
+<p>Region: {{$social_media}}</p>
+<p>Country: {{$vacancy_title}}</p>
 </body>
 </html>

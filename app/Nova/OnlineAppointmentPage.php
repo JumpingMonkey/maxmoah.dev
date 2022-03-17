@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Models\OnlineAppointment;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
@@ -17,7 +18,7 @@ class OnlineAppointmentPage extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\OnlineAppointment::class;
+    public static $model = OnlineAppointment::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
