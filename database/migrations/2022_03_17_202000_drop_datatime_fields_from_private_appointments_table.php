@@ -19,7 +19,7 @@ class DropDatatimeFieldsFromPrivateAppointmentsTable extends Migration
             $table->dropColumn('yyyy_field_title');
         });
 
-        Schema::table('private_appointments_messages', function (Blueprint $table) {
+        Schema::table('private_appointment_messages', function (Blueprint $table) {
             $table->dropColumn('date');
         });
     }
@@ -32,7 +32,13 @@ class DropDatatimeFieldsFromPrivateAppointmentsTable extends Migration
     public function down()
     {
         Schema::table('private_appointments', function (Blueprint $table) {
-            //
+            $table->json('dd_field_title');
+            $table->json('mm_field_title');
+            $table->json('yyyy_field_title');
+        });
+
+        Schema::table('private_appointment_messages', function (Blueprint $table) {
+            $table->string('date');
         });
     }
 }
