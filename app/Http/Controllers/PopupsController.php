@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Career;
 use App\Http\Requests\EventRegistration;
 use App\Http\Requests\MakeRequest;
 use App\Http\Requests\OnlineAppointment;
 use App\Http\Requests\PrivatAppointment;
 use App\Http\Requests\TrunkShow;
+use App\Models\CareerPopupMessage;
 use App\Models\EventRegistrationMessage;
 use App\Models\MakeRequestMessage;
 use App\Models\OnlineApointmentMessage;
@@ -86,6 +88,21 @@ class PopupsController extends Controller
         $newClientMessage->save();
 
         SendMailService::sendEmailToAdmin('trunkShow',$postData);
+        return response()->json([
+            'status' => 'success',
+            'massage' => 'Request will be send!'
+        ]);
+    }
+
+    public function careerPopupSend(Career $request){
+
+
+        $postData = $request->post();
+
+        $newClientMessage = new CareerPopupMessage($postData);
+        $newClientMessage->save();
+
+//        SendMailService::sendEmailToAdmin('career',$postData);
         return response()->json([
             'status' => 'success',
             'massage' => 'Request will be send!'
