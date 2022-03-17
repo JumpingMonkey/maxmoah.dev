@@ -88,6 +88,7 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
     Route::post('/popup/online_appointment', [PopupsController::class, 'onlineAppointmentPopupSend']);
     Route::post('/popup/private_appointment', [PopupsController::class, 'privatAppointmentPopupSend']);
     Route::post('/popup/trunk_show', [PopupsController::class, 'trunkShowPopupSend']);
+    Route::post('/popup/career', [PopupsController::class, 'careerPopupSend']);
 
 
 

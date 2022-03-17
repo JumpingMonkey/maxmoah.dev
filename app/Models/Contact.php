@@ -15,6 +15,9 @@ class Contact extends Model
     protected $table = "contacts";
 
     protected $fillable = [
+        'meta_title',
+        'meta_description',
+        'key_words',
         'subject_field',
         'button_title',
         'title',
@@ -26,6 +29,9 @@ class Contact extends Model
         'button_title',
         'title',
         'description',
+        'meta_title',
+        'meta_description',
+        'key_words',
     ];
 
     public static function normalizeData($object){
