@@ -28,7 +28,6 @@ class PrivatAppointment extends FormRequest
             'email' => 'required|email|max:250',
             'country_city' => 'required|string|max:250',
             'phone' => 'required|string|max:1000',
-            'date' => 'string|max:100',
             'time' => 'string|max:100',
         ];
     }

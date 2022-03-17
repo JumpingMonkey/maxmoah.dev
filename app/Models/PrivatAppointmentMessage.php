@@ -9,5 +9,5 @@ class PrivatAppointmentMessage extends Model
 {
     use HasFactory;
 
-    protected $fillable = array('name', 'email', 'country_city', 'phone', 'date', 'time');
+    protected $fillable = array('name', 'email', 'country_city', 'phone', 'time');
 }

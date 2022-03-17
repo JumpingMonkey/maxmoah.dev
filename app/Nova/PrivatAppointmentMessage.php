@@ -48,7 +48,6 @@ class PrivatAppointmentMessage extends Resource
             Text::make('Email', 'email'),
             Text::make('Prefered country/city', 'country_city'),
             Text::make('Phone', 'phone'),
-            Text::make('Date', 'date'),
             Text::make('Prefered time', 'time')
         ];
     }
