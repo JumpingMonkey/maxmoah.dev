@@ -22,6 +22,9 @@ class Contact extends Model
         'button_title',
         'title',
         'description',
+        'phone_number_description',
+        'email_for_press_inquires_description',
+        'email_general_description',
     ];
 
     public $translatable = [
@@ -32,6 +35,9 @@ class Contact extends Model
         'meta_title',
         'meta_description',
         'key_words',
+        'phone_number_description',
+        'email_for_press_inquires_description',
+        'email_general_description',
     ];
 
     public static function normalizeData($object){

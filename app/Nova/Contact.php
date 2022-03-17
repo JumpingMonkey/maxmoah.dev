@@ -6,6 +6,7 @@ use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
 
@@ -55,7 +56,7 @@ class Contact extends Resource
             Text::make('Meta-description', 'meta_description')->hideFromIndex(),
             Text::make('Key-Words', 'key_words')->hideFromIndex(),
             Text::make('Title', 'title')->hideFromIndex(),
-            Text::make('Description', 'description')->hideFromIndex(),
+            Textarea::make('Description', 'description')->hideFromIndex(),
 
 
             Flexible::make('Subject field', 'subject_field')
@@ -64,8 +65,11 @@ class Contact extends Resource
             ])->button('Add subject variant'),
             Text::make('Button title', 'button_title'),
             Text::make('Phone number', 'phone_number')->rules('required'),
+            Textarea::make('Phone number description'),
             Text::make('Email for press inquires', 'email_for_press_inquires'),
+            Textarea::make('Email for press inquires description'),
             Text::make('Email general', 'email_general')->rules('required'),
+            Textarea::make('Email general description'),
         ];
     }
 }
