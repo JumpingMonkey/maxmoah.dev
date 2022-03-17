@@ -165,7 +165,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+        Maatwebsite\LaravelNovaExcel\LaravelNovaExcelServiceProvider::class,
         /*
          * Application Service Providers...
          */

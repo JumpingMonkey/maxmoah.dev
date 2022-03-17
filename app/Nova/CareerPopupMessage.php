@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 
 class CareerPopupMessage extends Resource
 {
@@ -95,6 +96,8 @@ class CareerPopupMessage extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new DownloadExcel,
+        ];
     }
 }

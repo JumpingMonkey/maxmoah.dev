@@ -18,6 +18,7 @@
         "laravel/framework": "^8.40",
         "laravel/nova": "*",
         "laravel/tinker": "^2.5",
+        "maatwebsite/laravel-nova-excel": "^1.2",
         "optimistdigital/nova-color-field": "^1.2",
         "optimistdigital/nova-sortable": "^2.3",
         "waynestate/nova-ckeditor4-field": "^0.7.0",
