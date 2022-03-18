@@ -17,7 +17,6 @@ class CareerPopupPage extends Model
     protected $fillable = [
         'title',
         'description',
-        'vacancy_title',
         'name_label',
         'email_label',
         'phone_label',
@@ -32,7 +31,6 @@ class CareerPopupPage extends Model
     public $translatable = [
         'title',
         'description',
-        'vacancy_title',
         'name_label',
         'email_label',
         'phone_label',
@@ -45,7 +43,7 @@ class CareerPopupPage extends Model
     ];
 
     public static function normalizeData($object){
-        
+
         return $object;
     }
 

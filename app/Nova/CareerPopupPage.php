@@ -47,7 +47,6 @@ class CareerPopupPage extends Resource
             Multilingual::make('Language'),
             Text::make('Title'),
             Text::make('Description'),
-            Text::make('Vacancy title'),
             Text::make('Name label'),
             Text::make('Email label'),
             Text::make('Phone label'),
