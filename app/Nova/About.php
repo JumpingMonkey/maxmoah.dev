@@ -98,26 +98,23 @@ class About extends Resource
                     CKEditor::make('Description','description')
                         ->rules('required'),
                 ])
-//                ->addLayout('Mission', 'mission', [
-//                    Flexible::make('Background image/video', 'mission_bg_image')
-//                        ->addLayout('Image', 'image', [
-//                            Medialibrary::make('Image','image')
-//                                ->rules('required'),
-//                            Text::make('Image title', 'image_title')
-//                                ->rules('required'),
-//                            Text::make('Image alt', 'image_alt')
-//                                ->rules('required')
-//                        ])->button('add bg image')
-//                        ->limit(1),
-//                    Boolean::make('Filter'),
-//                    Text::make('Title', 'title')
-//                        ->rules('required'),
-//                    CKEditor::make('Description','description')
-//                        ->rules('required'),
-//                    Text::make('Button title'),
-//                    Text::make('Button link'),
-//                    Color::make('Background color')
-//                ])
+                ->addLayout('Mission', 'mission', [
+                    Flexible::make('Background image/video', 'mission_bg_image')
+                        ->addLayout('Image', 'image', [
+                            Medialibrary::make('Image','image')
+                                ->rules('required'),
+                            Text::make('Image title', 'image_title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'image_alt')
+                                ->rules('required')
+                        ])->button('add bg image')
+                        ->limit(1),
+                    Boolean::make('Filter'),
+                    Text::make('Title', 'title')
+                        ->rules('required'),
+                    CKEditor::make('Description','description')
+                        ->rules('required'),
+                ])
                 ->addLayout('Society', 'society', [
                     Flexible::make('Background image/video', 'society_bg_image')
                         ->addLayout('Image', 'image', [
