@@ -65,11 +65,11 @@ class Contact extends Resource
             ])->button('Add subject variant'),
             Text::make('Button title', 'button_title'),
             Text::make('Phone number', 'phone_number')->rules('required'),
-            Textarea::make('Phone number description'),
+            Text::make('Phone number description'),
             Text::make('Email for press inquires', 'email_for_press_inquires'),
-            Textarea::make('Email for press inquires description'),
+            Text::make('Email for press inquires description'),
             Text::make('Email general', 'email_general')->rules('required'),
-            Textarea::make('Email general description'),
+            Text::make('Email general description'),
         ];
     }
 }
