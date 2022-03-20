@@ -41,6 +41,7 @@ class MainPageModel extends Model
     public $mediaToUrl = [
         'hero_bg_image',
         'image',
+        'image_video',
     ];
 
     public static function normalizeData($object)
@@ -49,7 +50,22 @@ class MainPageModel extends Model
         self::getNormalizedField($object, 'display_categories', 'category_name', 'true', 'true');
         self::getNormalizedField($object, 'display_pages', 'page_name', 'true', 'true');
 
+        self::normalizeDoubleFlex($object, 'display_categories');
+        self::normalizeDoubleFlex($object, 'display_pages');
+
         return $object;
+    }
+
+    public static function normalizeDoubleFlex(&$object, $fieldName) {
+        $blocks = [];
+        foreach ($object[$fieldName] as $categoryKey => $category){
+            foreach ($category['blocks'] as $blockKey => $block) {
+                $blocks[$blockKey] = $block['attributes'];
+                $blocks[$blockKey]['image_video'] = self::getOneMediaForDoubleFlex($blocks[$blockKey]['image_video']);
+            }
+            $object[$fieldName][$categoryKey]['blocks'] = $blocks;
+        }
+
     }
 
     public function getFullData()

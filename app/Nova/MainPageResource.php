@@ -86,14 +86,24 @@ class MainPageResource extends Resource
 
             Flexible::make('Display categories', 'display_categories')
                 ->addLayout('Category', 'category', [
-                    Text::make('Category name', 'category_name'),
-                    Select::make('Category', 'category_slug')->options(
+                    Text::make('Title category', 'category_name'),
+                    Select::make('Category tag', 'category_slug')->options(
                         Category::all()->pluck('category_title', 'category_slug'),
                     ),
+                    Flexible::make('Blocks', 'blocks')
+                    ->addLayout('Block', 'block', [
+                        Text::make('Title', 'title'),
+                        Textarea::make('Description', 'description'),
+                        Text::make('Button title', 'btn_title'),
+                        Text::make('Button link', 'btn_link'),
+                        Medialibrary::make('Image/video','image_video'),
+                        Text::make('Image title', 'image_video_title'),
+                        Text::make('Image alt', 'image_video_alt'),
+                    ])->button('add block'),
                 ])->button('add category'),
             Flexible::make('Display pages', 'display_pages')
                 ->addLayout('Page', 'page', [
-                    Text::make('Page name', 'page_name'),
+                    Text::make('Title page', 'title_page'),
                     Select::make('Page link', 'page_slug')->options([
                         '/about' => '/about',
                         '/where' => '/where',
@@ -101,6 +111,16 @@ class MainPageResource extends Resource
                         '/customer_service' => '/customer_service',
                         '/career' => '/career',
                     ]),
+                    Flexible::make('Blocks', 'blocks')
+                        ->addLayout('Block', 'block', [
+                            Text::make('Title', 'title'),
+                            Textarea::make('Description', 'description'),
+                            Text::make('Button title', 'btn_title'),
+                            Text::make('Button link', 'btn_link'),
+                            Medialibrary::make('Image/video','image_video'),
+                            Text::make('Image title', 'image_video_title'),
+                            Text::make('Image alt', 'image_video_alt'),
+                        ])->button('add block'),
                 ]),
 
 

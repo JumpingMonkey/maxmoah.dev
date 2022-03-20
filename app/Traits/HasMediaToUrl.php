@@ -409,6 +409,22 @@ trait HasMediaToUrl
      * Get one id, if error return '/storage/No_image_available.svg'.
      *
      * @param  $id
+     * @return string
+     *
+     */
+    public static function getOneMediaForDoubleFlex($id)
+    {
+        $media = DB::table('nova_media_library')->where('id', $id)->value('name');
+        if ($media === null) {
+            return '/storage/No_image_available.svg';
+        }
+        return '/storage/' . $media;
+    }
+
+    /**
+     * Get one id, if error return '/storage/No_image_available.svg'.
+     *
+     * @param  $id
      * @return string & array
      *
      */
