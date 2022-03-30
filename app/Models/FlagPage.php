@@ -16,6 +16,8 @@ class FlagPage extends Model
         'title',
         'description',
         'popup_description',
+        'background_photo_video',
+        'filter',
     ];
 
     public $translatable = [
@@ -24,8 +26,13 @@ class FlagPage extends Model
         'popup_description',
     ];
 
-    public static function normalizeData($object){
+    public $mediaToUrl = [
+        'background_photo_video',
+        'item',
+    ];
 
+    public static function normalizeData($object){
+        self::getNormalizedField($object, 'background_photo_video', 'item', true, true);
         return $object;
     }
 

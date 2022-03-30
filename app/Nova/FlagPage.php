@@ -2,12 +2,15 @@
 
 namespace App\Nova;
 
+use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use OptimistDigital\NovaColorField\Color;
+use Whitecube\NovaFlexibleContent\Flexible;
 
 class FlagPage extends Resource
 {
@@ -58,6 +61,17 @@ class FlagPage extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Multilingual::make('Language'),
 
+            Flexible::make('Background photo/video', 'background_photo_video')
+                ->addLayout('Image/video', 'image_video', [
+                    Medialibrary::make('Item','item')
+                        ->rules('required'),
+                    Text::make('Item title', 'item_title')
+                        ->rules('required'),
+                    Text::make('Item alt', 'item_alt')
+                        ->rules('required')
+                ])->button('add bg image/video')
+                ->limit(1),
+            Color::make('Filter')->slider(),
             Text::make('Title'),
             Textarea::make('Description'),
             Textarea::make('Popup description'),
