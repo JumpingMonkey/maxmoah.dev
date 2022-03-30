@@ -13,6 +13,7 @@ use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use OptimistDigital\NovaColorField\Color;
 use Whitecube\NovaFlexibleContent\Flexible;
 
 class MainPageResource extends Resource
@@ -69,20 +70,20 @@ class MainPageResource extends Resource
             Text::make('Meta-description', 'meta_description')->hideFromIndex(),
             Text::make('Key-Words', 'key_words')->hideFromIndex(),
 
-            Flexible::make('Hero bg image', 'hero_bg_image')
-                ->addLayout('Image', 'image', [
-                    Medialibrary::make('Image','image')
-                        ->rules('required'),
-                    Text::make('Image title', 'image_title')
-                        ->rules('required'),
-                    Text::make('Image alt', 'image_alt')
-                        ->rules('required')
-                ])->button('add image')
-                ->limit(1),
-
-            Text::make('Hero title', 'hero_title'),
-            Textarea::make('Hero description', 'hero_description'),
-            Text::make('Hero button title', 'hero_btn_title'),
+//            Flexible::make('Hero bg image', 'hero_bg_image')
+//                ->addLayout('Image', 'image', [
+//                    Medialibrary::make('Image','image')
+//                        ->rules('required'),
+//                    Text::make('Image title', 'image_title')
+//                        ->rules('required'),
+//                    Text::make('Image alt', 'image_alt')
+//                        ->rules('required')
+//                ])->button('add image')
+//                ->limit(1),
+//
+//            Text::make('Hero title', 'hero_title'),
+//            Textarea::make('Hero description', 'hero_description'),
+//            Text::make('Hero button title', 'hero_btn_title'),
 
             Flexible::make('Display categories', 'display_categories')
                 ->addLayout('Category', 'category', [
@@ -110,6 +111,7 @@ class MainPageResource extends Resource
                         '/contact' => '/contact',
                         '/customer_service' => '/customer_service',
                         '/career' => '/career',
+                        '/flag' => '/flag',
                     ]),
                     Flexible::make('Blocks', 'blocks')
                         ->addLayout('Block', 'block', [
@@ -118,6 +120,7 @@ class MainPageResource extends Resource
                             Text::make('Button title', 'btn_title'),
                             Text::make('Button link', 'btn_link'),
                             Medialibrary::make('Image/video','image_video'),
+                            Color::make('Filter')->slider(),
                             Text::make('Image title', 'image_video_title'),
                             Text::make('Image alt', 'image_video_alt'),
                         ])->button('add block'),

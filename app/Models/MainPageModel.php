@@ -19,10 +19,10 @@ class MainPageModel extends Model
         'meta_title',
         'meta_description',
         'key_words',
-        'hero_bg_image',
-        'hero_title',
-        'hero_description',
-        'hero_btn_title',
+//        'hero_bg_image',
+//        'hero_title',
+//        'hero_description',
+//        'hero_btn_title',
         'display_categories',
         'display_pages',
     ];
@@ -31,22 +31,22 @@ class MainPageModel extends Model
         'meta_title',
         'meta_description',
         'key_words',
-        'hero_title',
-        'hero_description',
-        'hero_btn_title',
+//        'hero_title',
+//        'hero_description',
+//        'hero_btn_title',
         'display_categories',
         'display_pages',
     ];
 
     public $mediaToUrl = [
-        'hero_bg_image',
+//        'hero_bg_image',
         'image',
         'image_video',
     ];
 
     public static function normalizeData($object)
     {
-        self::getNormalizedField($object, 'hero_bg_image', 'image', 'true', 'true');
+//        self::getNormalizedField($object, 'hero_bg_image', 'image', 'true', 'true');
         self::getNormalizedField($object, 'display_categories', 'category_name', 'true', 'true');
         self::getNormalizedField($object, 'display_pages', 'page_name', 'true', 'true');
 
@@ -57,14 +57,17 @@ class MainPageModel extends Model
     }
 
     public static function normalizeDoubleFlex(&$object, $fieldName) {
-        $blocks = [];
-        foreach ($object[$fieldName] as $categoryKey => $category){
-            foreach ($category['blocks'] as $blockKey => $block) {
-                $blocks[$blockKey] = $block['attributes'];
-                $blocks[$blockKey]['image_video'] = self::getOneMediaForDoubleFlex($blocks[$blockKey]['image_video']);
+        if (array_key_exists($fieldName, $object)){
+            $blocks = [];
+            foreach ($object[$fieldName] as $categoryKey => $category){
+                foreach ($category['blocks'] as $blockKey => $block) {
+                    $blocks[$blockKey] = $block['attributes'];
+                    $blocks[$blockKey]['image_video'] = self::getOneMediaForDoubleFlex($blocks[$blockKey]['image_video']);
+                }
+                $object[$fieldName][$categoryKey]['blocks'] = $blocks;
             }
-            $object[$fieldName][$categoryKey]['blocks'] = $blocks;
         }
+
 
     }
 
