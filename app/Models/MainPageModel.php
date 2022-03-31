@@ -42,6 +42,7 @@ class MainPageModel extends Model
 //        'hero_bg_image',
         'image',
         'image_video',
+        'video'
     ];
 
     public static function normalizeData($object)
@@ -62,7 +63,11 @@ class MainPageModel extends Model
             foreach ($object[$fieldName] as $categoryKey => $category){
                 foreach ($category['blocks'] as $blockKey => $block) {
                     $blocks[$blockKey] = $block['attributes'];
-                    $blocks[$blockKey]['image_video'] = self::getOneMediaForDoubleFlex($blocks[$blockKey]['image_video']);
+                    $blocks[$blockKey]['background_photo_video'][0]['attributes']['src'] =
+                        self::getOneMediaForDoubleFlex($blocks[$blockKey]['background_photo_video'][0]['attributes']['src']);
+                    $blocks[$blockKey]['background_photo_video'] =
+                        [$blocks[$blockKey]['background_photo_video'][0]['layout'] =>
+                            $blocks[$blockKey]['background_photo_video'][0]['attributes']];
                 }
                 $object[$fieldName][$categoryKey]['blocks'] = $blocks;
             }

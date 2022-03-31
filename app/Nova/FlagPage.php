@@ -62,14 +62,23 @@ class FlagPage extends Resource
             Multilingual::make('Language'),
 
             Flexible::make('Background photo/video', 'background_photo_video')
-                ->addLayout('Image/video', 'image_video', [
-                    Medialibrary::make('Item','item')
+                ->addLayout('Image', 'image', [
+                    Medialibrary::make('Image','src')
                         ->rules('required'),
-                    Text::make('Item title', 'item_title')
+                    Text::make('Image title', 'title')
                         ->rules('required'),
-                    Text::make('Item alt', 'item_alt')
+                    Text::make('Image title', 'alt')
                         ->rules('required')
-                ])->button('add bg image/video')
+                ])
+                ->addLayout('Video', 'video', [
+                    Medialibrary::make('Video','src')
+                        ->rules('required'),
+                    Text::make('Video title', 'title')
+                        ->rules('required'),
+                    Text::make('Video title', 'alt')
+                        ->rules('required')
+                ])
+                ->button('add bg image/video')
                 ->limit(1),
             Color::make('Filter')->slider(),
             Text::make('Title'),

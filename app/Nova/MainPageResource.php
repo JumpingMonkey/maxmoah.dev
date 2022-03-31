@@ -97,11 +97,26 @@ class MainPageResource extends Resource
                         Textarea::make('Description', 'description'),
                         Text::make('Button title', 'btn_title'),
                         Text::make('Button link', 'btn_link'),
-                        Medialibrary::make('Image','image'),
-                        Medialibrary::make('Video','video'),
+                        Flexible::make('Background photo/video', 'background_photo_video')
+                            ->addLayout('Image', 'image', [
+                                Medialibrary::make('Item','src')
+                                    ->rules('required'),
+                                Text::make('Item title', 'title')
+                                    ->rules('required'),
+                                Text::make('Item alt', 'alt')
+                                    ->rules('required')
+                            ])
+                            ->addLayout('Video', 'video', [
+                                Medialibrary::make('Item','src')
+                                    ->rules('required'),
+                                Text::make('Item title', 'title')
+                                    ->rules('required'),
+                                Text::make('Item alt', 'alt')
+                                    ->rules('required')
+                            ])
+                            ->button('add bg image/video')
+                            ->limit(1),
                         Color::make('Filter')->slider(),
-                        Text::make('Image title', 'image_video_title'),
-                        Text::make('Image alt', 'image_video_alt'),
                     ])->button('add block'),
                 ])->button('add category'),
             Flexible::make('Display pages', 'display_pages')
@@ -121,11 +136,26 @@ class MainPageResource extends Resource
                             Textarea::make('Description', 'description'),
                             Text::make('Button title', 'btn_title'),
                             Text::make('Button link', 'btn_link'),
-                            Medialibrary::make('Image','image'),
-                            Medialibrary::make('Video','video'),
+                            Flexible::make('Background photo/video', 'background_photo_video')
+                                ->addLayout('Image', 'image', [
+                                    Medialibrary::make('Item','src')
+                                        ->rules('required'),
+                                    Text::make('Item title', 'title')
+                                        ->rules('required'),
+                                    Text::make('Item alt', 'alt')
+                                        ->rules('required')
+                                ])
+                                ->addLayout('Video', 'video', [
+                                    Medialibrary::make('Item','src')
+                                        ->rules('required'),
+                                    Text::make('Item title', 'title')
+                                        ->rules('required'),
+                                    Text::make('Item alt', 'alt')
+                                        ->rules('required')
+                                ])
+                                ->button('add bg image/video')
+                                ->limit(1),
                             Color::make('Filter')->slider(),
-                            Text::make('Image title', 'image_video_title'),
-                            Text::make('Image alt', 'image_video_alt'),
                         ])->button('add block'),
                 ]),
 

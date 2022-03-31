@@ -29,10 +29,15 @@ class FlagPage extends Model
     public $mediaToUrl = [
         'background_photo_video',
         'item',
+        'video',
+        'image',
+        'src'
     ];
 
     public static function normalizeData($object){
-        self::getNormalizedField($object, 'background_photo_video', 'item', true, true);
+        self::getNormalizedField($object, 'background_photo_video', 'src', true, true, true);
+
+
         return $object;
     }
 
