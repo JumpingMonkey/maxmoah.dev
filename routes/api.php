@@ -11,6 +11,7 @@ use App\Http\Controllers\EventRegistrationController;
 use App\Http\Controllers\FlagPage;
 use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\MakeRequestPageModelController;
+use App\Http\Controllers\News;
 use App\Http\Controllers\OneItemModelController;
 use App\Http\Controllers\OnlineAppointmentController;
 use App\Http\Controllers\PartsController;
@@ -62,6 +63,10 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
 
     //filters
 //    Route::get('/filters', [PartsController::class, 'parts']);
+
+//News
+    Route::get('/news/{slug}', [News::class, 'getOneNews']);
+    Route::get('/news', [News::class, 'getNewsList']);
 
     //category page
     Route::get('/categories', [CategoryController::class, 'getCategoryList']);
