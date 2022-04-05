@@ -375,11 +375,11 @@ trait HasMediaToUrl
         $media = DB::table('nova_media_library')->whereIn('id', $id)->pluck('name', 'id');
         if ($media !== null) {
             foreach ($media as $oneKey => $oneValue) {
-                $resultTemp[$oneKey] = '/storage/' . $oneValue;
+                $resultTemp[$oneKey] = url('/storage/' . $oneValue);
             }
             foreach ($id as $oneKey => $oneValue) {
                 if (isset($media[$oneValue]) && $media[$oneValue] != null) {
-                    $result[$oneKey] = '/storage/' . $media[$oneValue];
+                    $result[$oneKey] = url('/storage/' . $media[$oneValue]);
                 } else {
                     $result[$oneKey] = '/storage/No_image_available.svg';
                 }
@@ -402,7 +402,7 @@ trait HasMediaToUrl
         if ($media === null) {
             return '/storage/No_image_available.svg';
         }
-        return '/storage/' . $media;
+        return url('/storage/' . $media);
     }
 
     /**
@@ -418,7 +418,7 @@ trait HasMediaToUrl
         if ($media === null) {
             return '/storage/No_image_available.svg';
         }
-        return '/storage/' . $media;
+        return url('/storage/' . $media);
     }
 
     /**
