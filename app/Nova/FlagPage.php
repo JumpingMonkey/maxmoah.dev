@@ -67,7 +67,7 @@ class FlagPage extends Resource
                         ->rules('required'),
                     Text::make('Image title', 'title')
                         ->rules('required'),
-                    Text::make('Image title', 'alt')
+                    Text::make('Image alt', 'alt')
                         ->rules('required')
                 ])
                 ->addLayout('Video', 'video', [
@@ -75,7 +75,7 @@ class FlagPage extends Resource
                         ->rules('required'),
                     Text::make('Video title', 'title')
                         ->rules('required'),
-                    Text::make('Video title', 'alt')
+                    Text::make('Video alt', 'alt')
                         ->rules('required')
                 ])
                 ->button('add bg image/video')
