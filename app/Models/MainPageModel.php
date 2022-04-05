@@ -59,8 +59,9 @@ class MainPageModel extends Model
 
     public static function normalizeDoubleFlex(&$object, $fieldName) {
         if (array_key_exists($fieldName, $object)){
-            $blocks = [];
+
             foreach ($object[$fieldName] as $categoryKey => $category){
+                $blocks = [];
                 foreach ($category['blocks'] as $blockKey => $block) {
                     $blocks[$blockKey] = $block['attributes'];
                     $blocks[$blockKey]['background_photo_video'][0]['attributes']['src'] =
