@@ -74,22 +74,22 @@ class About extends Resource
                 ->addLayout('Atelier', 'atelier', [
                     Flexible::make('Background image/video', 'atelier_bg_image')
                         ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','image')
+                            Medialibrary::make('Image','crs')
                                 ->rules('required'),
-                            Text::make('Image title', 'image_title')
+                            Text::make('Image title', 'title')
                                 ->rules('required'),
-                            Text::make('Image alt', 'image_alt')
+                            Text::make('Image alt', 'alt')
                                 ->rules('required')
                         ])->button('add bg image')
                         ->limit(1),
                     Boolean::make('Filter'),
                     Flexible::make('Image', 'atelier_image')
                         ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','image')
+                            Medialibrary::make('Image','src')
                                 ->rules('required'),
-                            Text::make('Image title', 'image_title')
+                            Text::make('Image title', 'title')
                                 ->rules('required'),
-                            Text::make('Image alt', 'image_alt')
+                            Text::make('Image alt', 'alt')
                                 ->rules('required')
                         ])->button('add image')
                         ->limit(1),
@@ -101,11 +101,11 @@ class About extends Resource
                 ->addLayout('Mission', 'mission', [
                     Flexible::make('Background image/video', 'mission_bg_image')
                         ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','image')
+                            Medialibrary::make('Image','src')
                                 ->rules('required'),
-                            Text::make('Image title', 'image_title')
+                            Text::make('Image title', 'title')
                                 ->rules('required'),
-                            Text::make('Image alt', 'image_alt')
+                            Text::make('Image alt', 'alt')
                                 ->rules('required')
                         ])->button('add bg image')
                         ->limit(1),
@@ -118,11 +118,11 @@ class About extends Resource
                 ->addLayout('Society', 'society', [
                     Flexible::make('Background image/video', 'society_bg_image')
                         ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','image')
+                            Medialibrary::make('Image','src')
                                 ->rules('required'),
-                            Text::make('Image title', 'image_title')
+                            Text::make('Image title', 'title')
                                 ->rules('required'),
-                            Text::make('Image alt', 'image_alt')
+                            Text::make('Image alt', 'alt')
                                 ->rules('required')
                         ])->limit(1)
                         ->button('add bg image'),
@@ -138,11 +138,11 @@ class About extends Resource
                             ->rules('required'),
                             Flexible::make('Image', 'image')
                                 ->addLayout('Image', 'image', [
-                                    Medialibrary::make('Image','image')
+                                    Medialibrary::make('Image','src')
                                     ->rules('required'),
-                                    Text::make('Image title', 'image_title')
+                                    Text::make('Image title', 'title')
                                     ->rules('required'),
-                                    Text::make('Image alt', 'image_alt')
+                                    Text::make('Image alt', 'alt')
                                     ->rules('required')
                                 ])->button('add image')
                                 ->limit(1)
@@ -153,22 +153,22 @@ class About extends Resource
                 ->addLayout('Enviroment', 'enviroment', [
                     Flexible::make('Background image/video', 'enviroment_bg_image')
                         ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','image')
+                            Medialibrary::make('Image','src')
                                 ->rules('required'),
-                            Text::make('Image title', 'image_title')
+                            Text::make('Image title', 'title')
                                 ->rules('required'),
-                            Text::make('Image alt', 'image_alt')
+                            Text::make('Image alt', 'alt')
                                 ->rules('required')
                         ])->button('add bg image')
                         ->limit(1),
                     Boolean::make('Filter'),
                     Flexible::make('Image', 'enviroment_image')
                         ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','image')
+                            Medialibrary::make('Image','src')
                                 ->rules('required'),
-                            Text::make('Image title', 'image_title')
+                            Text::make('Image title', 'title')
                                 ->rules('required'),
-                            Text::make('Image alt', 'image_alt')
+                            Text::make('Image alt', 'alt')
                                 ->rules('required')
                         ])->button('add image')
                         ->limit(1),
@@ -182,11 +182,11 @@ class About extends Resource
                                 ->rules('required'),
                             Flexible::make('Image', 'image')
                                 ->addLayout('Image', 'image', [
-                                    Medialibrary::make('Image','image')
+                                    Medialibrary::make('Image','src')
                                         ->rules('required'),
-                                    Text::make('Image title', 'image_title')
+                                    Text::make('Image title', 'title')
                                         ->rules('required'),
-                                    Text::make('Image alt', 'image_alt')
+                                    Text::make('Image alt', 'alt')
                                         ->rules('required')
                                 ])->button('add image')
                                 ->limit(1),

@@ -34,6 +34,7 @@ class About extends Model
     public $mediaToUrl = [
         'content',
         'image',
+        'src',
     ];
 
 //   public static function norm($object)
