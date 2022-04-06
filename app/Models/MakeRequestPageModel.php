@@ -19,9 +19,11 @@ class MakeRequestPageModel extends Model
         'description',
         'name_field_title',
         'email_field_title',
+        'phone_field_title',
         'message_field_title',
         'subject_variant',
-        'privacy_policy_label',
+        'privacy_policy_text',
+        'privacy_policy_link_text',
         'button_title',
         'close_button_title'
     ];
@@ -31,9 +33,11 @@ class MakeRequestPageModel extends Model
         'description',
         'name_field_title',
         'email_field_title',
+        'phone_field_title',
         'message_field_title',
         'subject_variant',
-        'privacy_policy_label',
+        'privacy_policy_text',
+        'privacy_policy_link_text',
         'button_title',
         'close_button_title'
     ];
