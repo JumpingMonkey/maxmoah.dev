@@ -97,7 +97,7 @@ class MainPageResource extends Resource
                         Textarea::make('Description', 'description'),
                         Text::make('Button title', 'btn_title'),
                         Text::make('Button link', 'btn_link'),
-                        Flexible::make('Background photo/video', 'background_photo_video')
+                        Flexible::make('Background photo/video', 'bg_image_video')
                             ->addLayout('Image', 'image', [
                                 Medialibrary::make('Item','src')
                                     ->rules('required'),
@@ -136,7 +136,7 @@ class MainPageResource extends Resource
                             Textarea::make('Description', 'description'),
                             Text::make('Button title', 'btn_title'),
                             Text::make('Button link', 'btn_link'),
-                            Flexible::make('Background photo/video', 'background_photo_video')
+                            Flexible::make('Background photo/video', 'bg_image_video')
                                 ->addLayout('Image', 'image', [
                                     Medialibrary::make('Item','src')
                                         ->rules('required'),

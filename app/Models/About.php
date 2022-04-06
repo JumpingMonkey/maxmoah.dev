@@ -48,10 +48,14 @@ class About extends Model
 //       }
 //
 //        }
-public static function normalizePhotoWithMetaData($obj){
+public static function normalizePhotoWithMetaData($obj, $getNameItem = false){
     $data = [];
     foreach ($obj as $item){
-        $data = $item['attributes'];
+        if ($getNameItem){
+            $data[$item['layout']] = $item['attributes'];
+        } else {
+            $data[] = $item['attributes'];
+        }
     }
     return $data;
 }
@@ -61,7 +65,7 @@ public static function normalizeTitleAndImageField($obj){
     foreach ($obj as $item){
         $tmpData = [];
         $tmpData['title'] = $item['attributes']['title'];
-        $tmpData['image'] = self::normalizePhotoWithMetaData($item['attributes']['image']);
+        $tmpData['image'] = self::normalizePhotoWithMetaData($item['attributes']['image'], true)['image'];
         $data[] = $tmpData;
     }
     return $data;
@@ -88,7 +92,7 @@ public static function normalizeTitleAndImageField($obj){
                 if($inKey == 'title_and_image'){
                     $object['content'][$key][$inKey] = self::normalizeTitleAndImageField($object['content'][$key][$inKey]);
                 }elseif(str_contains($inKey, 'image')){
-                    $object['content'][$key][$inKey] = self::normalizePhotoWithMetaData($object['content'][$key][$inKey]);
+                    $object['content'][$key][$inKey] = self::normalizePhotoWithMetaData($object['content'][$key][$inKey], true);
                 }
 
             }

@@ -64,11 +64,11 @@ class MainPageModel extends Model
                 $blocks = [];
                 foreach ($category['blocks'] as $blockKey => $block) {
                     $blocks[$blockKey] = $block['attributes'];
-                    $blocks[$blockKey]['background_photo_video'][0]['attributes']['src'] =
-                        self::getOneMediaForDoubleFlex($blocks[$blockKey]['background_photo_video'][0]['attributes']['src']);
-                    $blocks[$blockKey]['background_photo_video'] =
-                        [$blocks[$blockKey]['background_photo_video'][0]['layout'] =>
-                            $blocks[$blockKey]['background_photo_video'][0]['attributes']];
+                    $blocks[$blockKey]['bg_image_video'][0]['attributes']['src'] =
+                        self::getOneMediaForDoubleFlex($blocks[$blockKey]['bg_image_video'][0]['attributes']['src']);
+                    $blocks[$blockKey]['bg_image_video'] =
+                        [$blocks[$blockKey]['bg_image_video'][0]['layout'] =>
+                            $blocks[$blockKey]['bg_image_video'][0]['attributes']];
                 }
                 $object[$fieldName][$categoryKey]['blocks'] = $blocks;
             }
