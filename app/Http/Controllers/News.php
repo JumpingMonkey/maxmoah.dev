@@ -24,9 +24,14 @@ class News extends Controller
     public function getNewsList() {
         $data = OneNews::query()
             ->get();
-        foreach ($data as $datum){
-            $content[] = $datum->getFullData();
+        if ($data->count() > 0){
+            foreach ($data as $datum){
+                $content[] = $datum->getFullData();
+            }
+        } else {
+            $content = [];
         }
+
 
 
         return response()->json([
