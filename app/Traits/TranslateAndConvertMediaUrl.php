@@ -8,22 +8,42 @@ trait TranslateAndConvertMediaUrl
 
     public static function getNormalizedField(&$object, $fieldName, $attributeName, $fullCloneAttribute, $isObject, $getLayoutName = false){
         if (array_key_exists($fieldName, $object)){
-            foreach ($object[$fieldName] as $item){
-                if ($fullCloneAttribute){
-                    if ($getLayoutName){
-                        $newData[] = [$item["layout"] => $item["attributes"]];
-                    } else {
-                        $newData[] = $item["attributes"];
-                    }
-                    continue;
+            if ($getLayoutName){
+                foreach ($object[$fieldName] as $key => $item){
+                    if ($fullCloneAttribute){
 
+                        if (array_key_exists('slide', $item["attributes"])){
+                            $newData[$key . "_" . $item["layout"]] = $item["attributes"]['slide'];
+                        } else {
+                            $newData[$key . "_" . $item["layout"]] = $item["attributes"];
+                        }
+                        continue;
+                    }
+                    if ($isObject){
+                        $newData[$key . "_" . $item["layout"]] = [$item["layout"] => $item["attributes"][$attributeName]];
+                    }else{
+                        $newData[$key . "_" . $item["layout"]] = $item["attributes"][$attributeName];
+                    }
                 }
-                if ($isObject){
-                    $newData[] = [$item["layout"] => $item["attributes"][$attributeName]];
-                }else{
-                    $newData[] = $item["attributes"][$attributeName];
+            } else {
+                foreach ($object[$fieldName] as $key => $item){
+                    if ($fullCloneAttribute){
+                        if (array_key_exists('slide', $item["attributes"])){
+                            $newData[] = $item["attributes"]['slide'];
+                        } else {
+                            $newData[] = $item["attributes"];
+                        }
+                        continue;
+                    }
+                    if ($isObject){
+                        $newData[] = [$item["layout"] => $item["attributes"][$attributeName]];
+                    }else{
+                        $newData[] = $item["attributes"][$attributeName];
+                    }
                 }
             }
+
+
             $object[$fieldName] = $newData;
         }
 
