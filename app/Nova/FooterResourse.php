@@ -117,8 +117,8 @@ class FooterResourse extends Resource
                                     [
                                         '/customer_service/#faq' => 'FAQ',
                                         '/customer_service/#imprint' => 'Imprint',
-                                        '/customer_service/#terms_and_conditions' => 'Terms and conditions',
-                                        '/customer_service/#privacy_policy' => 'Privacy policy',
+                                        '/customer_service/#terms-and-conditions' => 'Terms and conditions',
+                                        '/customer_service/#privacy-policy' => 'Privacy policy',
                                     ]
                                 )
                                     ->rules('required'),

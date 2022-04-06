@@ -73,8 +73,8 @@ class HeaderResource extends Resource
                     Select::make('Item link', 'link')->options(
                         [
                             '/main' => '/main',
-                            '/full_collection' => '/full_collection',
-                            '/product_available' => '/product_available',
+                            '/full-collection' => '/full-collection',
+                            '/product-available' => '/product-available',
                             '/news' => '/news'
                         ]
                     )
@@ -107,8 +107,8 @@ class HeaderResource extends Resource
                             '/contact' => '/contact',
                             '/customer_service/#faq' => 'FAQ',
                             '/customer_service/#imprint' => 'Imprint',
-                            '/customer_service/#terms_and_conditions' => 'Terms and conditions',
-                            '/customer_service/#privacy_policy' => 'Privacy policy',
+                            '/customer_service/#terms-and-conditions' => 'Terms and conditions',
+                            '/customer_service/#privacy-policy' => 'Privacy policy',
                         ]
                     )
                         ->displayUsingLabels()

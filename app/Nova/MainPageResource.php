@@ -126,7 +126,7 @@ class MainPageResource extends Resource
                         '/about' => '/about',
                         '/where' => '/where',
                         '/contact' => '/contact',
-                        '/customer_service' => '/customer_service',
+                        '/customer-service' => '/customer-service',
                         '/career' => '/career',
                         '/news' => '/news',
                     ]),
