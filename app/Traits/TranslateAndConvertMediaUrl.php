@@ -31,6 +31,7 @@ trait TranslateAndConvertMediaUrl
                         if (array_key_exists('slide', $item["attributes"])){
                             $newData[] = $item["attributes"]['slide'];
                         } else {
+                            $item["attributes"][$item["layout"]] = true;
                             $newData[] = $item["attributes"];
                         }
                         continue;

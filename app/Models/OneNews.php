@@ -68,16 +68,16 @@ class OneNews extends Model
 
     public static function normalizeData($object){
 
-        self::getNormalizedField($object, 'blocks', 'text', true, true, true);
+        self::getNormalizedField($object, 'blocks', 'text', true, true);
 
         $contentItems = [];
         if (isset($object['blocks'])){
             foreach ($object['blocks'] as $key => $item){
-                if (array_key_exists('image_or_video', $item)){
-                    foreach ($item['image_or_video'] as $imgKey => $imgItem) {
+                if (array_key_exists('bg_image_video', $item)){
+                    foreach ($item['bg_image_video'] as $imgKey => $imgItem) {
                         $contentItems[$imgItem['layout']]  = $imgItem['attributes'];
                     }
-                    $object['blocks'][$key]['image_or_video'] = $contentItems;
+                    $object['blocks'][$key]['bg_image_video'] = $contentItems;
                 }
             }
         }

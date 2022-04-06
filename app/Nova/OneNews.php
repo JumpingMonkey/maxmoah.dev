@@ -73,7 +73,7 @@ class OneNews extends Resource
             Slug::make('Slug')->from('news_title'),
             Flexible::make('Blocks')->hideFromIndex()
                 ->addLayout('Main screen', 'main_screen', [
-                    Flexible::make('Image or video', 'image_or_video')
+                    Flexible::make('Image or video', 'bg_image_video')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Item','src')
                                 ->rules('required'),
@@ -107,7 +107,7 @@ class OneNews extends Resource
                 ->addLayout('Image or video', 'image_or_video', [
                     Select::make('Block type')
                         ->options($format),
-                    Flexible::make('Image or video', 'image_or_video')
+                    Flexible::make('Image or video', 'bg_image_video')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Item','src')
                                 ->rules('required'),
@@ -132,7 +132,7 @@ class OneNews extends Resource
                 ->addLayout('Image or video + title + text', 'Image_video_title_text', [
                     Select::make('Block type')
                         ->options($format),
-                    Flexible::make('Image or video', 'image_or_video')
+                    Flexible::make('Image or video', 'bg_image_video')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Item','src')
                                 ->rules('required'),
