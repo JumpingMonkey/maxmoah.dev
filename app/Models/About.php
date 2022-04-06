@@ -37,17 +37,7 @@ class About extends Model
         'src',
     ];
 
-//   public static function norm($object)
-//   {
-//       foreach ($object as $item) {
-//           if (is_array($item) or is_object($item)){
-//                self::norm($item);
-//           } else {
-//
-//           }
-//       }
-//
-//        }
+
 public static function normalizePhotoWithMetaData($obj, $getNameItem = false){
     $data = [];
     foreach ($obj as $item){
@@ -106,6 +96,7 @@ public static function normalizeTitleAndImageField($obj){
         try{
 
             $data = $this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+
             return self::normalizeData($data);
 
         } catch (\Exception $ex){
