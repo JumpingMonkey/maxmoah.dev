@@ -70,10 +70,11 @@ class OneNews extends Model
 
         self::getNormalizedField($object, 'blocks', 'text', true, true);
 
-        $contentItems = [];
+
         if (isset($object['blocks'])){
             foreach ($object['blocks'] as $key => $item){
                 if (array_key_exists('bg_image_video', $item)){
+                    $contentItems = [];
                     foreach ($item['bg_image_video'] as $imgKey => $imgItem) {
                         $contentItems[$imgItem['layout']]  = $imgItem['attributes'];
                     }
