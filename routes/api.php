@@ -67,6 +67,7 @@ Route::group(['prefix' => LocaleMiddleware::getLocale(), 'middleware' => LocaleM
 //News
     Route::get('/news/{slug}', [News::class, 'getOneNews']);
     Route::get('/news', [News::class, 'getNewsList']);
+    Route::get('/news_page', [News::class, 'getNewsPage']);
 
     //category page
     Route::get('/categories', [CategoryController::class, 'getCategoryList']);
