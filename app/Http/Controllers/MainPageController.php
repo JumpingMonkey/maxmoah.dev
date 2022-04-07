@@ -10,6 +10,7 @@ class MainPageController extends Controller
     public function main()
     {
         $data = MainPageModel::firstOrFail();
+
         $content = $data->getFullData();
 
         /*return json obj*/
