@@ -32,7 +32,7 @@ class OneNews extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'news_title';
 
     /**
      * The columns that should be searched.
