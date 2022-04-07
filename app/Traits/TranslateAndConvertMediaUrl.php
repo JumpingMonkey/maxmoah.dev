@@ -6,17 +6,26 @@ trait TranslateAndConvertMediaUrl
 {
     use HasMediaToUrl;
 
-    public static function getNormalizedField(&$object, $fieldName, $attributeName, $fullCloneAttribute, $isObject, $getLayoutName = false){
+    public static function getNormalizedField(&$object, $fieldName, $attributeName, $fullCloneAttribute, $isObject, $getLayoutName = false, $forFlag = false){
         if (array_key_exists($fieldName, $object)){
             if ($getLayoutName){
                 foreach ($object[$fieldName] as $key => $item){
                     if ($fullCloneAttribute){
-
-                        if (array_key_exists('slide', $item["attributes"])){
-                            $newData[$key . "_" . $item["layout"]] = $item["attributes"]['slide'];
+                        if ($forFlag){
+                            if (array_key_exists('slide', $item["attributes"])){
+                                $newData[$item["layout"]] = $item["attributes"]['slide'];
+                            } else {
+                                $newData[$item["layout"]] = $item["attributes"];
+                            }
                         } else {
-                            $newData[$key . "_" . $item["layout"]] = $item["attributes"];
+                            if (array_key_exists('slide', $item["attributes"])){
+                                $newData[$key . "_" . $item["layout"]] = $item["attributes"]['slide'];
+                            } else {
+                                $newData[$key . "_" . $item["layout"]] = $item["attributes"];
+                            }
                         }
+
+
                         continue;
                     }
                     if ($isObject){

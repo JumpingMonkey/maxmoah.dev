@@ -35,7 +35,7 @@ class FlagPage extends Model
     ];
 
     public static function normalizeData($object){
-        self::getNormalizedField($object, 'background_photo_video', 'src', true, true, true);
+        self::getNormalizedField($object, 'background_photo_video', 'src', true, true, true, true);
 
 
         return $object;
