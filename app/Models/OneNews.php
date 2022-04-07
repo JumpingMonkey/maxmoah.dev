@@ -45,6 +45,10 @@ class OneNews extends Model
         'src',
     ];
 
+    public function newsCategory(){
+        return $this->belongsToMany(NewsCategory::class, 'news_category_news');
+    }
+
 
     public static function normalizePhotoWithMetaData($obj){
         $data = [];

@@ -13,6 +13,7 @@ use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use NovaAttachMany\AttachMany;
 use OptimistDigital\NovaColorField\Color;
 use Whitecube\NovaFlexibleContent\Flexible;
 
@@ -64,7 +65,7 @@ class OneNews extends Resource
             Text::make('Meta-description', 'meta_description')->hideFromIndex(),
             Text::make('Key-Words', 'key_words')->hideFromIndex(),
             Heading::make('Information to the news page'),
-
+            AttachMany::make('News category', 'newsCategory', \App\Nova\NewsCategory::class),
             Text::make('Title on the news page', 'title_on_the_news_page'),
             Textarea::make('Description on the news page'),
             Date::make('Publication date')->nullable(),

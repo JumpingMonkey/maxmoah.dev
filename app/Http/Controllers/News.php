@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\NewsCategory;
 use App\Models\OneNews;
 use Illuminate\Http\Request;
 
@@ -33,6 +34,21 @@ class News extends Controller
         }
 
 
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $content
+        ]);
+    }
+
+    public function getNewsPage(){
+        $data = NewsCategory::query()
+            ->with('oneNews')
+            ->get();
+
+        foreach ($data as $datum){
+            $content[] = $datum->getFullData();
+        }
 
         return response()->json([
             'status' => 'success',
