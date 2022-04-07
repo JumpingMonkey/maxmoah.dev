@@ -129,7 +129,7 @@ class OneNews extends Resource
                     Color::make('Background color'),
                     Color::make('Text color'),
                 ])
-                ->addLayout('Image or video + title + text', 'Image_video_title_text', [
+                ->addLayout('Image or video + title + text', 'image_video_title_text', [
                     Select::make('Block type')
                         ->options($format),
                     Flexible::make('Image or video', 'bg_image_video')
