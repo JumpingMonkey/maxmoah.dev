@@ -113,7 +113,7 @@ class OneItemResource extends Resource
             Text::make('Price', 'prod_price')->default(function (){return 'Price on request';})->hideFromIndex(),
             Flexible::make('Color', 'color')
                 ->addLayout('one color', 'one_color', [
-                    Color::make('Color', 'color_one')->slider(),
+                    Color::make('Color', 'color_one')->sketch()->autoHidePicker()->saveAs('hex'),
                 ])
                 ->addLayout('two colors', 'two_colors', [
                     Color::make('Color 1', 'color_one')->slider(),
