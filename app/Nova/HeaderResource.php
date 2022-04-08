@@ -72,7 +72,7 @@ class HeaderResource extends Resource
                     Text::make('Menu item name', 'name'),
                     Select::make('Item link', 'link')->options(
                         [
-                            '/main' => '/main',
+                            '/main' => '/',
                             '/full-collection' => '/full-collection',
                             '/product-available' => '/product-available',
                             '/news' => '/news'
@@ -105,10 +105,10 @@ class HeaderResource extends Resource
                             '/career' => '/career',
                             '/where' => '/where',
                             '/contact' => '/contact',
-                            '/customer_service/#faq' => 'FAQ',
-                            '/customer_service/#imprint' => 'Imprint',
-                            '/customer_service/#terms-and-conditions' => 'Terms and conditions',
-                            '/customer_service/#privacy-policy' => 'Privacy policy',
+                            '/customer-service/#faq' => 'FAQ',
+                            '/customer-service/#imprint' => 'Imprint',
+                            '/customer-service/#terms-and-conditions' => 'Terms and conditions',
+                            '/customer-service/#privacy-policy' => 'Privacy policy',
                         ]
                     )
                         ->displayUsingLabels()
