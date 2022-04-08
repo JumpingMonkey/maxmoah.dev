@@ -5,6 +5,7 @@ namespace App\Nova;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\ID;
@@ -74,6 +75,7 @@ class OneNews extends Resource
             Slug::make('Slug')->from('news_title'),
             Flexible::make('Blocks')->hideFromIndex()
                 ->addLayout('Main screen', 'main_screen', [
+                    Boolean::make('Filter'),
                     Flexible::make('Image or video', 'bg_image_video')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Item','src')
@@ -94,20 +96,33 @@ class OneNews extends Resource
                         ->button('add bg image/video')
                         ->limit(1),
                     Textarea::make('Text'),
-                    Color::make('Background color')->sketch()->autoHidePicker()->saveAs('hex'),
-                    Color::make('Text color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    Flexible::make('Background color', 'background_color')
+                        ->addLayout('Background color', 'background_color', [
+                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
+                    Flexible::make('Text color', 'text_color')
+                        ->addLayout('Text color', 'text_color', [
+                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
                 ])
                 ->addLayout('Title + text', 'title_text', [
                     Select::make('Block type')
                     ->options($format),
                     Text::make('Title'),
                     Textarea::make('Text'),
-                    Color::make('Background color')->sketch()->autoHidePicker()->saveAs('hex'),
-                    Color::make('Text color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    Flexible::make('Background color', 'background_color')
+                        ->addLayout('Background color', 'background_color', [
+                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
+                    Flexible::make('Text color', 'text_color')
+                        ->addLayout('Text color', 'text_color', [
+                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
                 ])
                 ->addLayout('Image or video', 'image_or_video', [
                     Select::make('Block type')
                         ->options($format),
+                    Boolean::make('Filter'),
                     Flexible::make('Image or video', 'bg_image_video')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Item','src')
@@ -127,12 +142,19 @@ class OneNews extends Resource
                         ])
                         ->button('add bg image/video')
                         ->limit(1),
-                    Color::make('Background color')->sketch()->autoHidePicker()->saveAs('hex'),
-                    Color::make('Text color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    Flexible::make('Background color', 'background_color')
+                        ->addLayout('Background color', 'background_color', [
+                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
+                    Flexible::make('Text color', 'text_color')
+                        ->addLayout('Text color', 'text_color', [
+                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
                 ])
                 ->addLayout('Image or video + title + text', 'image_video_title_text', [
                     Select::make('Block type')
                         ->options($format),
+                    Boolean::make('Filter'),
                     Flexible::make('Image or video', 'bg_image_video')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Item','src')
@@ -154,8 +176,14 @@ class OneNews extends Resource
                         ->limit(1),
                     Text::make('Title'),
                     Textarea::make('Text'),
-                    Color::make('Background color')->sketch()->autoHidePicker()->saveAs('hex'),
-                    Color::make('Text color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    Flexible::make('Background color', 'background_color')
+                        ->addLayout('Background color', 'background_color', [
+                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
+                    Flexible::make('Text color', 'text_color')
+                        ->addLayout('Text color', 'text_color', [
+                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
                 ])
                 ->addLayout('Fullscreen video', 'fullscreen_video', [
                     MediaLibrary::make('Video', 'src'),

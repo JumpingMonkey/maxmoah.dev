@@ -77,6 +77,15 @@ class OneNews extends Model
 
         if (isset($object['blocks'])){
             foreach ($object['blocks'] as $key => $item){
+
+                if(array_key_exists('background_color', $item) and !empty($item['background_color'])){
+                    $object['blocks'][$key]['background_color'] = $object['blocks'][$key]['background_color'][0]['attributes']['background_color'];
+                }
+                if(array_key_exists('text_color', $item) and !empty($item['text_color'])){
+                    $object['blocks'][$key]['text_color'] =  $object['blocks'][$key]['text_color'][0]['attributes']['text_color'];
+                }
+
+
                 if (array_key_exists('bg_image_video', $item)){
                     $contentItems = [];
                     foreach ($item['bg_image_video'] as $imgKey => $imgItem) {
@@ -94,6 +103,7 @@ class OneNews extends Model
         try{
 
             $data = $this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+
             return self::normalizeData($data);
 
         } catch (\Exception $ex){
