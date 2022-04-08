@@ -116,8 +116,8 @@ class OneItemResource extends Resource
                     Color::make('Color', 'color_one')->sketch()->autoHidePicker()->saveAs('hex'),
                 ])
                 ->addLayout('two colors', 'two_colors', [
-                    Color::make('Color 1', 'color_one')->slider(),
-                    Color::make('Color 2', 'color_two')->slider(),
+                    Color::make('Color 1', 'color_one')->sketch()->autoHidePicker()->saveAs('hex'),
+                    Color::make('Color 2', 'color_two')->sketch()->autoHidePicker()->saveAs('hex'),
                 ])->button('add color'),
 
 

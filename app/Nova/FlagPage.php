@@ -80,7 +80,7 @@ class FlagPage extends Resource
                 ])
                 ->button('add bg image/video')
                 ->limit(1),
-            Color::make('Filter')->slider(),
+            Color::make('Filter')->sketch()->autoHidePicker()->saveAs('hex'),
             Text::make('Title'),
             Textarea::make('Description'),
             Textarea::make('Popup description'),
