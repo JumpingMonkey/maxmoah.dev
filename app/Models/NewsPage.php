@@ -14,10 +14,16 @@ class NewsPage extends Model
 
     protected $fillable = [
         'title',
+        'meta_title',
+        'meta_description',
+        'key_words',
     ];
 
     public $translatable = [
         'title',
+        'meta_title',
+        'meta_description',
+        'key_words',
     ];
 
     public $mediaToUrl = [

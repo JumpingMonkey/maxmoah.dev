@@ -15,6 +15,9 @@ class CreateNewsPagesTable extends Migration
     {
         Schema::create('news_pages', function (Blueprint $table) {
             $table->id();
+            $table->json('meta_title')->nullable();
+            $table->json('meta_description')->nullable();
+            $table->json('key_words')->nullable();
             $table->json('title');
             $table->timestamps();
         });

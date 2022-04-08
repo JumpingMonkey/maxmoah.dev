@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -50,6 +51,12 @@ class NewsPage extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Multilingual::make('Language'),
 
+            Heading::make('Meta'),
+            Text::make('Meta-title', 'meta_title')->hideFromIndex(),
+            Text::make('Meta-description', 'meta_description')->hideFromIndex(),
+            Text::make('Key-Words', 'key_words')->hideFromIndex(),
+
+            Heading::make('Data'),
             Text::make('Title'),
         ];
     }
