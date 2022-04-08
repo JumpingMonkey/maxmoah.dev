@@ -53,7 +53,8 @@ class Category extends Model
                 $data[$item['layout']] = $item['attributes'];
 
                 if(array_key_exists('image', $data[$item['layout']]) and !empty($data[$item['layout']]['image'])){
-                    $data[$item['layout']]['image'] = self::normalizePhotoWithMetaData($data[$item['layout']]['image']);
+                    $data[$item['layout']][$data[$item['layout']]['image'][0]['layout']] = self::normalizePhotoWithMetaData($data[$item['layout']]['image']);
+                    unset($data[$item['layout']]['image']);
                 }
 
                 if(array_key_exists('background_color', $data[$item['layout']]) and !empty($data[$item['layout']]['background_color'])){

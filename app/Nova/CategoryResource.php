@@ -109,13 +109,22 @@ class CategoryResource extends Resource
                         ->options($format),
                     Flexible::make('Image', 'image')
                         ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','image')
+                            Medialibrary::make('Image','src')
                                 ->rules('required'),
-                            Text::make('Image title', 'image_title')
+                            Text::make('Image title', 'title')
                                 ->rules('required'),
-                            Text::make('Image alt', 'image_alt')
+                            Text::make('Image alt', 'alt')
                                 ->rules('required')
-                        ])->button('add image')
+                        ])
+                        ->addLayout('Video', 'video', [
+                            Medialibrary::make('Item','src')
+                                ->rules('required'),
+                            Text::make('Item title', 'title')
+                                ->rules('required'),
+                            Text::make('Item alt', 'alt')
+                                ->rules('required')
+                        ])
+                        ->button('add image')
                         ->limit(1),
                     Flexible::make('Background color', 'background_color')
                         ->addLayout('Background color', 'background_color', [
@@ -133,13 +142,22 @@ class CategoryResource extends Resource
                         ->options($format),
                     Flexible::make('Photo', 'image')
                         ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','image')
+                            Medialibrary::make('Image','src')
                                 ->rules('required'),
-                            Text::make('Image title', 'image_title')
+                            Text::make('Image title', 'title')
                                 ->rules('required'),
-                            Text::make('Image alt', 'image_alt')
+                            Text::make('Image alt', 'alt')
                                 ->rules('required')
-                        ])->button('add video')
+                        ])
+                        ->addLayout('Video', 'video', [
+                            Medialibrary::make('Item','src')
+                                ->rules('required'),
+                            Text::make('Item title', 'title')
+                                ->rules('required'),
+                            Text::make('Item alt', 'alt')
+                                ->rules('required')
+                        ])
+                        ->button('add video')
                         ->limit(1),
                     Text::make('Title', 'title'),
                     Text::make('Text', 'text'),
@@ -156,13 +174,22 @@ class CategoryResource extends Resource
                 ->addLayout('4. First screen image', '4_first_screen_image', [
                     Flexible::make('Photo', 'image')
                         ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','image')
+                            Medialibrary::make('Image','src')
                                 ->rules('required'),
-                            Text::make('Image title', 'image_title')
+                            Text::make('Image title', 'title')
                                 ->rules('required'),
-                            Text::make('Image alt', 'image_alt')
+                            Text::make('Image alt', 'alt')
                                 ->rules('required')
-                        ])->button('add video')
+                        ])
+                        ->addLayout('Video', 'video', [
+                            Medialibrary::make('Item','src')
+                                ->rules('required'),
+                            Text::make('Item title', 'title')
+                                ->rules('required'),
+                            Text::make('Item alt', 'alt')
+                                ->rules('required')
+                        ])
+                        ->button('add video')
                         ->limit(1),
                     Flexible::make('Background color', 'background_color')
                         ->addLayout('Background color', 'background_color', [
@@ -174,13 +201,13 @@ class CategoryResource extends Resource
                         ])->button('add color')->limit(1),
                 ])
                 ->addLayout('5. Video', '5_video', [
-                    Flexible::make('Product photo', 'image')
-                        ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','image')
+                    Flexible::make('Product video', 'image')
+                        ->addLayout('Video', 'image', [
+                            Medialibrary::make('Image','src')
                                 ->rules('required'),
-                            Text::make('Image title', 'image_title')
+                            Text::make('Image title', 'title')
                                 ->rules('required'),
-                            Text::make('Image alt', 'image_alt')
+                            Text::make('Image alt', 'alt')
                                 ->rules('required')
                         ])->button('add video')
                         ->limit(1),
@@ -203,13 +230,22 @@ class CategoryResource extends Resource
                             Text::make('Product name', 'prod_name'),
                             Flexible::make('Image', 'image')
                                 ->addLayout('Image', 'image', [
-                                    Medialibrary::make('Image','image')
+                                    Medialibrary::make('Image','src')
                                         ->rules('required'),
-                                    Text::make('Image title', 'image_title')
+                                    Text::make('Image title', 'title')
                                         ->rules('required'),
-                                    Text::make('Image alt', 'image_alt')
+                                    Text::make('Image alt', 'alt')
                                         ->rules('required')
-                                ])->button('add image')
+                                ])
+                                ->addLayout('Video', 'video', [
+                                    Medialibrary::make('Item','src')
+                                        ->rules('required'),
+                                    Text::make('Item title', 'title')
+                                        ->rules('required'),
+                                    Text::make('Item alt', 'alt')
+                                        ->rules('required')
+                                ])
+                                ->button('add image')
                                 ->limit(1),
                             Text::make('Product link', 'prod_link')
                         ]),
