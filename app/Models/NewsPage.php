@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Spatie\Translatable\HasTranslations;
 
-class NewsCategory extends Model
+class NewsPage extends Model
 {
     use HasFactory, HasTranslations, TranslateAndConvertMediaUrl;
 
@@ -24,19 +24,7 @@ class NewsCategory extends Model
 
     ];
 
-    public function oneNews(){
-        return $this->belongsToMany(OneNews::class, 'news_category_news');
-    }
-
-
     public static function normalizeData($object){
-
-        if (array_key_exists('oneNews', $object)){
-            foreach ($object['oneNews'] as $oneNews){
-                $news[] = OneNews::normalizeData($oneNews);
-            }
-            $object['oneNews'] = $news;
-        }
 
         return $object;
     }
@@ -45,6 +33,7 @@ class NewsCategory extends Model
         try{
 
             $data = $this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+
             return self::normalizeData($data);
 
         } catch (\Exception $ex){

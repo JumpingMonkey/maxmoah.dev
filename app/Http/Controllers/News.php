@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\NewsCategory;
+use App\Models\NewsPage;
 use App\Models\OneNews;
 use Illuminate\Http\Request;
 
@@ -46,13 +47,17 @@ class News extends Controller
             ->with('oneNews')
             ->get();
 
+        $pageData = NewsPage::firstOrFail();
+        $pageData = $pageData->getFullData();
+
         foreach ($data as $datum){
             $content[] = $datum->getFullData();
         }
 
         return response()->json([
             'status' => 'success',
-            'data' => $content
+            'data' => $content,
+            'page_data' => $pageData,
         ]);
     }
 }
