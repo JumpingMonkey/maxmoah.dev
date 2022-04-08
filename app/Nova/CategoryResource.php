@@ -14,6 +14,7 @@ use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use OptimistDigital\NovaColorField\Color;
 use Waynestate\Nova\CKEditor;
 use Whitecube\NovaFlexibleContent\Flexible;
 
@@ -93,7 +94,15 @@ class CategoryResource extends Resource
                     Select::make('Format', 'format')
                         ->options($format),
                     Text::make('Title', 'title'),
-                    Trix::make('Text', 'text')
+                    Trix::make('Text', 'text'),
+                    Flexible::make('Background color', 'background_color')
+                        ->addLayout('Background color', 'background_color', [
+                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
+                    Flexible::make('Text color', 'text_color')
+                        ->addLayout('Text color', 'text_color', [
+                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
                 ])
                 ->addLayout('2. Image', '2_img', [
                     Select::make('Format', 'format')
@@ -107,6 +116,16 @@ class CategoryResource extends Resource
                             Text::make('Image alt', 'image_alt')
                                 ->rules('required')
                         ])->button('add image')
+                        ->limit(1),
+                    Flexible::make('Background color', 'background_color')
+                        ->addLayout('Background color', 'background_color', [
+                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')
+                        ->limit(1),
+                    Flexible::make('Text color', 'text_color')
+                        ->addLayout('Text color', 'text_color', [
+                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')
                         ->limit(1),
                 ])
                 ->addLayout('3. image+title+text', '3_image_title_text', [
@@ -123,7 +142,15 @@ class CategoryResource extends Resource
                         ])->button('add video')
                         ->limit(1),
                     Text::make('Title', 'title'),
-                    Text::make('Text', 'text')
+                    Text::make('Text', 'text'),
+                    Flexible::make('Background color', 'background_color')
+                        ->addLayout('Background color', 'background_color', [
+                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
+                    Flexible::make('Text color', 'text_color')
+                        ->addLayout('Text color', 'text_color', [
+                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
                 ])
 
                 ->addLayout('4. First screen image', '4_first_screen_image', [
@@ -137,6 +164,14 @@ class CategoryResource extends Resource
                                 ->rules('required')
                         ])->button('add video')
                         ->limit(1),
+                    Flexible::make('Background color', 'background_color')
+                        ->addLayout('Background color', 'background_color', [
+                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
+                    Flexible::make('Text color', 'text_color')
+                        ->addLayout('Text color', 'text_color', [
+                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
                 ])
                 ->addLayout('5. Video', '5_video', [
                     Flexible::make('Product photo', 'image')
@@ -149,6 +184,14 @@ class CategoryResource extends Resource
                                 ->rules('required')
                         ])->button('add video')
                         ->limit(1),
+                    Flexible::make('Background color', 'background_color')
+                        ->addLayout('Background color', 'background_color', [
+                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
+                    Flexible::make('Text color', 'text_color')
+                        ->addLayout('Text color', 'text_color', [
+                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
                 ])
 
                 ->addLayout('6. Products', '6_products', [
@@ -169,7 +212,15 @@ class CategoryResource extends Resource
                                 ])->button('add image')
                                 ->limit(1),
                             Text::make('Product link', 'prod_link')
-                        ])
+                        ]),
+                    Flexible::make('Background color', 'background_color')
+                        ->addLayout('Background color', 'background_color', [
+                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
+                    Flexible::make('Text color', 'text_color')
+                        ->addLayout('Text color', 'text_color', [
+                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
                 ])
                 ->addLayout('7. Product from category', '7_prod_from_category', [
                     Flexible::make('One product', 'one_prod')

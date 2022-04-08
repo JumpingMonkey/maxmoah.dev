@@ -45,14 +45,24 @@ class Category extends Model
     }
 
     public static function normalizeData($object){
+
         if(array_key_exists('content', $object)){
             $data = [];
+
             foreach ($object['content'] as $item){
                 $data[$item['layout']] = $item['attributes'];
 
-                if(array_key_exists('image', $data[$item['layout']])){
+                if(array_key_exists('image', $data[$item['layout']]) and !empty($data[$item['layout']]['image'])){
                     $data[$item['layout']]['image'] = self::normalizePhotoWithMetaData($data[$item['layout']]['image']);
                 }
+
+                if(array_key_exists('background_color', $data[$item['layout']]) and !empty($data[$item['layout']]['background_color'])){
+                    $data[$item['layout']]['background_color'] = $data[$item['layout']]['background_color'][0]['attributes']['background_color'];
+                }
+                if(array_key_exists('text_color', $data[$item['layout']]) and !empty($data[$item['layout']]['text_color'])){
+                    $data[$item['layout']]['text_color'] = $data[$item['layout']]['text_color'][0]['attributes']['text_color'];
+                }
+
 
                 if($item['layout'] == '6_products'){
 
@@ -107,6 +117,7 @@ class Category extends Model
                     }
                     $data['7_prod_from_category'] = $productContent;
                 }
+
             }
             $object['content'] = $data;
         }
