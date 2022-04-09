@@ -24,10 +24,12 @@ class FlagPage extends Model
         'title',
         'description',
         'popup_description',
+
     ];
 
     public $mediaToUrl = [
         'background_photo_video',
+        'filter',
         'item',
         'video',
         'image',
@@ -36,7 +38,9 @@ class FlagPage extends Model
 
     public static function normalizeData($object){
         self::getNormalizedField($object, 'background_photo_video', 'src', true, true, true, true);
-
+        if (array_key_exists('filter', $object) and !empty($object['filter'])){
+            $object['filter'] = $object['filter'][0]['attributes']['filter_color'];
+        }
 
         return $object;
     }
@@ -44,6 +48,7 @@ class FlagPage extends Model
     public function getFullData(){
         try{
             $data = $this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+
             return self::normalizeData($data);
 
         } catch (\Exception $ex){
