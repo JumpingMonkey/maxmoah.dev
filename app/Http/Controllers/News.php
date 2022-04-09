@@ -44,7 +44,7 @@ class News extends Controller
 
     public function getNewsPage(){
         $data = NewsCategory::query()
-            ->with('oneNews')
+            ->with('news')
             ->get();
 
         $pageData = NewsPage::firstOrFail();

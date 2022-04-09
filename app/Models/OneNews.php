@@ -27,6 +27,7 @@ class OneNews extends Model
         'news_title',
         'blocks',
         'slug',
+        'news_category_id',
     ];
 
     public $translatable = [
@@ -47,6 +48,10 @@ class OneNews extends Model
 
     public function newsCategory(){
         return $this->belongsToMany(NewsCategory::class, 'news_category_news');
+    }
+
+    public function newsOneCategory(){
+        return $this->belongsTo(NewsCategory::class, 'news_category_id');
     }
 
 

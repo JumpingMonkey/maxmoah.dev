@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -47,7 +48,8 @@ class NewsCategory extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Multilingual::make('Language'),
-            AttachMany::make('One News', 'oneNews', \App\Nova\OneNews::class),
+//            HasMany::make('News', 'news', '\App\Nova\OneNews'),
+//            AttachMany::make('One News', 'oneNews', \App\Nova\OneNews::class),
             Text::make('Title'),
         ];
     }

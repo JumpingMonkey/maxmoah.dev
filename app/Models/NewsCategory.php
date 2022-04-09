@@ -28,14 +28,17 @@ class NewsCategory extends Model
         return $this->belongsToMany(OneNews::class, 'news_category_news');
     }
 
+    public function news(){
+        return $this->hasMany(OneNews::class);
+    }
 
     public static function normalizeData($object){
 
-        if (array_key_exists('oneNews', $object)){
-            foreach ($object['oneNews'] as $oneNews){
+        if (array_key_exists('news', $object)){
+            foreach ($object['news'] as $oneNews){
                 $news[] = OneNews::normalizeData($oneNews);
             }
-            $object['oneNews'] = $news;
+            $object['news'] = $news;
         }
 
         return $object;
