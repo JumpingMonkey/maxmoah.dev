@@ -65,6 +65,10 @@ class MainPageModel extends Model
 
                 foreach ($category['blocks'] as $blockKey => $block) {
                     $blocks[$blockKey] = $block['attributes'];
+                    if (array_key_exists('filter', $blocks[$blockKey]) and !empty($blocks[$blockKey]['filter'])){
+                        $blocks[$blockKey]['filter'] = $blocks[$blockKey]['filter'][0]['attributes']['filter_color'];
+                    }
+
                     if (!empty($blocks[$blockKey]['bg_image_video'])){
                         $blocks[$blockKey]['bg_image_video'][0]['attributes']['src'] =
                             self::getOneMediaForDoubleFlex($blocks[$blockKey]['bg_image_video'][0]['attributes']['src']);
