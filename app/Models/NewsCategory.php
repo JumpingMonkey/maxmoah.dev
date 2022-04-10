@@ -34,7 +34,7 @@ class NewsCategory extends Model
 
     public static function normalizeData($object){
 
-        if (array_key_exists('news', $object)){
+        if (array_key_exists('news', $object) and !empty($object['news'])){
             foreach ($object['news'] as $oneNews){
                 $news[] = OneNews::normalizeData($oneNews);
             }
