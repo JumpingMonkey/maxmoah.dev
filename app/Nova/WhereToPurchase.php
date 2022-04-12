@@ -7,6 +7,7 @@ use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Waynestate\Nova\CKEditor;
@@ -73,7 +74,14 @@ class WhereToPurchase extends Resource
                     Flexible::make('Button', 'button')
                         ->addLayout('Action button', 'action_button', [
                             Text::make('CTA', 'cta'),
-                            Text::make('Link', 'link')
+                            Select::make('Link', 'link')->options([
+                                '/popup/career' => 'Career',
+                                '/popup/event_registration' => 'Event registration',
+                                '/popup/make_request' => 'Make request',
+                                '/popup/online_appointment' => 'Online appointment',
+                                '/popup/private_appointment' => 'Private appointment',
+                                '/popup/trunk_show' => 'Trunk show',
+                             ])
                         ])->button('Add button')
                         ->limit(1),
                 ])->button('Add Variant')
