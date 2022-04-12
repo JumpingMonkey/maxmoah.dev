@@ -338,25 +338,25 @@ class OneItemResource extends Resource
                 Text::make('Chain title', 'chain_title'),
                 Text::make('Chain description', 'chain'),
             ])
-            ->addLayout('12. title+text+img+title+text+btn', '12_title_text_img_title_text_btn', [
-                Text::make('Title top', 'title_top'),
-                Text::make('Description top', 'desc_top'),
-                Flexible::make('Img', 'img')
-                    ->addLayout('Image', 'image', [
-                        Medialibrary::make('Image','image')
-                            ->rules('required'),
-                        Text::make('Image title', 'image_title')
-                            ->rules('required'),
-                        Text::make('Image alt', 'image_alt')
-                            ->rules('required')
-                    ])->button('add image')
-                    ->limit(1),
-
-                Text::make('Title bottom', 'title_bottom'),
-                Text::make('Description bottom', 'desc_bottom'),
-                Text::make('Btn', 'btn'),
-                Text::make('Btn link', 'btn_link'),
-            ])
+//            ->addLayout('12. title+text+img+title+text+btn', '12_title_text_img_title_text_btn', [
+//                Text::make('Title top', 'title_top'),
+//                Text::make('Description top', 'desc_top'),
+//                Flexible::make('Img', 'img')
+//                    ->addLayout('Image', 'image', [
+//                        Medialibrary::make('Image','image')
+//                            ->rules('required'),
+//                        Text::make('Image title', 'image_title')
+//                            ->rules('required'),
+//                        Text::make('Image alt', 'image_alt')
+//                            ->rules('required')
+//                    ])->button('add image')
+//                    ->limit(1),
+//
+//                Text::make('Title bottom', 'title_bottom'),
+//                Text::make('Description bottom', 'desc_bottom'),
+//                Text::make('Btn', 'btn'),
+//                Text::make('Btn link', 'btn_link'),
+//            ])
 //            ->addLayout('13. products', '13_prod', [
 //                Flexible::make('Product', 'prod')
 //                    ->addLayout('One product', 'one_prod', [
@@ -404,7 +404,7 @@ class OneItemResource extends Resource
                             Text::make('Image alt', 'image_alt')
                                 ->rules('required')
                         ])->button('add image')
-                        ->limit(3),
+                        ->limit(10),
                 ])
                 ->addLayout('17.Product colors', '17_product_colors', [
                     Flexible::make('Img', 'img')

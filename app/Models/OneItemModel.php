@@ -96,10 +96,10 @@ class OneItemModel extends Model
                             $object['content'][$key][$keyIn] = $content;
                         } else {
 //                            dd($object['content'][$key][$keyIn][0]['layout']);
-                            $object['content'][$key][$keyIn] = self::normalizePhotoWithMetaData($object['content'][$key][$keyIn]);
+                            $object['content'][$key][$keyIn] = self::normalizePhotoWithMetaDataForOneItem($object['content'][$key][$keyIn]);
                         }
                     }
-dd($object);
+//dd($object);
                     if($keyIn == 'prod'){
                         $tmpContent = [];
                         foreach ($value as $itemIn){

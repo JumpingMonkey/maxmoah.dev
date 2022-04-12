@@ -501,6 +501,22 @@ trait HasMediaToUrl
     public static function normalizePhotoWithMetaData($obj){
         $data = [];
         foreach ($obj as $item){
+            $data[] = $item['attributes'];
+        }
+        return $data;
+    }
+
+    /**
+     *
+     * Converts the passed object into an array with no extra elements .
+     *
+     * @param  $object
+     * @return array
+     *
+     */
+    public static function normalizePhotoWithMetaDataForOneItem($obj){
+        $data = [];
+        foreach ($obj as $item){
             $data[$item['layout']] = $item['attributes'];
         }
         return $data;
