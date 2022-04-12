@@ -114,10 +114,14 @@ class OneItemResource extends Resource
             Flexible::make('Color', 'color')
                 ->addLayout('one color', 'one_color', [
                     Color::make('Color', 'color_one')->sketch()->autoHidePicker()->saveAs('hex'),
+                    Medialibrary::make('Image','src')
+                        ->rules('required'),
                 ])
                 ->addLayout('two colors', 'two_colors', [
                     Color::make('Color 1', 'color_one')->sketch()->autoHidePicker()->saveAs('hex'),
                     Color::make('Color 2', 'color_two')->sketch()->autoHidePicker()->saveAs('hex'),
+                    Medialibrary::make('Image','src')
+                        ->rules('required'),
                 ])->button('add color'),
 
 
