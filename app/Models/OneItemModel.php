@@ -53,7 +53,8 @@ class OneItemModel extends Model
         'bg_video_first_screen',
         'image',
         'video',
-        'color'
+        'color',
+        'src'
     ];
 
     public function tag()
@@ -81,8 +82,7 @@ class OneItemModel extends Model
             }
             $object['content'] = $content;
 
-            $imgFields = ['img', 'lt_img', 'rt_img', 'img_1', 'img_2', 'loop'];
-
+            $imgFields = ['img', 'lt_img', 'rt_img', 'img_1', 'img_2', 'loop', 'image_video'];
 
             foreach ($object['content'] as $key => $item){
                 foreach ($item as $keyIn => $value){
@@ -95,10 +95,11 @@ class OneItemModel extends Model
                             }
                             $object['content'][$key][$keyIn] = $content;
                         } else {
+//                            dd($object['content'][$key][$keyIn][0]['layout']);
                             $object['content'][$key][$keyIn] = self::normalizePhotoWithMetaData($object['content'][$key][$keyIn]);
                         }
                     }
-
+dd($object);
                     if($keyIn == 'prod'){
                         $tmpContent = [];
                         foreach ($value as $itemIn){

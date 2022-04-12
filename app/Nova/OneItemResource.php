@@ -195,7 +195,7 @@ class OneItemResource extends Resource
                 Text::make('Right btn', 'rt_btn'),
                 Text::make('Btn link', 'btn_link'),
             ])
-            ->addLayout('4. Title+text+btn+img(right)', '4_title_txt_btn_img', [
+            ->addLayout('4. Title+text+btn+img(right)', '4_title_txt_btn_img_right', [
                 Flexible::make('Img', 'img')
                     ->addLayout('Image', 'image', [
                         Select::make('Photo format', 'foto_format')
@@ -218,7 +218,7 @@ class OneItemResource extends Resource
                 CKEditor::make('Text 1', 'desc_1'),
                 CKEditor::make('Text 2', 'desc_2'),
             ])
-            ->addLayout('6. Title+text+btn+img(left)', '6_title_txt_btn_img', [
+            ->addLayout('6. Title+text+btn+img(left)', '6_title_txt_btn_img_left', [
                 Flexible::make('Img', 'img')
                     ->addLayout('Image', 'image', [
                         Select::make('Photo format', 'foto_format')
@@ -236,7 +236,7 @@ class OneItemResource extends Resource
                 Text::make('Btn', 'btn'),
                 Text::make('Btn link', 'btn_link'),
             ])
-            ->addLayout('7. Img+title+text+btn', '7_Img_title_text_btn', [
+            ->addLayout('7. Img+title+text+btn', '7_img_title_text_btn', [
                 Flexible::make('Img', 'img')
                     ->addLayout('Image', 'image', [
                         Medialibrary::make('Image','image')
@@ -252,7 +252,7 @@ class OneItemResource extends Resource
                 Text::make('Btn', 'btn'),
                 Text::make('Btn link', 'btn_link'),
             ])
-            ->addLayout('8. Img(right)+title+text', '8_Img_right_title_text', [
+            ->addLayout('8. Img(right)+title+text', '8_img_right_title_text', [
                 Flexible::make('Img', 'img')
                     ->addLayout('Image', 'image', [
                         Select::make('Photo format', 'foto_format')
@@ -422,15 +422,24 @@ class OneItemResource extends Resource
                     CKEditor::make('Description', 'desc'),
                 ])
                 ->addLayout('18. horizontal image/video', '18_horizontal_image_video', [
-                    Flexible::make('Img', 'img')
+                    Flexible::make('Image or video', 'image_video')
                         ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','image')
+                            Medialibrary::make('Image','src')
                                 ->rules('required'),
-                            Text::make('Image title', 'image_title')
+                            Text::make('Image title', 'title')
                                 ->rules('required'),
-                            Text::make('Image alt', 'image_alt')
+                            Text::make('Image alt', 'alt')
                                 ->rules('required')
-                        ])->button('add item')
+                        ])
+                        ->addLayout('Video', 'video', [
+                            Medialibrary::make('Item','src')
+                                ->rules('required'),
+                            Text::make('Item title', 'title')
+                                ->rules('required'),
+                            Text::make('Item alt', 'alt')
+                                ->rules('required')
+                        ])
+                        ->button('add item')
                         ->limit(1),
                 ])
                 ->addLayout('19.Text+btn in the middle', '19_text+btn_in_the_middle', [
