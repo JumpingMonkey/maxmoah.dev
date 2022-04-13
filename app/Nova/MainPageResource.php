@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use App\Models\Category;
 use App\Models\MainPageModel;
+use App\Models\ProductTagModel;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
@@ -88,15 +89,18 @@ class MainPageResource extends Resource
             Flexible::make('Display categories', 'display_categories')
                 ->addLayout('Category', 'category', [
                     Text::make('Title category', 'category_name'),
-                    Select::make('Category tag', 'category_slug')->options(
-                        Category::all()->pluck('category_title', 'category_slug'),
-                    ),
+//                    Select::make('Category tag', 'category_slug')->options(
+//                        Category::all()->pluck('category_title', 'category_slug'),
+//                        ProductTagModel::all()->pluck('tag_title','id'),
+//                    ),
                     Flexible::make('Blocks', 'blocks')
                     ->addLayout('Block', 'block', [
                         Text::make('Title', 'title'),
                         Textarea::make('Description', 'description'),
                         Text::make('Button title', 'btn_title'),
-                        Text::make('Button link', 'btn_link'),
+                        Select::make('Button link', 'btn_link')->options(
+                            Category::all()->pluck('category_slug', 'category_title')
+                        ),
                         Flexible::make('Background photo/video', 'bg_image_video')
                             ->addLayout('Image', 'image', [
                                 Medialibrary::make('Item','src')
