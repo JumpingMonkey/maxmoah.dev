@@ -446,7 +446,7 @@ class OneItemResource extends Resource
                         ->button('add item')
                         ->limit(1),
                 ])
-                ->addLayout('19.Text+btn in the middle', '19_text+btn_in_the_middle', [
+                ->addLayout('19.Text+btn in the middle', '19_text_btn_in_the_middle', [
                     Text::make('Title', 'title'),
                     Textarea::make('Description', 'desc'),
                     Text::make('Btn', 'btn_title'),
