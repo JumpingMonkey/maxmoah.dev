@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Models\Category;
 use App\Models\Parts\HeaderModel;
 use Carbon\Language;
 use Digitalcloud\MultilingualNova\Multilingual;
@@ -84,11 +85,7 @@ class HeaderResource extends Resource
                 ->addLayout('Add product category', 'header_category', [
                     Text::make('Menu item name', 'name'),
                     Select::make('Item link', 'link')->options(
-                        [
-                            '/category/beauty' => '/beauty',
-                            '/category/jewelry' => '/jewelry',
-                            '/category/bags' => '/bags',
-                        ]
+                        Category::all()->pluck('category_slug', 'category_title')
                     )
                         ->displayUsingLabels()
                         ->rules('required'),
