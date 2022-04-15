@@ -35,16 +35,24 @@ class CustomerServicePage extends Model
         if(isset($object['services'])){
             foreach ($object['services'] as $key => $item){
 
-                if($item['layout'] != 'faq') {
-                    $contentItems[$key . " : " . $item['layout']] = $item['attributes'];
-                }
-
                 if($item['layout'] == 'faq' OR $item['layout'] == 'care_instructions') {
                     foreach ($item['attributes']['questions'] as $keyQ => $itemQ) {
                         $questionItems[$keyQ . " : " . $itemQ['layout']] = $itemQ['attributes'];
                     }
 
                     $item['attributes']['questions'] = $questionItems;
+                    $contentItems[$key . " : " . $item['layout']] = $item['attributes'];
+                }
+                elseif ($item['layout'] == 'imprint' OR $item['layout'] == 'terms_and_conditions' OR $item['layout'] == 'privacy_policy'){
+
+                    $longTextResult = [];
+                    foreach ($item['attributes']['text_blocks'] as $longTextItem){
+                        $longTextResult[] = $longTextItem['attributes'];
+                    }
+                    $item['attributes']['text_blocks'] = $longTextResult;
+                    $contentItems[$key . " : " . $item['layout']] = $item['attributes'];
+                }
+                else {
                     $contentItems[$key . " : " . $item['layout']] = $item['attributes'];
                 }
 

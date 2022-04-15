@@ -68,7 +68,11 @@ class CustomerServicePage extends Resource
                 Text::make('Tel', 'tel'),
                 Text::make('E-mail', 'email'),
                 Text::make('Gesch', 'gesch'),
-                CKEditor::make('Long text', 'long_text')
+                Flexible::make('Text blocks', 'text_blocks')
+                ->addLayout('Block', 'block', [
+                    Text::make('Text field'),
+                    Textarea::make('Text area'),
+                ])
             ])
             ->addLayout('FAQ', 'faq', [
                 Text::make('Title', 'title'),
@@ -81,11 +85,18 @@ class CustomerServicePage extends Resource
             ->addLayout('Terms and conditions', 'terms_and_conditions', [
                 Text::make('Title', 'title'),
                 Textarea::make('Description', 'description'),
-                CKEditor::make('Content', 'content')
+                Flexible::make('Text blocks', 'text_blocks')
+                    ->addLayout('Block', 'block', [
+                        Text::make('Text field'),
+                        Textarea::make('Text area'),
+                    ])
             ])
             ->addLayout('Privacy policy', 'privacy_policy', [
                 Text::make('Title', 'title'),
-                CKEditor::make('Content', 'content')
+                Flexible::make('Text blocks', 'text_blocks')
+                    ->addLayout('Block', 'block', [
+                        Textarea::make('Text area'),
+                    ])
             ])
             ->addLayout('Care instructions', 'care_instructions', [
                 Text::make('Title', 'title'),
