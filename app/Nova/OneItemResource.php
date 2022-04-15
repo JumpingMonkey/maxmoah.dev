@@ -73,11 +73,11 @@ class OneItemResource extends Resource
             Text::make('Zoom in btn-title', 'zoom_in_btn_title')->hideFromIndex(),
             Flexible::make('Product photo', 'prod_photo')
                 ->addLayout('Image', 'image', [
-                    Medialibrary::make('Image','image')
+                    Medialibrary::make('Image','src')
                         ->rules('required'),
-                    Text::make('Image title', 'image_title')
+                    Text::make('Image title', 'title')
                         ->rules('required'),
-                    Text::make('Image alt', 'image_alt')
+                    Text::make('Image alt', 'alt')
                         ->rules('required')
                 ])->button('add image')
                 ->limit(5),
@@ -127,7 +127,7 @@ class OneItemResource extends Resource
 
             Flexible::make('Background img for first screen', 'bg_img_first_screen')
                 ->addLayout('Image', 'image', [
-                    Medialibrary::make('Image','image')
+                    Medialibrary::make('Image','src')
                         ->rules('required'),
                     Text::make('Image title', 'image_title')
                         ->rules('required'),
@@ -138,7 +138,7 @@ class OneItemResource extends Resource
 
             Flexible::make('Background video for first screen', 'bg_video_first_screen')
                 ->addLayout('Video', 'video', [
-                    Medialibrary::make('Video','video'),
+                    Medialibrary::make('Video','src'),
                     Text::make('Video link', 'video_link'),
                     Text::make('Video title', 'video_title')
                         ->rules('required'),
@@ -397,7 +397,7 @@ class OneItemResource extends Resource
                         ->limit(1),
                     ])
                 ->addLayout('16. Gallery popup', '16_gallery_popup', [
-                    Flexible::make('Img', 'img')
+                    Flexible::make('Img', 'loop')
                         ->addLayout('Vertical image', 'vertical_image', [
                             Select::make('Photo format', 'foto_format')
                                 ->options($photoformat),
@@ -411,7 +411,7 @@ class OneItemResource extends Resource
                         ->limit(10),
                 ])
                 ->addLayout('17.Product colors', '17_product_colors', [
-                    Flexible::make('Img', 'img')
+                    Flexible::make('Img', 'loop')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Image','image')
                                 ->rules('required'),

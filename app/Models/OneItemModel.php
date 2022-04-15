@@ -70,7 +70,7 @@ class OneItemModel extends Model
 
     public static function normalizeData($object){
 
-        self::getNormalizedField($object, 'prod_photo', 'image', 'true', 'true');
+        self::getNormalizedField($object, 'prod_photo', 'image_alt', true, true);
         self::getNormalizedField($object, 'bg_img_first_screen', 'image', 'true', 'true');
         self::getNormalizedField($object, 'bg_video_first_screen', 'video', 'true', 'true');
         self::getNormalizedField($object, 'color', 'color_one', 'true', 'true');
@@ -105,7 +105,7 @@ class OneItemModel extends Model
                         foreach ($value as $itemIn){
                             $tmpContent[] = $itemIn['attributes']['prod'];
                         }
-                        $data = OneItemModel::query()->select('prod_slug', 'prod_title', 'prod_photo', 'prod_price', 'tag_id')
+                        $data = OneItemModel::query()->select('prod_slug', 'prod_title', 'prod_photo', 'prod_price', 'tag_id', 'customize', 'color')
                             ->whereIn('id', $tmpContent)
                             ->get();
 
@@ -124,7 +124,7 @@ class OneItemModel extends Model
                     if($keyIn == 'product_1' OR $keyIn == 'product_2'){
                         $tmpContent = [];
 
-                        $data = OneItemModel::query()->select('prod_slug', 'prod_title', 'prod_photo', 'prod_price', 'tag_id')
+                        $data = OneItemModel::query()->select('prod_slug', 'prod_title', 'prod_photo', 'prod_price', 'tag_id', 'customize', 'color')
                             ->where('id', $value)
                             ->get();
 
