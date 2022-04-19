@@ -72,6 +72,7 @@ class CategoryResource extends Resource
             $optionsFor6Block = OneItemModel::query()->where('category_id', $model->id)->pluck('prod_title', 'prod_slug');
         } else {
             $options = ['Not exist products' => 'Not exist product'];
+            $optionsFor6Block = ['Not exist products' => 'Not exist product'];
     }
 
         return [
