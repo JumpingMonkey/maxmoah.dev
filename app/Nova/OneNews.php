@@ -140,7 +140,6 @@ class OneNews extends Resource
                 ->addLayout('Image or video + title + text', 'image_video_title_text', [
                     Select::make('Block type')
                         ->options($format),
-                    Boolean::make('Filter'),
                     Flexible::make('Image or video', 'bg_image_video')
                         ->addLayout('Image', 'image', [
                             Medialibrary::make('Item','src')
@@ -176,7 +175,8 @@ class OneNews extends Resource
                     Text::make('Item title', 'title')
                         ->rules('required'),
                     Text::make('Item alt', 'alt')
-                        ->rules('required')
+                        ->rules('required'),
+                    Boolean::make('Filter'),
                 ])
             ->button('add block')
         ];
