@@ -56,4 +56,13 @@ abstract class Resource extends NovaResource
     {
         return parent::relatableQuery($request, $query);
     }
+
+    protected $formLinks = [
+        '/make-request' => 'make request',
+        '/event-registration' => 'event registration',
+        '/online-appointment' => 'online appointment',
+        '/private-appointment' => 'private appointment',
+        '/trunk-show' => 'trunk show',
+        '/career-request' => 'career',
+    ];
 }

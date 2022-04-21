@@ -62,6 +62,7 @@ class OneItemResource extends Resource
             'horizontal' => 'horizontal',
             'squire' => 'squire',
         ];
+
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Multilingual::make('Language'),
@@ -127,6 +128,7 @@ class OneItemResource extends Resource
 
             Flexible::make('Background img for first screen', 'bg_img_first_screen')
                 ->addLayout('Image', 'image', [
+                    Boolean::make('Filter'),
                     Medialibrary::make('Image','src')
                         ->rules('required'),
                     Text::make('Image title', 'image_title')
@@ -138,6 +140,7 @@ class OneItemResource extends Resource
 
             Flexible::make('Background video for first screen', 'bg_video_first_screen')
                 ->addLayout('Video', 'video', [
+                    Boolean::make('Filter'),
                     Medialibrary::make('Video','src'),
                     Text::make('Video link', 'video_link'),
                     Text::make('Video title', 'video_title')
@@ -150,10 +153,17 @@ class OneItemResource extends Resource
             Flexible::make('Content', 'content')
             ->addLayout('1. Title+text', '1_title_text', [
                 Text::make('Title', 'title'),
-                CKEditor::make('Description', 'desc')
+                CKEditor::make('Description', 'desc'),
+                Flexible::make('Background color', 'background_color')
+                    ->addLayout('Background color', 'background_color', [
+                        Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
+                Flexible::make('Text color', 'text_color')
+                    ->addLayout('Text color', 'text_color', [
+                        Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
             ])
             ->addLayout('2. Img+title+text', '2_img_title_text', [
-
                 Flexible::make('Img', 'img')
                     ->addLayout('Image', 'image', [
                         Select::make('Photo format', 'foto_format')
@@ -167,7 +177,15 @@ class OneItemResource extends Resource
                     ])->button('add image')
                     ->limit(1),
                 Text::make('Title', 'title'),
-                CKEditor::make('Description', 'desc')
+                CKEditor::make('Description', 'desc'),
+                Flexible::make('Background color', 'background_color')
+                    ->addLayout('Background color', 'background_color', [
+                        Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
+                Flexible::make('Text color', 'text_color')
+                    ->addLayout('Text color', 'text_color', [
+                        Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
             ])
             ->addLayout('3. Twins block', '3_twins_block', [
                 Flexible::make('Left img', 'lt_img')
@@ -183,7 +201,8 @@ class OneItemResource extends Resource
                 Text::make('Left title', 'lf_title'),
                 CKEditor::make('Left description', 'lt_desc'),
                 Text::make('Left btn', 'lt_btn'),
-                Text::make('Btn link', 'btn_link'),
+                Select::make('Left Btn link', 'lt_btn_link')
+                    ->options($this->formLinks),
                 Flexible::make('Right img', 'rt_img')
                     ->addLayout('Image', 'image', [
                         Medialibrary::make('Image','image')
@@ -197,7 +216,16 @@ class OneItemResource extends Resource
                 Text::make('Right title', 'rt_title'),
                 CKEditor::make('Right description', 'rt_desc'),
                 Text::make('Right btn', 'rt_btn'),
-                Text::make('Btn link', 'btn_link'),
+                Select::make('Right btn link', 'rt_btn_link')
+                    ->options($this->formLinks),
+                Flexible::make('Background color', 'background_color')
+                    ->addLayout('Background color', 'background_color', [
+                        Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
+                Flexible::make('Text color', 'text_color')
+                    ->addLayout('Text color', 'text_color', [
+                        Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
             ])
             ->addLayout('4. Title+text+btn+img(right)', '4_title_txt_btn_img_right', [
                 Flexible::make('Img', 'img')
@@ -215,12 +243,29 @@ class OneItemResource extends Resource
                 Text::make('Title', 'title'),
                 CKEditor::make('Description', 'desc'),
                 Text::make('Btn', 'btn'),
-                Text::make('Link', 'link')
+                Select::make('link', 'link')
+                    ->options($this->formLinks),
+                Flexible::make('Background color', 'background_color')
+                    ->addLayout('Background color', 'background_color', [
+                        Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
+                Flexible::make('Text color', 'text_color')
+                    ->addLayout('Text color', 'text_color', [
+                        Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
             ])
             ->addLayout('5. Text+text', '5_text_text', [
                 Text::make('Title', 'title'),
                 CKEditor::make('Text 1', 'desc_1'),
                 CKEditor::make('Text 2', 'desc_2'),
+                Flexible::make('Background color', 'background_color')
+                    ->addLayout('Background color', 'background_color', [
+                        Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
+                Flexible::make('Text color', 'text_color')
+                    ->addLayout('Text color', 'text_color', [
+                        Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
             ])
             ->addLayout('6. Title+text+btn+img(left)', '6_title_txt_btn_img_left', [
                 Flexible::make('Img', 'img')
@@ -238,7 +283,16 @@ class OneItemResource extends Resource
                 Text::make('Title', 'title'),
                 CKEditor::make('Description', 'desc'),
                 Text::make('Btn', 'btn'),
-                Text::make('Btn link', 'btn_link'),
+                Select::make('Btn link', 'btn_link')
+                    ->options($this->formLinks),
+                Flexible::make('Background color', 'background_color')
+                    ->addLayout('Background color', 'background_color', [
+                        Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
+                Flexible::make('Text color', 'text_color')
+                    ->addLayout('Text color', 'text_color', [
+                        Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
             ])
             ->addLayout('7. Img+title+text+btn', '7_img_title_text_btn', [
                 Flexible::make('Img', 'img')
@@ -254,7 +308,16 @@ class OneItemResource extends Resource
                 Text::make('Title', 'title'),
                 CKEditor::make('Description', 'desc'),
                 Text::make('Btn', 'btn'),
-                Text::make('Btn link', 'btn_link'),
+                Select::make('Btn link', 'btn_link')
+                    ->options($this->formLinks),
+                Flexible::make('Background color', 'background_color')
+                    ->addLayout('Background color', 'background_color', [
+                        Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
+                Flexible::make('Text color', 'text_color')
+                    ->addLayout('Text color', 'text_color', [
+                        Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
             ])
             ->addLayout('8. Img(right)+title+text', '8_img_right_title_text', [
                 Flexible::make('Img', 'img')
@@ -271,6 +334,14 @@ class OneItemResource extends Resource
                     ->limit(1),
                 Text::make('Title', 'title'),
                 CKEditor::make('Description', 'desc'),
+                Flexible::make('Background color', 'background_color')
+                    ->addLayout('Background color', 'background_color', [
+                        Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
+                Flexible::make('Text color', 'text_color')
+                    ->addLayout('Text color', 'text_color', [
+                        Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
             ])
 //            ->addLayout('9. Loop+title+text', '9_loop_title_text', [
 //                Flexible::make('Loop', 'loop')
@@ -319,6 +390,14 @@ class OneItemResource extends Resource
                             ->rules('required')
                     ])->button('add image')
                     ->limit(1),
+                Flexible::make('Background color', 'background_color')
+                    ->addLayout('Background color', 'background_color', [
+                        Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
+                Flexible::make('Text color', 'text_color')
+                    ->addLayout('Text color', 'text_color', [
+                        Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                    ])->button('add color')->limit(1),
             ])
             ->addLayout('11. img+title+4text', '11_img_title_4text', [
                 Flexible::make('Img', 'img')
@@ -395,6 +474,14 @@ class OneItemResource extends Resource
                                 ->rules('required')
                         ])->button('add image')
                         ->limit(1),
+                    Flexible::make('Background color', 'background_color')
+                        ->addLayout('Background color', 'background_color', [
+                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
+                    Flexible::make('Text color', 'text_color')
+                        ->addLayout('Text color', 'text_color', [
+                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
                     ])
                 ->addLayout('16. Gallery popup', '16_gallery_popup', [
                     Flexible::make('Img', 'loop')
@@ -445,12 +532,29 @@ class OneItemResource extends Resource
                         ])
                         ->button('add item')
                         ->limit(1),
+                    Flexible::make('Background color', 'background_color')
+                        ->addLayout('Background color', 'background_color', [
+                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
+                    Flexible::make('Text color', 'text_color')
+                        ->addLayout('Text color', 'text_color', [
+                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
                 ])
                 ->addLayout('19.Text+btn in the middle', '19_text_btn_in_the_middle', [
                     Text::make('Title', 'title'),
                     Textarea::make('Description', 'desc'),
                     Text::make('Btn', 'btn_title'),
-                    Text::make('Btn link', 'btn_link'),
+                    Select::make('Btn link', 'btn_link')
+                        ->options($this->formLinks),
+                    Flexible::make('Background color', 'background_color')
+                        ->addLayout('Background color', 'background_color', [
+                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
+                    Flexible::make('Text color', 'text_color')
+                        ->addLayout('Text color', 'text_color', [
+                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
+                        ])->button('add color')->limit(1),
                 ])
                 ->addLayout('20. Products', '20_products', [
                     Select::make('Product 1', 'product_1')->options(

@@ -109,7 +109,6 @@ class OneItemModel extends Model
                             ->whereIn('id', $tmpContent)
                             ->get();
 
-
                         foreach ($data as $oneProduct) {
                             $tagName = OneItemModel::getFullData($oneProduct);
                             if (isset($tagName['tag_id'])){
@@ -138,6 +137,14 @@ class OneItemModel extends Model
                         }
 
                         $object['content'][$key] = $prodContent;
+                    }
+
+                    if ($keyIn == 'background_color' OR $keyIn == 'text_color'){
+                        $content = [];
+                        foreach ($value as $itemIn){
+                            $content[] = $itemIn['attributes'];
+                        }
+                        $object['content'][$key][$keyIn] = $content;
                     }
                 }
             }
