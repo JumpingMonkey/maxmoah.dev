@@ -8,6 +8,7 @@ use App\Models\ProductTagModel;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Slug;
@@ -92,6 +93,28 @@ class CategoryResource extends Resource
                 ->from('category_title')
                 ->required(),
             Flexible::make('Content', 'content')
+                ->addLayout('4. First screen image', '4_first_screen_image', [
+                    Flexible::make('Photo', 'image')
+                        ->addLayout('Image', 'image', [
+                            Medialibrary::make('Image','src')
+                                ->rules('required'),
+                            Text::make('Image title', 'title')
+                                ->rules('required'),
+                            Text::make('Image alt', 'alt')
+                                ->rules('required')
+                        ])
+                        ->addLayout('Video', 'video', [
+                            Medialibrary::make('Item','src')
+                                ->rules('required'),
+                            Text::make('Item title', 'title')
+                                ->rules('required'),
+                            Text::make('Item alt', 'alt')
+                                ->rules('required')
+                        ])
+                        ->button('add video')
+                        ->limit(1),
+                    Boolean::make('Filter'),
+                ])
                 ->addLayout('1. Title+text', '1_title_text', [
                     Select::make('Format', 'format')
                         ->options($format),
@@ -128,16 +151,7 @@ class CategoryResource extends Resource
                         ])
                         ->button('add image')
                         ->limit(1),
-                    Flexible::make('Background color', 'background_color')
-                        ->addLayout('Background color', 'background_color', [
-                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
-                        ])->button('add color')
-                        ->limit(1),
-                    Flexible::make('Text color', 'text_color')
-                        ->addLayout('Text color', 'text_color', [
-                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
-                        ])->button('add color')
-                        ->limit(1),
+                    Boolean::make('Filter'),
                 ])
                 ->addLayout('3. image+title+text', '3_image_title_text', [
                     Select::make('Format', 'format')
@@ -172,36 +186,6 @@ class CategoryResource extends Resource
                             Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
                         ])->button('add color')->limit(1),
                 ])
-
-                ->addLayout('4. First screen image', '4_first_screen_image', [
-                    Flexible::make('Photo', 'image')
-                        ->addLayout('Image', 'image', [
-                            Medialibrary::make('Image','src')
-                                ->rules('required'),
-                            Text::make('Image title', 'title')
-                                ->rules('required'),
-                            Text::make('Image alt', 'alt')
-                                ->rules('required')
-                        ])
-                        ->addLayout('Video', 'video', [
-                            Medialibrary::make('Item','src')
-                                ->rules('required'),
-                            Text::make('Item title', 'title')
-                                ->rules('required'),
-                            Text::make('Item alt', 'alt')
-                                ->rules('required')
-                        ])
-                        ->button('add video')
-                        ->limit(1),
-                    Flexible::make('Background color', 'background_color')
-                        ->addLayout('Background color', 'background_color', [
-                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
-                        ])->button('add color')->limit(1),
-                    Flexible::make('Text color', 'text_color')
-                        ->addLayout('Text color', 'text_color', [
-                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
-                        ])->button('add color')->limit(1),
-                ])
                 ->addLayout('5. Video', '5_video', [
                     Flexible::make('Product video', 'image')
                         ->addLayout('Video', 'image', [
@@ -213,14 +197,7 @@ class CategoryResource extends Resource
                                 ->rules('required')
                         ])->button('add video')
                         ->limit(1),
-                    Flexible::make('Background color', 'background_color')
-                        ->addLayout('Background color', 'background_color', [
-                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
-                        ])->button('add color')->limit(1),
-                    Flexible::make('Text color', 'text_color')
-                        ->addLayout('Text color', 'text_color', [
-                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
-                        ])->button('add color')->limit(1),
+                    Boolean::make('Filter'),
                 ])
 
                 ->addLayout('6. Products', '6_products', [
