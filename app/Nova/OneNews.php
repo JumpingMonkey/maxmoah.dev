@@ -98,14 +98,6 @@ class OneNews extends Resource
                         ->button('add bg image/video')
                         ->limit(1),
                     Textarea::make('Text'),
-                    Flexible::make('Background color', 'background_color')
-                        ->addLayout('Background color', 'background_color', [
-                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
-                        ])->button('add color')->limit(1),
-                    Flexible::make('Text color', 'text_color')
-                        ->addLayout('Text color', 'text_color', [
-                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
-                        ])->button('add color')->limit(1),
                 ])
                 ->addLayout('Title + text', 'title_text', [
                     Select::make('Block type')
@@ -144,14 +136,6 @@ class OneNews extends Resource
                         ])
                         ->button('add bg image/video')
                         ->limit(1),
-                    Flexible::make('Background color', 'background_color')
-                        ->addLayout('Background color', 'background_color', [
-                            Color::make('Background color', 'background_color')->sketch()->autoHidePicker()->saveAs('hex'),
-                        ])->button('add color')->limit(1),
-                    Flexible::make('Text color', 'text_color')
-                        ->addLayout('Text color', 'text_color', [
-                            Color::make('Text color', 'text_color')->sketch()->autoHidePicker()->saveAs('hex'),
-                        ])->button('add color')->limit(1),
                 ])
                 ->addLayout('Image or video + title + text', 'image_video_title_text', [
                     Select::make('Block type')
