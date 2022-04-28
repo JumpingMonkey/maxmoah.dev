@@ -70,7 +70,7 @@ class CategoryResource extends Resource
 
         if(isset($model->id)){
             $options = OneItemModel::query()->where('category_id', $model->id)->pluck('prod_title', 'id');
-            $optionsFor6Block = OneItemModel::query()->where('category_id', $model->id)->pluck('prod_title', 'prod_slug');
+            $optionsFor6Block = OneItemModel::query()->where('category_id', $model->id)->pluck('prod_title', 'id');
         } else {
             $options = ['Not exist products' => 'Not exist product'];
             $optionsFor6Block = ['Not exist products' => 'Not exist product'];
@@ -225,9 +225,9 @@ class CategoryResource extends Resource
 //                                ])
 //                                ->button('add image')
 //                                ->limit(1),
-                            Select::make('Category name', 'category_name')
-                                ->options(ProductTagModel::all()->pluck('tag_title', 'id')),
-                            Select::make('Product link', 'prod_link')->options(
+//                            Select::make('Category name', 'category_name')
+//                                ->options(ProductTagModel::all()->pluck('tag_title', 'id')),
+                            Select::make('Product link', 'prod_id')->options(
                                 $optionsFor6Block
                             ),
                         ]),

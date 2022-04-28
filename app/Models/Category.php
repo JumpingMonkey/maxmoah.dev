@@ -67,13 +67,26 @@ class Category extends Model
 
 
                 if($item['layout'] == '6_products'){
-
                     $products = [];
+                    foreach ($data[$item['layout']]['product'] as $key => $prod){
 
-                    foreach ($data[$item['layout']]['product'] as $prod){
-                        $products[] = $prod['attributes'];
+                        $products[$key] = $prod['attributes'];
+
+                        $productsData = OneItemModel::query()
+                            ->select('prod_slug', 'prod_title', 'prod_photo', 'prod_price', 'tag_id', 'customize', 'id')
+                            ->find($products[$key]['prod_id']);
+                        $fullData = OneItemModel::getFullData($productsData);
+
+                        if (isset($fullData['tag_id'])){
+                            $fullData['prod_tag'] = $productsData->tag->tag_title;
+                            unset($fullData['tag_id']);
+                        }
+                        $products[$key]['prod_data'] = $fullData;
+
                     }
                     $data[$item['layout']]['product'] = $products;
+
+
                 }
 
                 if($item['layout'] == '7_prod_from_category') {
