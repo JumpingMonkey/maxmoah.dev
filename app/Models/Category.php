@@ -109,8 +109,11 @@ class Category extends Model
                         }
 
                         $imgData = [];
-                        foreach ($fullDataWithTagName['prod_photo'] as $oneImg){
-                            $imgData[] = $oneImg['attributes'];
+                        if (array_key_exists('prod_photo', $fullDataWithTagName)){
+                            foreach ($fullDataWithTagName['prod_photo'] as $oneImg){
+
+                                $imgData[] = $oneImg['attributes'];
+                            }
                         }
 
                         $fullDataWithTagName['prod_photo'] = $imgData;
