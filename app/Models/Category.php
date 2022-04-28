@@ -36,6 +36,7 @@ class Category extends Model
         'prod_photo',
         'bg_img_first_screen',
         'image',
+        'src'
     ];
 
     public function products(){
@@ -68,15 +69,9 @@ class Category extends Model
                 if($item['layout'] == '6_products'){
 
                     $products = [];
+
                     foreach ($data[$item['layout']]['product'] as $prod){
                         $products[] = $prod['attributes'];
-                    }
-                    $data[$item['layout']]['product'] = $products;
-
-                    $products = [];
-                    foreach ($data[$item['layout']]['product'] as $itemIn){
-                        $itemIn['image'] = self::normalizePhotoWithMetaData($itemIn['image']);
-                        $products[] = $itemIn;
                     }
                     $data[$item['layout']]['product'] = $products;
                 }
@@ -97,7 +92,6 @@ class Category extends Model
 
 //                    $fullData = OneItemModel::getFullData($productsData);
 
-
                     $productContent = [];
                     foreach ($productsData as $oneProduct) {
 
@@ -107,16 +101,6 @@ class Category extends Model
                             $fullDataWithTagName['prod_tag'] = $oneProduct->tag->tag_title;
                             unset($fullDataWithTagName['tag_id']);
                         }
-
-                        $imgData = [];
-                        if (array_key_exists('prod_photo', $fullDataWithTagName)){
-                            foreach ($fullDataWithTagName['prod_photo'] as $oneImg){
-
-                                $imgData[] = $oneImg['attributes'];
-                            }
-                        }
-
-                        $fullDataWithTagName['prod_photo'] = $imgData;
                         $productContent[] = $fullDataWithTagName;
                     }
                     $data['7_prod_from_category'] = $productContent;
