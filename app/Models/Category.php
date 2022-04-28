@@ -90,7 +90,7 @@ class Category extends Model
                 }
 
                 if($item['layout'] == '7_prod_from_category') {
-                    self::getNormalizedField($data['7_prod_from_category'], 'one_prod', 'product', 'true', 'true');
+                    self::getNormalizedField($data['7_prod_from_category'], 'one_prod', 'product', true, true);
 
                     foreach ($data['7_prod_from_category']['one_prod'] as $value){
                         $tmpData[] = $value['product'];
@@ -99,7 +99,7 @@ class Category extends Model
 
 
                     $productsData = OneItemModel::query()
-                        ->select('prod_slug', 'prod_title', 'prod_photo', 'prod_price', 'tag_id', 'customize')
+                        ->select('prod_slug', 'prod_title', 'prod_photo', 'prod_price', 'tag_id', 'customize', 'color', 'id')
                         ->whereIn('id', $data['7_prod_from_category'])
                         ->get();
 
