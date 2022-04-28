@@ -204,28 +204,29 @@ class CategoryResource extends Resource
                     Text::make('Title', 'title'),
                     Flexible::make('Product', 'product')
                         ->addLayout('Product', 'product', [
+
+                            Text::make('Year', 'year'),
+//                            Flexible::make('Image', 'image')
+//                                ->addLayout('Image', 'image', [
+//                                    Medialibrary::make('Image','src')
+//                                        ->rules('required'),
+//                                    Text::make('Image title', 'title')
+//                                        ->rules('required'),
+//                                    Text::make('Image alt', 'alt')
+//                                        ->rules('required')
+//                                ])
+//                                ->addLayout('Video', 'video', [
+//                                    Medialibrary::make('Item','src')
+//                                        ->rules('required'),
+//                                    Text::make('Item title', 'title')
+//                                        ->rules('required'),
+//                                    Text::make('Item alt', 'alt')
+//                                        ->rules('required')
+//                                ])
+//                                ->button('add image')
+//                                ->limit(1),
                             Select::make('Category name', 'category_name')
                                 ->options(ProductTagModel::all()->pluck('tag_title', 'id')),
-                            Text::make('Product name', 'prod_name'),
-                            Flexible::make('Image', 'image')
-                                ->addLayout('Image', 'image', [
-                                    Medialibrary::make('Image','src')
-                                        ->rules('required'),
-                                    Text::make('Image title', 'title')
-                                        ->rules('required'),
-                                    Text::make('Image alt', 'alt')
-                                        ->rules('required')
-                                ])
-                                ->addLayout('Video', 'video', [
-                                    Medialibrary::make('Item','src')
-                                        ->rules('required'),
-                                    Text::make('Item title', 'title')
-                                        ->rules('required'),
-                                    Text::make('Item alt', 'alt')
-                                        ->rules('required')
-                                ])
-                                ->button('add image')
-                                ->limit(1),
                             Select::make('Product link', 'prod_link')->options(
                                 $optionsFor6Block
                             ),
