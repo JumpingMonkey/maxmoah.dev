@@ -144,7 +144,7 @@ class OneItemResource extends Resource
                 ->addLayout('Video', 'video', [
                     Boolean::make('Filter'),
                     Medialibrary::make('Video','src'),
-                    Text::make('Video link', 'video_link'),
+//                    Text::make('Video link', 'video_link'),
                     Text::make('Video title', 'video_title')
                         ->rules('required'),
                     Text::make('Video alt', 'video_alt')
