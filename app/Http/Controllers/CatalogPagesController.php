@@ -14,9 +14,14 @@ class CatalogPagesController extends Controller
         $data = FullCollectionPageModel::firstOrFail();
         $content = $data->getFullData();
         if(array_key_exists('filter', $content)){
-            $filters = FiltersModel::firstOrFail();
-            $filtersContent = $filters->getFullData();
-            $content['filter'] = $filtersContent;
+            $filters = FiltersModel::first();
+            if (!empty($filters)){
+                $filtersContent = $filters->getFullData();
+                $content['filter'] = $filtersContent;
+            } else {
+                $content['filter'] = 'not found filter data!';
+            }
+
         }
 
         ///*return json obj*/
@@ -31,9 +36,14 @@ class CatalogPagesController extends Controller
         $data = ProductAvailablePageModel::firstOrFail();
         $content = $data->getFullData();
         if(array_key_exists('filter', $content)){
-            $filters = FiltersModel::firstOrFail();
-            $filtersContent = $filters->getFullData();
-            $content['filter'] = $filtersContent;
+            $filters = FiltersModel::first();
+            if (!empty($filters)){
+                $filtersContent = $filters->getFullData();
+                $content['filter'] = $filtersContent;
+            } else {
+                $content['filter'] = 'not found filter data!';
+            }
+
         }
 
         ///*return json obj*/
