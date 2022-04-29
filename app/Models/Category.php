@@ -50,25 +50,27 @@ class Category extends Model
         if(array_key_exists('content', $object)){
             $data = [];
 
-            foreach ($object['content'] as $item){
-                $data[$item['layout']] = $item['attributes'];
-
-                if(array_key_exists('image', $data[$item['layout']]) and !empty($data[$item['layout']]['image'])){
-                    $data[$item['layout']][$data[$item['layout']]['image'][0]['layout']] = self::normalizePhotoWithMetaData($data[$item['layout']]['image']);
-                    unset($data[$item['layout']]['image']);
+            foreach ($object['content'] as $contentKey => $item){
+                $data[$contentKey . '_' .$item['layout']] = $item['attributes'];
+//dd($data);
+                if(array_key_exists('image', $data[$contentKey . '_' .$item['layout']]) and !empty($data[$contentKey . '_' .$item['layout']]['image'])){
+                    $data[$contentKey . '_' .$item['layout']][$data[$contentKey . '_' .$item['layout']]['image'][0]['layout']] = self::normalizePhotoWithMetaData($data[$contentKey . '_' .$item['layout']]['image'])[0];
+                    if (array_key_exists('video', $data[$contentKey . '_' .$item['layout']])){
+                        unset($data[$contentKey . '_' .$item['layout']]['image']);
+                    }
                 }
 
-                if(array_key_exists('background_color', $data[$item['layout']]) and !empty($data[$item['layout']]['background_color'])){
-                    $data[$item['layout']]['background_color'] = $data[$item['layout']]['background_color'][0]['attributes']['background_color'];
+                if(array_key_exists('background_color', $data[$contentKey . '_' .$item['layout']]) and !empty($data[$contentKey . '_' .$item['layout']]['background_color'])){
+                    $data[$contentKey . '_' .$item['layout']]['background_color'] = $data[$contentKey . '_' .$item['layout']]['background_color'][0]['attributes']['background_color'];
                 }
-                if(array_key_exists('text_color', $data[$item['layout']]) and !empty($data[$item['layout']]['text_color'])){
-                    $data[$item['layout']]['text_color'] = $data[$item['layout']]['text_color'][0]['attributes']['text_color'];
+                if(array_key_exists('text_color', $data[$contentKey . '_' .$item['layout']]) and !empty($data[$contentKey . '_' .$item['layout']]['text_color'])){
+                    $data[$contentKey . '_' .$item['layout']]['text_color'] = $data[$contentKey . '_' .$item['layout']]['text_color'][0]['attributes']['text_color'];
                 }
 
 
                 if($item['layout'] == '6_products'){
                     $products = [];
-                    foreach ($data[$item['layout']]['product'] as $key => $prod){
+                    foreach ($data[$contentKey . '_' .$item['layout']]['product'] as $key => $prod){
 
                         $products[$key] = $prod['attributes'];
 
@@ -84,23 +86,23 @@ class Category extends Model
                         $products[$key]['prod_data'] = $fullData;
 
                     }
-                    $data[$item['layout']]['product'] = $products;
+                    $data[$contentKey . '_' .$item['layout']]['product'] = $products;
 
 
                 }
 
                 if($item['layout'] == '7_prod_from_category') {
-                    self::getNormalizedField($data['7_prod_from_category'], 'one_prod', 'product', true, true);
+                    self::getNormalizedField($data[$contentKey . '_' .'7_prod_from_category'], 'one_prod', 'product', true, true);
 
-                    foreach ($data['7_prod_from_category']['one_prod'] as $value){
+                    foreach ($data[$contentKey . '_' .'7_prod_from_category']['one_prod'] as $value){
                         $tmpData[] = $value['product'];
                     }
-                    $data['7_prod_from_category'] = $tmpData;
+                    $data[$contentKey . '_' .'7_prod_from_category'] = $tmpData;
 
 
                     $productsData = OneItemModel::query()
                         ->select('prod_slug', 'prod_title', 'prod_photo', 'prod_price', 'tag_id', 'customize', 'color', 'id')
-                        ->whereIn('id', $data['7_prod_from_category'])
+                        ->whereIn('id', $data[$contentKey . '_' .'7_prod_from_category'])
                         ->get();
 
 //                    $fullData = OneItemModel::getFullData($productsData);
@@ -116,7 +118,7 @@ class Category extends Model
                         }
                         $productContent[] = $fullDataWithTagName;
                     }
-                    $data['7_prod_from_category'] = $productContent;
+                    $data[$contentKey . '_' .'7_prod_from_category'] = $productContent;
                 }
 
             }
