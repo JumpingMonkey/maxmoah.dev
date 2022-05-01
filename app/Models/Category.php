@@ -91,7 +91,7 @@ class Category extends Model
 
                 }
 
-                if($item['layout'] == '7_prod_from_category') {
+                if($item['layout'] == '7_prod_from_category' and !empty($data[$contentKey . '_' .'7_prod_from_category']['one_prod'])) {
                     self::getNormalizedField($data[$contentKey . '_' .'7_prod_from_category'], 'one_prod', 'product', true, true);
 
                     foreach ($data[$contentKey . '_' .'7_prod_from_category']['one_prod'] as $value){
