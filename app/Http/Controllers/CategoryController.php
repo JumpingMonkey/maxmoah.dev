@@ -14,7 +14,9 @@ class CategoryController extends Controller
      */
     public function getCategoryList() {
 
-        $data = Category::query()->select('category_title', 'category_slug', 'tag_id')->get();
+        $data = Category::query()
+//            ->select('category_title', 'category_slug', 'tag_id')
+            ->get();
 //        $data = Category::all();
 
         $content = [];
