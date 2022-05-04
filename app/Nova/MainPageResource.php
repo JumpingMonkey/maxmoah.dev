@@ -99,7 +99,7 @@ class MainPageResource extends Resource
                         Textarea::make('Description', 'description'),
                         Text::make('Button title', 'btn_title'),
                         Select::make('Button link', 'btn_link')->options(
-                            Category::all()->pluck('category_slug', 'category_title')
+                            Category::all()->pluck( 'category_title','category_slug')
                         ),
                         Flexible::make('Background photo/video', 'bg_image_video')
                             ->addLayout('Image', 'image', [
