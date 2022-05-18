@@ -7,6 +7,7 @@ use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -73,9 +74,13 @@ class FullCollectionPage extends Resource
             Text::make('Email field title', 'email_field_title'),
             Text::make('Checkbox text', 'checkbox_text'),
             Text::make('Term of service text', 'term_of_service_text'),
-            Text::make('Term of service link text', 'term_of_service_link_text'),
+            Select::make('Term of service link text', 'term_of_service_link_text')->options([
+                '/customer-service/#terms-and-conditions' => 'Terms and conditions',
+            ]),
             Text::make('Privacy policy text', 'privacy_policy_text'),
-            Text::make('Privacy policy link text', 'privacy_policy_link_text'),
+            Select::make('Privacy policy link text', 'privacy_policy_link_text')->options([
+                '/customer-service/#privacy-policy' => 'Privacy policy',
+            ]),
 
             Boolean::make('Activate filter', 'filter')
         ];
