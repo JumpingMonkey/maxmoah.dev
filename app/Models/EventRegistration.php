@@ -17,7 +17,7 @@ class EventRegistration extends Model
     protected $fillable =[
         'title',
         'description',
-        'event_variant',
+
         'name_field_title',
         'email_field_title',
         'phone_field_title',
@@ -29,7 +29,7 @@ class EventRegistration extends Model
     public $translatable = [
         'title',
         'description',
-        'event_variant',
+
         'name_field_title',
         'email_field_title',
         'phone_field_title',
@@ -40,15 +40,15 @@ class EventRegistration extends Model
 
     public static function normalizeData($object){
 
-        $contentItems = [];
-
-        if(isset($object['event_variant'])){
-            foreach ($object['event_variant'] as $key => $item){
-
-                $contentItems[] = $item['attributes']['event'];
-            }
-            $object['event_variant'] = $contentItems;
-        }
+//        $contentItems = [];
+//
+//        if(isset($object['event_variant'])){
+//            foreach ($object['event_variant'] as $key => $item){
+//
+//                $contentItems[] = $item['attributes']['event'];
+//            }
+//            $object['event_variant'] = $contentItems;
+//        }
 
         return $object;
     }
