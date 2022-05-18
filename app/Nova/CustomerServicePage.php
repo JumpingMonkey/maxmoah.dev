@@ -65,8 +65,11 @@ class CustomerServicePage extends Resource
             ->addLayout('Imprint', 'imprint', [
                 Text::make('Title', 'title'),
                 CKEditor::make('Address', 'address'),
+                Text::make('Tel field name', 'tel_field_name'),
                 Text::make('Tel', 'tel'),
+                Text::make('E-mail field name', 'email_field_name'),
                 Text::make('E-mail', 'email'),
+                Text::make('Gesch field name', 'gesch_field_name'),
                 Text::make('Gesch', 'gesch'),
                 Flexible::make('Text blocks', 'text_blocks')
                 ->addLayout('Block', 'block', [
