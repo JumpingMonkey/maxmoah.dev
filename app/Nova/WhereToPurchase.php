@@ -105,6 +105,7 @@ class WhereToPurchase extends Resource
                 Text::make('Store title', 'store_title'),
                 Text::make('Store city and country', 'store_city_and_country'),
                 Text::make('Store address', 'store_address'),
+                Text::make('Link on the map', 'link_on_the_map'),
             ])->button('Add store')
         ];
     }
