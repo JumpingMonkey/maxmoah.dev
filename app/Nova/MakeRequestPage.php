@@ -62,10 +62,8 @@ class MakeRequestPage extends Resource
             Text::make('Phone field title', 'phone_field_title'),
             Text::make('Message field title', 'message_field_title'),
 
-            Text::make('Privacy policy text', 'privacy_policy_text'),
-            Text::make('Privacy policy link text', 'privacy_policy_link_text'),
             Text::make('Button title', 'button_title'),
-            Text::make('Close button title', 'close_button_title')
+
         ];
     }
 

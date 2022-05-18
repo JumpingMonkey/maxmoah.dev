@@ -23,12 +23,8 @@ class FullCollectionPageModel extends Model
         'message_if_no_items',
         'form_title',
         'email_field_title',
-        'privacy_policy_text',
-        'privacy_policy_link_text',
         'filter',
-        'checkbox_text',
-        'term_of_service_text',
-        'term_of_service_link_text',
+
     ];
 
     public $translatable = [
@@ -40,11 +36,8 @@ class FullCollectionPageModel extends Model
         'message_if_no_items',
         'form_title',
         'email_field_title',
-        'privacy_policy_text',
-        'privacy_policy_link_text',
-        'checkbox_text',
-        'term_of_service_text',
-        'term_of_service_link_text',
+
+
     ];
 
     public static function normalizeData($object){

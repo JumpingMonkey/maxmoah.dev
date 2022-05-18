@@ -73,9 +73,9 @@ class HeaderResource extends Resource
                     Text::make('Menu item name', 'name'),
                     Select::make('Item link', 'link')->options(
                         [
-                            '/main' => '/',
-                            '/full-collection' => '/full-collection',
-                            '/product-available' => '/product-available',
+                            '/' => '/',
+                            '/products' => '/products',
+                            '/products-available' => '/products-available',
                             '/news' => '/news'
                         ]
                     )

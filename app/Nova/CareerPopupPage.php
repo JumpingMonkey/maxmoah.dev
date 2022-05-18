@@ -53,8 +53,7 @@ class CareerPopupPage extends Resource
             Text::make('Social media label'),
             Text::make('Upload label'),
             Text::make('Agree text'),
-            Text::make('Privacy policy link text'),
-            Text::make('Privacy policy link'),
+
             Text::make('Button title'),
         ];
     }

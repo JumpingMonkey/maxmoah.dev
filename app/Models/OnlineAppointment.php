@@ -24,10 +24,9 @@ class OnlineAppointment extends Model
         'phone_field_title',
         'calendar_field_title',
         'time_field_title',
-        'privacy_policy_text',
-        'privacy_policy_link_text',
+
         'button_title',
-        'close_button_title',
+
     ];
 
     public $translatable = [
@@ -40,10 +39,9 @@ class OnlineAppointment extends Model
         'phone_field_title',
         'calendar_field_title',
         'time_field_title',
-        'privacy_policy_text',
-        'privacy_policy_link_text',
+
         'button_title',
-        'close_button_title',
+
     ];
 
     public static function normalizeData($object){

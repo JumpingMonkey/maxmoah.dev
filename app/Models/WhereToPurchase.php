@@ -47,7 +47,7 @@ class WhereToPurchase extends Model
 
                 if($item['layout'] == 'variant') {
                     foreach ($item['attributes']['button'] as $keyB => $itemB) {
-                        $buttonItems[$keyB . " : " . $itemB['layout']] = $itemB['attributes']['cta'];
+                        $buttonItems = $itemB['attributes'];
                     }
                     $item['attributes']['button'] = $buttonItems;
 

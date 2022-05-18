@@ -73,14 +73,14 @@ class WhereToPurchase extends Resource
                     ->rules('required'),
                     Flexible::make('Button', 'button')
                         ->addLayout('Action button', 'action_button', [
-                            Text::make('CTA', 'cta'),
+                            Text::make('Text', 'text'),
                             Select::make('Link', 'link')->options([
-                                '/popup/career' => 'Career',
-                                '/popup/event_registration' => 'Event registration',
-                                '/popup/make_request' => 'Make request',
-                                '/popup/online_appointment' => 'Online appointment',
-                                '/popup/private_appointment' => 'Private appointment',
-                                '/popup/trunk_show' => 'Trunk show',
+                                '/career' => 'Career',
+                                '/event_registration' => 'Event registration',
+                                '/make_request' => 'Make request',
+                                '/online_appointment' => 'Online appointment',
+                                '/private_appointment' => 'Private appointment',
+                                '/trunk_show' => 'Trunk show',
                              ])
                         ])->button('Add button')
                         ->limit(1),

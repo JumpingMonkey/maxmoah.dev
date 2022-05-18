@@ -22,10 +22,9 @@ class MakeRequestPageModel extends Model
         'phone_field_title',
         'message_field_title',
         'subject_variant',
-        'privacy_policy_text',
-        'privacy_policy_link_text',
+
         'button_title',
-        'close_button_title'
+
     ];
 
     public $translatable = [
@@ -36,10 +35,9 @@ class MakeRequestPageModel extends Model
         'phone_field_title',
         'message_field_title',
         'subject_variant',
-        'privacy_policy_text',
-        'privacy_policy_link_text',
+
         'button_title',
-        'close_button_title'
+
     ];
 
     public static function normalizeData($object){

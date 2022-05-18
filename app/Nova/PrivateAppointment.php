@@ -58,10 +58,8 @@ class PrivateAppointment extends Resource
 
             Text::make('Time field title', 'time_field_title'),
 
-            Text::make('Privacy policy text', 'privacy_policy_text'),
-            Text::make('Privacy policy link text', 'privacy_policy_link_text'),
             Text::make('Button title', 'button_title'),
-            Text::make('Close button title', 'close_button_title')
+
 
         ];
     }

@@ -22,10 +22,10 @@ class PrivateAppointment extends Model
         'country_field_title',
         'phone_field_title',
         'time_field_title',
-        'privacy_policy_text',
-        'privacy_policy_link_text',
+
+
         'button_title',
-        'close_button_title',
+
         'calendar_title',
     ];
 
@@ -37,10 +37,9 @@ class PrivateAppointment extends Model
         'country_field_title',
         'phone_field_title',
         'time_field_title',
-        'privacy_policy_text',
-        'privacy_policy_link_text',
+
         'button_title',
-        'close_button_title',
+
         'calendar_title',
     ];
 
