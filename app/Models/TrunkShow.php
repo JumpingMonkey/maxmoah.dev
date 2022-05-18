@@ -22,10 +22,9 @@ class TrunkShow extends Model
         'phone_field_title',
         'region_field_title',
         'country_field_title',
-        'privacy_policy_text',
-        'privacy_policy_link_text',
+
         'button_title',
-        'close_button_title',
+
     ];
 
     public $translatable = [
@@ -36,10 +35,9 @@ class TrunkShow extends Model
         'phone_field_title',
         'region_field_title',
         'country_field_title',
-        'privacy_policy_text',
-        'privacy_policy_link_text',
+
         'button_title',
-        'close_button_title',
+
     ];
 
     public function getFullData(){
