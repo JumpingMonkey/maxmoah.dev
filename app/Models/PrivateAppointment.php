@@ -17,30 +17,20 @@ class PrivateAppointment extends Model
     protected $fillable =[
         'title',
         'description',
-        'name_field_title',
-        'email_field_title',
-        'country_field_title',
-        'phone_field_title',
-        'time_field_title',
 
 
         'button_title',
 
-        'calendar_title',
+
     ];
 
     public $translatable = [
         'title',
         'description',
-        'name_field_title',
-        'email_field_title',
-        'country_field_title',
-        'phone_field_title',
-        'time_field_title',
 
         'button_title',
 
-        'calendar_title',
+
     ];
 
     public function getFullData(){

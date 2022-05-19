@@ -17,10 +17,7 @@ class MakeRequestPageModel extends Model
     protected $fillable = [
         'title',
         'description',
-        'name_field_title',
-        'email_field_title',
-        'phone_field_title',
-        'message_field_title',
+
         'subject_variant',
 
         'button_title',
@@ -30,10 +27,7 @@ class MakeRequestPageModel extends Model
     public $translatable = [
         'title',
         'description',
-        'name_field_title',
-        'email_field_title',
-        'phone_field_title',
-        'message_field_title',
+
         'subject_variant',
 
         'button_title',

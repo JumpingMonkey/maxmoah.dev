@@ -53,14 +53,12 @@ class MakeRequestPage extends Resource
             Text::make('Title', 'title'),
             Text::make('Description', 'description'),
 
-            Text::make('Name field title', 'name_field_title'),
+
             Flexible::make('Subject variants', 'subject_variant')
                 ->addLayout('Subject', 'subject', [
                     Text::make('Subject', 'subject')
                 ])->button('Add subject variant'),
-            Text::make('E-mail field title', 'email_field_title'),
-            Text::make('Phone field title', 'phone_field_title'),
-            Text::make('Message field title', 'message_field_title'),
+
 
             Text::make('Button title', 'button_title'),
 

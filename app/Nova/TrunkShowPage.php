@@ -50,12 +50,6 @@ class TrunkShowPage extends Resource
             Text::make('Title', 'title'),
             Text::make('Description', 'description'),
 
-            Text::make('Name field title', 'name_field_title'),
-            Text::make('E-mail field title', 'email_field_title'),
-            Text::make('Phone field title', 'phone_field_title'),
-
-            Text::make('Region field title', 'region_field_title'),
-            Text::make('Country field title', 'country_field_title'),
 
 
             Text::make('Button title', 'button_title'),

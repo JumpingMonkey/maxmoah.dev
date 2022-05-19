@@ -18,10 +18,6 @@ class EventRegistration extends Model
         'title',
         'description',
 
-        'name_field_title',
-        'email_field_title',
-        'phone_field_title',
-
         'button_title',
 
     ];
@@ -29,10 +25,6 @@ class EventRegistration extends Model
     public $translatable = [
         'title',
         'description',
-
-        'name_field_title',
-        'email_field_title',
-        'phone_field_title',
 
         'button_title',
 

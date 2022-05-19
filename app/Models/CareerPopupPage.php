@@ -22,7 +22,6 @@ class CareerPopupPage extends Model
         'phone_label',
         'social_media_label',
         'upload_label',
-        'agree_text',
 
         'button_title',
     ];
@@ -35,7 +34,6 @@ class CareerPopupPage extends Model
         'phone_label',
         'social_media_label',
         'upload_label',
-        'agree_text',
 
         'button_title',
     ];

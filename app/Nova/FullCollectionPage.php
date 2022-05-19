@@ -70,9 +70,6 @@ class FullCollectionPage extends Resource
 
             Text::make('Message in the no items in stock', 'message_if_no_items'),
 
-            Text::make('Form title', 'form_title'),
-            Text::make('Email field title', 'email_field_title'),
-
             Boolean::make('Activate filter', 'filter')
         ];
     }

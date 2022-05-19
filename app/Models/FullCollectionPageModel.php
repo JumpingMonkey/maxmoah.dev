@@ -21,8 +21,7 @@ class FullCollectionPageModel extends Model
         'title',
         'description',
         'message_if_no_items',
-        'form_title',
-        'email_field_title',
+
         'filter',
 
     ];
@@ -34,8 +33,7 @@ class FullCollectionPageModel extends Model
         'title',
         'description',
         'message_if_no_items',
-        'form_title',
-        'email_field_title',
+
 
 
     ];

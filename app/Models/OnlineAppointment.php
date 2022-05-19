@@ -17,13 +17,9 @@ class OnlineAppointment extends Model
     protected $fillable =[
         'title',
         'description',
-        'name_field_title',
-        'language_field_title',
+
         'language_variant',
-        'email_field_title',
-        'phone_field_title',
-        'calendar_field_title',
-        'time_field_title',
+
 
         'button_title',
 
@@ -32,13 +28,9 @@ class OnlineAppointment extends Model
     public $translatable = [
         'title',
         'description',
-        'name_field_title',
-        'language_field_title',
+
         'language_variant',
-        'email_field_title',
-        'phone_field_title',
-        'calendar_field_title',
-        'time_field_title',
+
 
         'button_title',
 

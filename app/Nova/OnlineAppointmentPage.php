@@ -51,16 +51,12 @@ class OnlineAppointmentPage extends Resource
             Text::make('Title', 'title'),
             Text::make('Description', 'description'),
 
-            Text::make('Name field title', 'name_field_title'),
-            Text::make('Language field title', 'language_field_title'),
+
             Flexible::make('Language variants', 'language_variant')
                 ->addLayout('Language', 'language', [
                     Text::make('Language', 'language')
                 ])->button('Add language variant'),
-            Text::make('E-mail field title', 'email_field_title'),
-            Text::make('Phone field title', 'phone_field_title'),
-            Text::make('Calendar field title', 'calendar_field_title'),
-            Text::make('Time field title', 'time_field_title'),
+
 
             Text::make('Button title', 'button_title'),
 

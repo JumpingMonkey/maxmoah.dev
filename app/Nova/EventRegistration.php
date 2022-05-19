@@ -55,9 +55,9 @@ class EventRegistration extends Resource
 //                ->addLayout('Event', 'event', [
 //                    Text::make('Event', 'event')
 //                ])->button('Add subject variant'),
-            Text::make('Name field title', 'name_field_title'),
-            Text::make('E-mail field title', 'email_field_title'),
-            Text::make('Phone field title', 'phone_field_title'),
+//            Text::make('Name field title', 'name_field_title'),
+//            Text::make('E-mail field title', 'email_field_title'),
+//            Text::make('Phone field title', 'phone_field_title'),
 
             Text::make('Button title', 'button_title'),
 
