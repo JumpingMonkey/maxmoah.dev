@@ -28,6 +28,7 @@ class FooterModel extends Model
         'soc_net_btn_text',
         'soc_networks',
         'large_footer',
+
     ];
 
     public static function normalizeData($object){

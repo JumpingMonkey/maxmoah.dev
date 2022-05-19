@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use App\Models\Category;
 use App\Models\Parts\FooterModel;
+use App\Models\ProductTagModel;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Eminiarts\Tabs\Tab;
 use Eminiarts\Tabs\Tabs;
@@ -82,13 +83,9 @@ class FooterResourse extends Resource
                         Flexible::make('Category item', 'block_items')
                             ->addLayout('Add product category', 'prod_category', [
                                 Text::make('Product category title', 'item_name'),
-                                Select::make('category link', 'link')->options([
-
-                                    '/category/#beauty' => '/beauty',
-                                    '/category/#jewelry' => '/jewelry',
-                                    '/category/#bags' => '/bags',
-
-                                ])
+                                Select::make('category link', 'link')->options(
+                                    ProductTagModel::all()->pluck('tag_title', 'tag_title'),
+                                )
                                     ->rules('required'),
                             ])->button('Add item'),
                     ])->button('Add category')
