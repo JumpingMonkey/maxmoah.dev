@@ -47,10 +47,7 @@ class CareerPopupPage extends Resource
             Multilingual::make('Language'),
             Text::make('Title'),
             Text::make('Description'),
-            Text::make('Name label'),
-            Text::make('Email label'),
-            Text::make('Phone label'),
-            Text::make('Social media label'),
+
             Text::make('Upload label'),
 
             Text::make('Button title'),

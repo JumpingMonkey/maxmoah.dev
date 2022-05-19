@@ -17,10 +17,7 @@ class CareerPopupPage extends Model
     protected $fillable = [
         'title',
         'description',
-        'name_label',
-        'email_label',
-        'phone_label',
-        'social_media_label',
+
         'upload_label',
 
         'button_title',
@@ -29,10 +26,7 @@ class CareerPopupPage extends Model
     public $translatable = [
         'title',
         'description',
-        'name_label',
-        'email_label',
-        'phone_label',
-        'social_media_label',
+
         'upload_label',
 
         'button_title',

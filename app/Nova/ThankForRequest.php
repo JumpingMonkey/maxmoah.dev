@@ -51,7 +51,6 @@ class ThankForRequest extends Resource
             Text::make('Description', 'description'),
 
             Text::make('Button title', 'button_title'),
-            Text::make('Close button title', 'close_button_title')
 
         ];
     }

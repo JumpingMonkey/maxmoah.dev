@@ -84,9 +84,9 @@ class FooterResourse extends Resource
                                 Text::make('Product category title', 'item_name'),
                                 Select::make('category link', 'link')->options([
 
-                                    '/category/beauty' => '/beauty',
-                                    '/category/jewelry' => '/jewelry',
-                                    '/category/bags' => '/bags',
+                                    '/category/#beauty' => '/beauty',
+                                    '/category/#jewelry' => '/jewelry',
+                                    '/category/#bags' => '/bags',
 
                                 ])
                                     ->rules('required'),

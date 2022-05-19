@@ -18,14 +18,14 @@ class ThankForRequest extends Model
         'title',
         'description',
         'button_title',
-        'close_button_title',
+
     ];
 
     public $translatable = [
         'title',
         'description',
         'button_title',
-        'close_button_title',
+
     ];
 
     public function getFullData(){
