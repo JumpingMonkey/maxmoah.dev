@@ -85,7 +85,7 @@ class HeaderResource extends Resource
                 ->addLayout('Add product category', 'header_category', [
                     Text::make('Menu item name', 'name'),
                     Select::make('Item link', 'link')->options(
-                        Category::all()->pluck('category_slug', 'category_title')
+                        Category::all()->pluck('category_title', 'category_slug')
                     )
                         ->displayUsingLabels()
                         ->rules('required'),
