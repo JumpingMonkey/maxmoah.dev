@@ -76,6 +76,8 @@ class OneItemModel extends Model
             'prod_photo',
             'prod_price',
             'tag_id',
+            'customize',
+            'color',
             DB::raw("CONCAT(UNIX_TIMESTAMP(DATE(updated_at)), '000000') as date")
         );
     }
