@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\OneItemModel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use phpDocumentor\Reflection\DocBlock\Tag;
 
 class OneItemModelController extends Controller
@@ -13,9 +15,11 @@ class OneItemModelController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getProductList() {
+    public function getProductList(OneItemModel $oneItemModel) {
 
-        $data = OneItemModel::query()->select('prod_slug', 'prod_title', 'prod_photo', 'prod_price', 'tag_id')->get();
+        $data = $oneItemModel
+            ->getFields()
+            ->get();
 
         $content = [];
         foreach ($data as $oneProduct) {
@@ -42,9 +46,9 @@ class OneItemModelController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getProductListAvailable() {
+    public function getProductListAvailable(OneItemModel $oneItemModel) {
 
-        $data = OneItemModel::query()->select('prod_slug', 'prod_title', 'prod_photo', 'prod_price', 'tag_id')
+        $data = $oneItemModel->getFields()
             ->where('available', 'true')->get();
 
         $content = [];

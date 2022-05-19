@@ -7,6 +7,8 @@ use App\Traits\TranslateAndConvertMediaUrl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\DB;
+use Matrix\Builder;
 use Spatie\Translatable\HasTranslations;
 
 class OneItemModel extends Model
@@ -65,6 +67,17 @@ class OneItemModel extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function getFields(){
+        return $this->select(
+            'prod_slug',
+            'prod_title',
+            'prod_photo',
+            'prod_price',
+            'tag_id',
+            DB::raw("CONCAT(UNIX_TIMESTAMP(DATE(updated_at)), '000000') as date")
+        );
     }
 
 
@@ -158,7 +171,7 @@ class OneItemModel extends Model
     public static function getFullData(self $object) {
         try{
 
-            $data = $object->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+            $data = $object->getAllWithMediaUrlWithout(['id', 'created_at']);
 
             return self::normalizeData($data);
 
