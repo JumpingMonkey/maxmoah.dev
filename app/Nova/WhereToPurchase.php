@@ -76,11 +76,11 @@ class WhereToPurchase extends Resource
                             Text::make('Text', 'text'),
                             Select::make('Link', 'link')->options([
                                 '/career' => 'Career',
-                                '/event_registration' => 'Event registration',
-                                '/make_request' => 'Make request',
-                                '/online_appointment' => 'Online appointment',
-                                '/private_appointment' => 'Private appointment',
-                                '/trunk_show' => 'Trunk show',
+                                '/event-registration' => 'Event registration',
+                                '/make-request' => 'Make request',
+                                '/online-appointment' => 'Online appointment',
+                                '/private-appointment' => 'Private appointment',
+                                '/trunk-show' => 'Trunk show',
                              ])
                         ])->button('Add button')
                         ->limit(1),
