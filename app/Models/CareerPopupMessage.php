@@ -17,4 +17,8 @@ class CareerPopupMessage extends Model
         'social_media',
         'files'
     ];
+
+    protected $casts = [
+        'files' => 'array',
+    ];
 }

@@ -126,8 +126,8 @@ return [
 
 		# Crop additional image variations [ width, height, upSize, upWH ]
 		'sizes' => [
-			'thumb' => [ 200, 200, true, false ],
-			'medium' => [ 800, null, true, false ],
+//			'thumb' => [ 200, 200, true, false ],
+//			'medium' => [ 800, null, true, false ],
 		],
 
 		# Set `size name` from `sizes` above for preview in admin area or leave `null`

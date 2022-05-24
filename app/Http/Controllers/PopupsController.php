@@ -15,7 +15,9 @@ use App\Models\OnlineApointmentMessage;
 use App\Models\PrivatAppointmentMessage;
 use App\Models\TrunkShowMessage;
 use App\Services\SendMailService;
+use ClassicO\NovaMediaLibrary\API;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PopupsController extends Controller
 {
@@ -99,10 +101,19 @@ class PopupsController extends Controller
 
         $postData = $request->post();
 
-        if($request->file !== null) {
-            $postData['file']=$request->file->store('/');
+        if($request->files !== null) {
+            $files = $request->allFiles();
+            $filesIds = [];
+            foreach ($files as $file){
+                $storeFile = $file->store('/');
+                $mediaLibFileData = API::upload(Storage::path($storeFile));
+                Storage::delete($storeFile);
+                $filesIds[] = $mediaLibFileData->id;
+            }
+            $postData['files'] = $filesIds;
+//            $postData['files']=$request->file->store('/');
         }else{
-            $postData['file']=null;
+            $postData['files']=null;
         }
 
         $newClientMessage = new CareerPopupMessage($postData);

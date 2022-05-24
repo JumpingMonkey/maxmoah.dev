@@ -76,6 +76,13 @@ class SendMailService
                     'as' => $request->file('file')->getClientOriginalName(),
                     'mime' => $request->file('file')->getMimeType()
                 ]);
+            } elseif (isset($postData['files'])){
+                foreach ($request->allFiles() as $file){
+                    $message->attach($file->getRealPath(), [
+                        'as' => $file->getClientOriginalName(),
+                        'mime' => $file->getMimeType()
+                    ]);
+                }
             }
 
         });

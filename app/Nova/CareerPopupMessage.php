@@ -51,7 +51,7 @@ class CareerPopupMessage extends Resource
             Text::make('Email'),
             Text::make('Phone'),
             Text::make('Social media'),
-            File::make('files'),
+            MediaLibrary::make('files')->array('list'),
         ];
     }
 
