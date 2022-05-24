@@ -24,7 +24,7 @@ class EventRegistration extends FormRequest
     public function rules()
     {
         return [
-            'event' => 'required|string|max:10',
+            'event' => 'required|string|max:500',
             'name' => 'string|max:500',
             'email' => 'required|email|max:250',
             'phone' => 'required|string|max:1000',

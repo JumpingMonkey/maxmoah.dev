@@ -29,7 +29,7 @@ class Career extends FormRequest
             'email' => 'required|email|max:250',
             'phone' => 'string|max:1000',
             'social_media' => 'string|max:1000',
-            'files' => 'mimes:jpg,bmp,png',
+            'files' => 'mimes:jpg,bmp,png,jpeg,webp,pdf,txt,doc,docx,xls,xlsx',
         ];
     }
 }
