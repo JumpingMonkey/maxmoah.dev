@@ -43,12 +43,11 @@ class CareerPage extends Model
 
         self::getNormalizedField($object, 'vacancies', 'properties', true, true);
 
-        $properties = [];
-
         if(isset($object['vacancies'])){
 
             foreach ($object['vacancies'] as $key => $item){
                 if (isset($item['properties'])){
+                    $properties = [];
                     foreach ($item['properties'] as $propItem){
                         $properties[] = $propItem['attributes'];
                     }
