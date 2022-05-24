@@ -119,7 +119,7 @@ class PopupsController extends Controller
         $newClientMessage = new CareerPopupMessage($postData);
         $newClientMessage->save();
 
-        SendMailService::sendEmailToAdmin('career',$postData);
+        SendMailService::sendEmailToAdmin('career',$postData, $request);
         return response()->json([
             'status' => 'success',
             'massage' => 'Request will be send!'
